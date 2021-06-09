@@ -19,21 +19,21 @@ const largestSubSum = (array) => {
 
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j <= array.length; j++) {
-      console.log(array.slice(i, j));
+      subArrays.push(array.slice(i, j));
     }
   }
-  console.log(subArrays);
 
-  subArrays.forEach((subArray) => {
-    let currentGreatestSum = null;
-    const subArraySum = subArray.reduce((a, b) => a + b, 0);
-    if (subArray > currentGreatestSum) {
-      currentGreatestSum = subArraySum;
-    }
+  sums = [];
+
+  subArrays.map((subArray) => {
+    sum = subArray.reduce((a, b) => a + b, 0);
+    sums.push(sum);
   });
+
+  return Math.max.apply(null, sums);
 };
 
-console.log(largestSubSum(array));
+console.log("**", largestSubSum(array));
 
 /* Phase 2
 Let's make a better version. Write a new function using 
@@ -42,6 +42,8 @@ largest sum.
 */
 
 const largestSubSum2 = (array) => {
+  largestSum = 0;
+  currentSum = 0;
   const largestSubSum = 0;
 
   return largestSubSum;
