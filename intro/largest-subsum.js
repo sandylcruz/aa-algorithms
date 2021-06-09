@@ -15,6 +15,7 @@ Discuss the time complexity of this solution.
 const array = [5, 3, -7];
 
 const largestSubSum = (array) => {
+  // console.log(array);
   let subArrays = [];
 
   for (let i = 0; i < array.length; i++) {
@@ -33,20 +34,30 @@ const largestSubSum = (array) => {
   return Math.max.apply(null, sums);
 };
 
-console.log("**", largestSubSum(array));
+// console.log("**", largestSubSum(array));
 
 /* Phase 2
 Let's make a better version. Write a new function using 
 O(n) time with O(1) memory. Keep a running tally of the 
 largest sum.
 */
+// const array = [5, 3, -7];
 
 const largestSubSum2 = (array) => {
-  largestSum = 0;
-  currentSum = 0;
-  const largestSubSum = 0;
+  let current = 0;
+  let largest = 0;
 
-  return largestSubSum;
+  for (let i = 0; i < array.length; i++) {
+    current += array[i];
+
+    console.log("Current is: ", current);
+    if (current <= 0 || current <= largest) {
+      current = 0;
+    } else {
+      largest = current;
+    }
+  }
+  return largest;
 };
-
-// console.log(largestSubSum2(array));
+console.log(largestSubSum2([5, 3, -7]));
+console.log(largestSubSum2([1, 2, 3, -6, 100, 23]));
