@@ -50,8 +50,10 @@ const largestSubSum2 = (array) => {
   for (let i = 0; i < array.length; i++) {
     current += array[i];
 
-    if (current <= 0 || current <= largest) {
+    if (current <= 0) {
       current = 0;
+    } else if (current <= largest && current < 1) {
+      largest = current;
     } else {
       largest = current;
     }
@@ -60,3 +62,4 @@ const largestSubSum2 = (array) => {
 };
 console.log(largestSubSum2([5, 3, -7]));
 console.log(largestSubSum2([1, 2, 3, -6, 100, 23]));
+console.log(largestSubSum2([1, 2, 3, -5, 100, 23]));
