@@ -45,20 +45,24 @@ class Queue {
       this.back = newNode;
     }
 
-    this.length += 1;
+    this.length++;
     return this.length;
   }
 
   dequeue() {
+    const removedItem = this.front;
+
     if (!this.front) {
       return null;
     } else if (this.length === 1) {
       this.front = null;
       this.back = null;
     } else if (this.length > 1) {
+      this.front = this.front.next;
     }
 
-    --this.length;
+    this.length--;
+    return removedItem.value;
   }
 
   size() {
