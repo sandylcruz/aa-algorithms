@@ -49,8 +49,24 @@ class Stack {
     this.length++;
     return this.length;
   }
-  pop() {}
-  size() {}
+  pop() {
+    const itemToReturn = this.top;
+
+    if (this.length === 0) {
+      return null;
+    } else if (this.length === 1) {
+      this.bottom = null;
+      this.top = null;
+    } else {
+      this.top = this.top.next;
+    }
+    this.length--;
+    return itemToReturn.value;
+  }
+
+  size() {
+    return this.length;
+  }
 }
 
 exports.Node = Node;
