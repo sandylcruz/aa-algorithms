@@ -67,8 +67,7 @@ class Stack {
     }
 
     this.length--;
-    console.log("****", itemToRemove.value);
-    return itemToRemove.value;
+    return itemToRemove;
   }
 
   size() {
@@ -79,6 +78,32 @@ class Stack {
 
 class StackQueue {
   // TODO: Implement the StackQueue class!
+  constructor() {
+    this.inStack = null;
+    this.outStack = null;
+    this.front = null;
+    this.back = null;
+    this.length = 0;
+  }
+
+  enqueue(value) {
+    const newNode = new Node(value);
+
+    if (this.length === 0) {
+      this.front = newNode;
+      this.back = newNode;
+    } else if (this.length > 1) {
+      this.front.next = this.front;
+      this.front = newNOde;
+    }
+
+    this.length++;
+    return this.size;
+  }
+  dequeue() {}
+  size() {
+    return this.size;
+  }
 }
 
 exports.Node = Node;
