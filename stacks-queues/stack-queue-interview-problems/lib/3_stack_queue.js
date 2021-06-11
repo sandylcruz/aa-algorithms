@@ -119,11 +119,15 @@ class StackQueue {
   }
 
   dequeue() {
+    const nodeToRemove = this.front;
+
     if (this.length === 0) {
+      return null;
+    } else if (this.length === 1) {
       this.front = null;
       this.back = null;
     } else if (this.length >= 2) {
-      this.front = front;
+      this.front = this.front.next;
     }
 
     if (this.outStack.size === 0) {
@@ -135,7 +139,7 @@ class StackQueue {
 
     this.length--;
 
-    return this.inStack.pop();
+    return nodeToRemove;
   }
 
   size() {
