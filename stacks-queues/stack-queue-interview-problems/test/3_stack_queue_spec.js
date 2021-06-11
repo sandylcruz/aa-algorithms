@@ -277,7 +277,6 @@ describe("Problem 3: StackQueue", () => {
         it("Should point the next property of the front node to the node that follows it for queues of size one or greater", () => {
           stackQueue.enqueue("A");
           stackQueue.enqueue("B");
-          console.log(stackQueue.front.next);
           expect(stackQueue.front.next.value).to.eql("B");
           stackQueue.enqueue("C");
           expect(stackQueue.front.next.value).to.equal("B");
