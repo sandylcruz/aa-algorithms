@@ -79,30 +79,67 @@ class Stack {
 class StackQueue {
   // TODO: Implement the StackQueue class!
   constructor() {
-    this.inStack = null;
-    this.outStack = null;
+    this.inStack = new Stack();
+    this.outStack = new Stack();
+    this.length = 0;
     this.front = null;
     this.back = null;
-    this.length = 0;
   }
+
+  // get front() {
+  //   if (this.inStack.length === 0) {
+  //     return this.outStack.top;
+  //   } else {
+  //     return this.inStack.bottom;
+  //   }
+  // }
+
+  // get back() {
+  //   if (this.outStack.length === 0) {
+  //     return this.inStack.top;
+  //   } else {
+  //     return this.outStack.bottom;
+  //   }
+  // }
 
   enqueue(value) {
-    const newNode = new Node(value);
+    const newQueueNode = new Node(value);
 
     if (this.length === 0) {
-      this.front = newNode;
-      this.back = newNode;
-    } else if (this.length > 1) {
-      this.front.next = this.front;
-      this.front = newNOde;
+      this.front = newQueueNode;
+      this.back = newQueueNode;
+    } else {
+      this.back.next = newQueueNode;
+      this.back = newQueueNode;
+    }
+    this.length++;
+    this.inStack.push(new Node(newQueueNode.value));
+
+    return this.length;
+  }
+
+  dequeue() {
+    if (this.length === 0) {
+      this.front = null;
+      this.back = null;
+    } else if (this.length >= 2) {
+      this.front = front;
     }
 
-    this.length++;
-    return this.size;
+    if (this.outStack.size === 0) {
+      while (!this.inStack.size === 0) {
+        this.outStack.push(this.inStack.pop());
+      }
+    } else if (this.outStack.size >= 2) {
+    }
+
+    this.length--;
+
+    return this.inStack.pop();
   }
-  dequeue() {}
+
   size() {
-    return this.size;
+    return this.inStack.size() + this.outStack.size();
   }
 }
 
