@@ -84,34 +84,29 @@ class MinMaxStack {
   push(val) {
     const newNode = new Node(val);
 
+    if (
+      !this.minimumValues.length ||
+      newNode.value <= this.minimumValues[this.minimumValues.length - 1].value
+    ) {
+      this.minimumValues.push(newNode);
+    }
+
+    if (
+      !this.maximumValues.length ||
+      newNode.value >= this.maximumValues[this.maximumValues.length - 1].value
+    ) {
+      this.maximumValues.push(newNode);
+    }
+
     if (!this.top) {
       this.top = newNode;
       this.bottom = newNode;
-      this.minimumValues.push(val);
-      this.maximumValues.push(val);
-    } else if (
-      newNode.value < this.minimumValues[this.minimumValues.length - 1]
-    ) {
+    } else {
       const temp = this.top;
       this.top = newNode;
       this.top.next = temp;
-      this.minimumValues.push(val);
-    } else if (newNode.value >= this.minimumValues.length - 1) {
-      const temp = this.top;
-      this.top = newNode;
-      this.top.next = temp;
-      this.minimumValues.push(this.minimumValues.length - 1);
-    } else if (newNode.value >= this.maximumValues.length - 1) {
-      const temp = this.top;
-      this.top = newNode;
-      this.top.next = temp;
-      this.maximumValues.push(val);
-    } else if (newNode.value < this.maximumValues.length - 1) {
-      const temp = this.top;
-      this.top = newNode;
-      this.top.next = temp;
-      his.minimumValues.push(this.maximumValues.length - 1);
     }
+
     return ++this.length;
   }
 
@@ -124,6 +119,8 @@ class MinMaxStack {
       this.bottom = null;
     }
     this.top = this.top.next;
+    this.maximumValues.pop();
+    this.minimumValues.pop();
     this.length--;
     return temp;
   }
@@ -140,10 +137,22 @@ class MinMaxStack {
     if (this.length === 1) {
       return this.top;
     } else {
-      return this.min;
+      return this.minimumValues[this.minimumValues.length - 1];
     }
   }
-  max() {}
+  max() {
+    return this.maximumValues[this.maximumValues.length - 1] || null;
+    // console.log(this.maximumValues);
+    // if (!this.top && !this.bottom) {
+    //   return null;
+    // }
+
+    // if (this.length === 1) {
+    //   return this.top;
+    // } else {
+    //   return this.maximumValues[this.maximumValues.length - 1];
+    // }
+  }
 }
 
 // Forgetting something down here?
