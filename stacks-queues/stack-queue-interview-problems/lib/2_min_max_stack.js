@@ -111,16 +111,23 @@ class MinMaxStack {
   }
 
   pop() {
-    if (!this.top) {
-      return null;
+    if (
+      this.top.value === this.maximumValues[this.maximumValues.length - 1].value
+    ) {
+      this.maximumValues.pop();
     }
+
+    if (
+      this.top.value === this.minimumValues[this.minimumValues.length - 1].value
+    ) {
+      this.minimumValues.pop();
+    }
+
     const temp = this.top;
     if (this.top === this.bottom) {
       this.bottom = null;
     }
     this.top = this.top.next;
-    this.maximumValues.pop();
-    this.minimumValues.pop();
     this.length--;
     return temp;
   }
@@ -141,17 +148,16 @@ class MinMaxStack {
     }
   }
   max() {
-    return this.maximumValues[this.maximumValues.length - 1] || null;
-    // console.log(this.maximumValues);
-    // if (!this.top && !this.bottom) {
-    //   return null;
-    // }
+    // return this.maximumValues[this.maximumValues.length - 1] || null;
+    if (!this.top && !this.bottom) {
+      return null;
+    }
 
-    // if (this.length === 1) {
-    //   return this.top;
-    // } else {
-    //   return this.maximumValues[this.maximumValues.length - 1];
-    // }
+    if (this.length === 1) {
+      return this.top;
+    } else {
+      return this.maximumValues[this.maximumValues.length - 1];
+    }
   }
 }
 
