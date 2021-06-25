@@ -33,6 +33,18 @@ class BST {
       }
     }
   }
+
+  searchRecur(val, root = this.root) {
+    if (!root) return false;
+
+    if (val < root.val) {
+      return this.searchRecur(val, root.left);
+    } else if (val > root.val) {
+      return this.searchRecur(val, root.right);
+    } else {
+      return true;
+    }
+  }
 }
 
 module.exports = {
