@@ -12,13 +12,14 @@ more than one.
 
 */
 
-function sortedArrayToBST(array) {
-  const middleIndex = Math.floor(array.length / 2);
-  const middleNumber = array[middleIndex];
-  let leftArray = [];
-  let rightArray = [];
+const sortedArrayToBST = (nums) => {
+  if (!nums.length) return null;
+  const middleIndex = Math.floor(nums.length / 2);
+  let root = new TreeNode(nums[middleIndex]);
+  root.left = sortedArrayToBST(nums.slice(0, middleIndex));
+  root.right = sortedArrayToBST(nums.slice(middleIndex + 1));
 
-  return [middleNumber];
-}
+  return root;
+};
 
 console.log(sortedArrayToBST([-10, -3, 0, 5, 9]));
