@@ -45,6 +45,22 @@ class BST {
       return true;
     }
   }
+
+  searchIter(val, root = this.root) {
+    if (!root) return false;
+    let currentNode = this.root;
+
+    while (currentNode !== null) {
+      if (val < currentNode.val) {
+        currentNode = currentNode.left;
+      } else if (val > currentNode.val) {
+        currentNode = currentNode.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 module.exports = {
