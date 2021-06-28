@@ -127,7 +127,21 @@ class LinkedList {
   }
 
   // TODO: Implement the get method here
-  get(index) {}
+  get(index) {
+    if (index > this.length - 1) return null;
+
+    let counter = 0;
+    let node = this.head;
+
+    while (node) {
+      if (counter === index) {
+        return node;
+      }
+      counter++;
+      node = node.next;
+    }
+    return null;
+  }
 
   // TODO: Implement the set method here
   set(index, val) {}
