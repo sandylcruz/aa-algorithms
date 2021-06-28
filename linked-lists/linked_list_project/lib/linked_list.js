@@ -53,23 +53,39 @@ class LinkedList {
 
   // TODO: Implement the removeTail method here
   removeTail() {
-    const tail = this.tail;
-    const updatedTail = this.tail.prev;
-    tail.next = null;
-    this.length -= 1;
+    if (!this.head) return undefined;
+    let current = this.head;
+
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    this.tail = this.tail;
+    this.tail.next = null;
+    this.length--;
+    return this;
   }
 
   // TODO: Implement the addToHead method here
   addToHead(val) {
     const newNode = new Node(val);
 
-    let previousHead = this.head;
-    this.head = newNode;
-    this.head.next = previousHead;
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
   }
 
   // TODO: Implement the removeHead method here
-  removeHead() {}
+  removeHead() {
+    this.length--;
+  }
 
   // TODO: Implement the contains method here
   contains(target) {}
@@ -87,7 +103,9 @@ class LinkedList {
   remove(index) {}
 
   // TODO: Implement the size method here
-  size() {}
+  size() {
+    return this.length;
+  }
 }
 
 exports.Node = Node;
