@@ -162,13 +162,12 @@ class LinkedList {
 
   // TODO: Implement the insert method here
   insert(index, val) {
-    if (index > this.length - 1) return false;
+    if (index < 0 || index > this.length - 1) return false;
+    if (index === 0) return !!this.addToHead(val);
 
     const newNodeToInsert = new Node(val);
     let beforeInsertNode = this.get(index - 1);
     let afterInsertNode = this.get(index);
-    // beforeInsertNode.next = newNodeToInsert;
-    // newNodeToInsert.next = afterInsertNode;
     beforeInsertNode.next = newNodeToInsert;
     newNodeToInsert.next = afterInsertNode;
     this.length++;
