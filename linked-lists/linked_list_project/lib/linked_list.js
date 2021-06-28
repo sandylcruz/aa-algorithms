@@ -115,14 +115,15 @@ class LinkedList {
 
   // TODO: Implement the contains method here
   contains(target) {
-    // currentNode = this.head;
-    // while (this.head !== null) {
-    //   if (currentNode.val === target) {
-    //     return true;
-    //   }
-    //   currentNode = this.head.next;
-    // }
-    // return false;
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (currentNode.value === target) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+    return false;
   }
 
   // TODO: Implement the get method here
