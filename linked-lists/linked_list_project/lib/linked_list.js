@@ -46,27 +46,11 @@ class LinkedList {
       this.tail.next = newNode;
     }
 
+    const oldTail = this.tail;
     this.tail = newNode;
+    // this.tail.prev = oldTail;
     this.length++;
     return this;
-  }
-
-  // TODO: Implement the removeTail method here
-  removeTail() {
-    if (!this.head) return undefined;
-
-    const currentTail = this.tail;
-    const prevTail = this.tail.prev;
-
-    this.tail = prevTail;
-    this.tail.next = null;
-    this.length--;
-
-    if (this.length === 0) {
-      this.head = null;
-      this.tail = null;
-    }
-    return currentTail;
   }
 
   // TODO: Implement the addToHead method here
@@ -84,16 +68,43 @@ class LinkedList {
     return this;
   }
 
+  // TODO: Implement the removeTail method here
+  removeTail() {
+    if (!this.head) return undefined;
+
+    if (this.head === this.tail) {
+      const currentTail = this.tail;
+      this.head = null;
+      this.tail = null;
+      this.length--;
+
+      return currentTail;
+    }
+
+    const tailToRemove = this.tail;
+    let secondToLastNode = null;
+    let currentNode = this.head;
+
+    while (currentNode !== this.tail) {
+      secondToLastNode = currentNode;
+      currentNode = currentNode.next;
+    }
+
+    this.tail = secondToLastNode;
+    this.tail.next = null;
+    this.length--;
+
+    return tailToRemove;
+  }
+
   // TODO: Implement the removeHead method here
   removeHead() {
     if (!this.head) return undefined;
 
     const headToRemove = this.head;
+    const newHead = headToRemove.next;
+    this.head = newHead;
     this.length--;
-
-    const nextAfterHead = headToRemove.next;
-
-    this.head = nextAfterHead;
 
     if (this.length === 0) {
       this.tail = null;
@@ -103,7 +114,16 @@ class LinkedList {
   }
 
   // TODO: Implement the contains method here
-  contains(target) {}
+  contains(target) {
+    // currentNode = this.head;
+    // while (this.head !== null) {
+    //   if (currentNode.val === target) {
+    //     return true;
+    //   }
+    //   currentNode = this.head.next;
+    // }
+    // return false;
+  }
 
   // TODO: Implement the get method here
   get(index) {}
@@ -119,7 +139,15 @@ class LinkedList {
 
   // TODO: Implement the size method here
   size() {
-    return this.length;
+    let count = 0;
+    let node = this.head;
+
+    while (node) {
+      count++;
+      node = node.next;
+    }
+
+    return count;
   }
 }
 
