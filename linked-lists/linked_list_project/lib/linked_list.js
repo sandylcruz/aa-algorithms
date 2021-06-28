@@ -54,17 +54,19 @@ class LinkedList {
   // TODO: Implement the removeTail method here
   removeTail() {
     if (!this.head) return undefined;
-    let current = this.head;
+
+    const currentTail = this.tail;
+    const prevTail = this.tail.prev;
+
+    this.tail = prevTail;
+    this.tail.next = null;
+    this.length--;
 
     if (this.length === 0) {
       this.head = null;
       this.tail = null;
     }
-
-    this.tail = this.tail;
-    this.tail.next = null;
-    this.length--;
-    return this;
+    return currentTail;
   }
 
   // TODO: Implement the addToHead method here
@@ -84,7 +86,20 @@ class LinkedList {
 
   // TODO: Implement the removeHead method here
   removeHead() {
+    if (!this.head) return undefined;
+
+    const headToRemove = this.head;
     this.length--;
+
+    const nextAfterHead = headToRemove.next;
+
+    this.head = nextAfterHead;
+
+    if (this.length === 0) {
+      this.tail = null;
+    }
+
+    return headToRemove;
   }
 
   // TODO: Implement the contains method here
