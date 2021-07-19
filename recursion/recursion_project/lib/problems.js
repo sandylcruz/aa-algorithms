@@ -19,9 +19,7 @@
 function lucasNumber(n) {
   if (n === 0) {
     return 2;
-  }
-
-  if (n === 1) {
+  } else if (n === 1) {
     return 1;
   }
 
@@ -39,7 +37,16 @@ function lucasNumber(n) {
 // sumArray([5])            // => 5
 // sumArray([5, 2])         // => 7
 // sumArray([4, 10, -1, 2]) // => 15
-function sumArray(array) {}
+function sumArray(array) {
+  if (array.length === 0) {
+    return 0;
+  }
+
+  const firstElement = array[0];
+  const remainingElements = array.slice(1);
+
+  return firstElement + sumArray(remainingElements);
+}
 
 // Write a function, reverseString(str), that takes in a string.
 // The function should return the string with it's characters in reverse order.
