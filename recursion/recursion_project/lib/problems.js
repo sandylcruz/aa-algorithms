@@ -42,10 +42,11 @@ function sumArray(array) {
     return 0;
   }
 
-  const firstElement = array[0];
-  const remainingElements = array.slice(1);
+  // const firstElement = array[0];
+  // const remainingElements = array.slice(1);
 
-  return firstElement + sumArray(remainingElements);
+  // return firstElement + sumArray(remainingElements);
+  return array[0] + sumArray(array.slice(1));
 }
 
 // Write a function, reverseString(str), that takes in a string.
@@ -125,7 +126,20 @@ function pow(base, exponent) {
 //     1-dimensional array: ['some data']
 //     2-dimensional array: [['some data']]
 //     3-dimensional array: [[['some data']]]
-function flatten(data) {}
+function flatten(data) {
+  if (!Array.isArray(data)) {
+    return [data];
+  }
+
+  let accumulator = [];
+
+  data.forEach((el) => {
+    let flattened = flatten(el);
+    accumulator.push(...flattened);
+  });
+
+  return accumulator;
+}
 
 // Write a function, fileFinder(directories, targetFile), that accepts an object representing directories and a string respresenting a filename.
 // The function should return true, if the file is contained anywhere in the given directories.
