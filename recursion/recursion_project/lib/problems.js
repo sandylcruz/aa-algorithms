@@ -42,10 +42,6 @@ function sumArray(array) {
     return 0;
   }
 
-  // const firstElement = array[0];
-  // const remainingElements = array.slice(1);
-
-  // return firstElement + sumArray(remainingElements);
   return array[0] + sumArray(array.slice(1));
 }
 
@@ -131,17 +127,19 @@ function flatten(data) {
     return [data];
   }
 
-  let accumulator = [];
+  const accumulator = [];
 
   data.forEach((el) => {
-    let flattened = flatten(el);
-    accumulator.push(...flattened);
+    const result = flatten(el);
+    result.forEach((r) => {
+      accumulator.push(r);
+    });
   });
 
   return accumulator;
 }
 
-// Write a function, fileFinder(directories, targetFile), that accepts an object representing directories and a string respresenting a filename.
+// Write a function, fileFinder(directories, targetFile), that accepts an object representing directories and a string representing a filename.
 // The function should return true, if the file is contained anywhere in the given directories.
 // Note that directory names will begin with '/', but file names will not.
 //
@@ -180,7 +178,14 @@ function flatten(data) {
 // fileFinder(desktop, 'app_academy_logo.svg');     // => true
 // fileFinder(desktop, 'everlong.flac');            // => true
 // fileFinder(desktop, 'sequoia.jpeg');             // => false
-function fileFinder(directories, targetFile) {}
+function fileFinder(directories, targetFile) {
+  for (let key in directories) {
+    if (key === targetFile || fileFinder(directories[key], targetFile)) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // Write another function, pathFinder(directories, targetFile), that returns the path that contains the targetFile.
 // If the targetFile is not found in the directories, then return null.
