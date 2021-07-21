@@ -56,6 +56,7 @@ function minChange(coins, amount, memo = {}) {
   });
 
   memo[amount] = Math.min(...numCoins);
+  console.log(memo);
   return memo[amount];
 }
 console.log(minChange([1, 2, 5], 11, (memo = {})));
