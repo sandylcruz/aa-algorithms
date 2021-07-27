@@ -8,8 +8,12 @@
 
 const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
 
-function all_vowel_pairs(array) {
+function all_vowel_pairs(words) {
   const result = [];
+
+  for (let i = 0; i < words.length; i++) {
+    for (let j = i + 1; j < words.length; j++) {}
+  }
 
   return result;
 }
@@ -36,8 +40,8 @@ function composite(num) {
   return false;
 }
 
-console.log(composite(9)); // => true
-console.log(composite(13)); // => false
+// console.log(composite(9)); // => true
+// console.log(composite(13)); // => false
 
 /*
 A bigram is a string containing two letters.
@@ -47,11 +51,22 @@ The found bigrams should be returned in the the order they appear in the origina
 
 Examples:
 
-find_bigrams("the theater is empty", ["cy", "em", "ty", "ea", "oo"])  # => ["em", "ty", "ea"]
-find_bigrams("to the moon and back", ["ck", "oo", "ha", "at"])        # => ["ck", "oo"]
+
 */
 
-function findBigrams(str, bigrams) {}
+function find_bigrams(str, bigrams) {
+  let bigramsToReturn = [];
+  const words = str.split(' ');
+
+  words.forEach((word) => {});
+
+  return bigramsToReturn;
+}
+
+// console.log(
+//   find_bigrams('the theater is empty', ['cy', 'em', 'ty', 'ea', 'oo'])
+// ); // => ["em", "ty", "ea"]
+// console.log(find_bigrams('to the moon and back', ['ck', 'oo', 'ha', 'at'])); // => ["ck", "oo"]
 
 /*
 # Write a method, Hash#my_select, that takes in an optional proc argument
@@ -76,11 +91,30 @@ The method should return an array of the substrings that have the given length.
 If no length is given, return all substrings.
 
 Examples:
-"cats".substrings      => ["c", "ca", "cat", "cats", "a", "at", "ats", "t", "ts", "s"]
+"cats".substrings      
 "cats".substrings(2)  => ["ca", "at", "ts"]
 
 */
-function substrings(length) {}
+function substrings(word, length) {
+  const chars = word.split('');
+  let substrings = [];
+
+  for (let i = 0; i < chars.length + 1; i++) {
+    for (let j = i + 1; j < chars.length + 1; j++) {
+      // substrings.push(word.substring(i, j));
+      substrings.push(word.slice(i, j));
+    }
+  }
+
+  if (length !== undefined) {
+    return substrings.filter((str) => str.length === length);
+  } else {
+    return substrings;
+  }
+}
+
+console.log(substrings('cats')); // => ["c", "ca", "cat", "cats", "a", "at", "ats", "t", "ts", "s"]
+console.log(substrings('cats', 2)); // => ["ca", "at", "ts"]
 
 /*
 Write a method, String#caesar_cipher, that takes in an a number.

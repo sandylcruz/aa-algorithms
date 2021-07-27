@@ -3,12 +3,35 @@ Write a method no_dupes?(arr) that accepts an array as
 an arg and returns an new array containing the elements 
 that were not repeated in the array.
 
-no_dupes?([1, 1, 2, 1, 3, 2, 4])         # => [3, 4]
-no_dupes?(['x', 'x', 'y', 'z', 'z'])     # => ['y']
-no_dupes?([true, true, true])            # => []
+
 */
 
-function noDupes(array) {}
+function no_dupes(array) {
+  const counter = new Map();
+  const result = [];
+
+  array.forEach((el) => {
+    if (counter.has(el)) {
+      counter.get(el).val++;
+    } else {
+      counter.set(el, 1);
+    }
+  });
+
+  console.log(counter);
+
+  for (el in counter) {
+    if (counter[el] === 1) {
+      result.push(el);
+    }
+  }
+
+  // return result;
+}
+
+// console.log(no_dupes([1, 1, 2, 1, 3, 2, 4])); // => [3, 4]
+// console.log(no_dupes(['x', 'x', 'y', 'z', 'z'])); // => ['y']
+// console.log(no_dupes([true, true, true])); // => []
 
 /*
 Write a method no_consecutive_repeats?(arr) that accepts 
@@ -16,14 +39,23 @@ an array as an arg. The method should return true if an
 element never appears consecutively in the array; it 
 should return false otherwise.
 
-no_consecutive_repeats?(['cat', 'dog', 'mouse', 'dog'])     # => true
-no_consecutive_repeats?(['cat', 'dog', 'dog', 'mouse'])     # => false
-no_consecutive_repeats?([10, 42, 3, 7, 10, 3])              # => true
-no_consecutive_repeats?([10, 42, 3, 3, 10, 3])              # => false
-no_consecutive_repeats?(['x'])      
+ 
 */
 
-function noConsecutiveRepeats(array) {}
+function no_consecutive_repeats(array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === array[i + 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// console.log(no_consecutive_repeats(['cat', 'dog', 'mouse', 'dog'])); // => true
+// console.log(no_consecutive_repeats(['cat', 'dog', 'dog', 'mouse'])); // => false
+// console.log(no_consecutive_repeats([10, 42, 3, 7, 10, 3])); // => true
+// console.log(no_consecutive_repeats([10, 42, 3, 3, 10, 3])); // => false
+// console.log(no_consecutive_repeats(['x'])); // => true
 
 /*
 Write a method char_indices(str) that takes in a string as 
@@ -33,11 +65,27 @@ should be an array containing the indices where that
 character is found.
 
 # Examples
-char_indices('mississippi')   # => {"m"=>[0], "i"=>[1, 4, 7, 10], "s"=>[2, 3, 5, 6], "p"=>[8, 9]}
-char_indices('classroom')     # => {"c"=>[0], "l"=>[1], "a"=>[2], "s"=>[3, 4], "r"=>[5], "o"=>[6, 7], "m"=>[8]}
+
 */
 
-function charIndices(string) {}
+function char_indices(word) {
+  const chars = word.split('');
+  const counter = {};
+
+  for (let i = 0; i < chars.length; i++) {
+    const char = chars[i];
+
+    if (!counter[char]) {
+      counter[char] = [i];
+    } else {
+      counter[char].push(i);
+    }
+  }
+  return counter;
+}
+
+// console.log(char_indices('mississippi')); // => {"m"=>[0], "i"=>[1, 4, 7, 10], "s"=>[2, 3, 5, 6], "p"=>[8, 9]}
+// console.log(char_indices('classroom')); // => {"c"=>[0], "l"=>[1], "a"=>[2], "s"=>[3, 4], "r"=>[5], "o"=>[6, 7], "m"=>[8]}
 
 /*
 Write a method longest_streak(str) that accepts a string 
@@ -46,15 +94,31 @@ of consecutive characters in the string. If there are
 any ties, return the streak that occurs later in the 
 string.
 
-# Examples
-longest_streak('a')           # => 'a'
-longest_streak('accccbbb')    # => 'cccc'
-longest_streak('aaaxyyyyyzz') # => 'yyyyy
-longest_streak('aaabbb')      # => 'bbb'
-longest_streak('abc')         # => 'c'
 */
 
-function longestStreak(string) {}
+function longest_streak(string) {
+  const streak = [];
+  const chars = string.split('');
+  const counter = {};
+
+  chars.forEach((char) => {
+    if (counter[char]) {
+      counter[char] += 1;
+    } else {
+      counter[char] = 1;
+    }
+  });
+
+  const array = Objec;
+
+  return counter.filter((el) => el.sort());
+}
+
+// console.log(longest_streak('a')); // => 'a'
+console.log(longest_streak('accccbbb')); // => 'cccc'
+// console.log(longest_streak('aaaxyyyyyzz')); // => 'yyyyy'
+// console.log(longest_streak('aaabbb')); // => 'bbb'
+// console.log(longest_streak('abc')); // => 'c'
 
 /*
 Write a method bi_prime?(num) that accepts a number as an arg and returns a boolean indicating whether or not the number is a bi-prime. A bi-prime is a positive integer that can be obtained by multiplying two prime numbers.
