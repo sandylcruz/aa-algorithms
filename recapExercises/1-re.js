@@ -4,10 +4,18 @@
 #
 # Example:
 #
-# all_vowel_pairs(["goat", "action", "tear", "impromptu", "tired", "europe"])   # => ["action europe", "tear impromptu"]
 */
 
-function allVowelPairs(words) {}
+const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+
+function all_vowel_pairs(array) {
+  const result = [];
+
+  return result;
+}
+// console.log(
+//   all_vowel_pairs(['goat', 'action', 'tear', 'impromptu', 'tired', 'europe'])
+// ); // => ["action europe", "tear impromptu"]
 
 /*
 Write a method, composite?, that takes in a number and returns a boolean indicating if the number
@@ -15,11 +23,21 @@ has factors besides 1 and itself
 
 Example:
 
-composite?(9)     # => true
-composite?(13)    # => false
+
 */
 
-function isComposite(num) {}
+function composite(num) {
+  for (let i = 2; i < num - 1; i++) {
+    if (num % i === 0) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+console.log(composite(9)); // => true
+console.log(composite(13)); // => false
 
 /*
 A bigram is a string containing two letters.
