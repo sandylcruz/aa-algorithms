@@ -325,10 +325,32 @@ to a single appearance of the letter followed by the number
 of times it appears in the streak. If a letter does not 
 form a streak (meaning that it appears alone), then do not 
 add a number after it.
-
-p compress('aabbbbc')   # "a2b4c"
-p compress('boot')      # "bo2t"
-p compress('xxxyxxzzzz')# "x3yx2z4"
 */
 
-function compress() {}
+function compress(string) {
+  const stringToReturn = [];
+  const chars = string.split('');
+  let count = 1;
+
+  for (let i = 0; i < chars.length; i++) {
+    const char = chars[i];
+    const nextChar = chars[i + 1];
+
+    if (char === nextChar) {
+      count += 1;
+    } else if (count > 1) {
+      stringToReturn.push(char + count);
+      count = 1;
+    } else {
+      stringToReturn.push(char);
+      count = 1;
+    }
+  }
+
+  return stringToReturn.join('');
+}
+
+console.log(compress('catss')); // 'cats2
+console.log(compress('aabbbbc')); // "a2b4c"
+console.log(compress('boot')); // "bo2t"
+console.log(compress('xxxyxxzzzz')); // "x3yx2z4"
