@@ -13,23 +13,50 @@ const tabulatedFib = (num) => {
   return table[num];
 };
 
-console.log(tabulatedFib(7));
+// console.log(tabulatedFib(7));
 
 // optimal solution
-// const fib = (num) => {
-//   if (num === 0) return 0;
-//   if (num === 1) return 1;
+const fib = (num) => {
+  if (num === 0) return 0;
+  if (num === 1) return 1;
 
-//   let secondLast = 0;
-//   let last = 1;
+  let secondLast = 0;
+  let last = 1;
 
-//   for (let i = 2; i <= num; i++) {
-//     let temp = last;
-//     last = last + secondLast;
-//     secondLast = temp;
-//   }
+  for (let i = 2; i <= num; i++) {
+    let temp = last;
+    last = last + secondLast;
+    secondLast = temp;
+  }
 
-//   return last;
-// };
+  return last;
+};
 
 // console.log(fib(7));
+
+// Word break
+/*
+Given a string s and a dictionary of strings wordDict, return true if s can 
+be segmented into a space-separated sequence of one or more dictionary words.
+
+Note that the same word in the dictionary may be reused multiple times in 
+the segmentation.
+*/
+
+const wordBreak = (string, dictionary) => {
+  // table size should be equal to string length
+  let table = new Array(string.length + 1);
+  // empty string is recognized. table[0] is always true
+  table[0] = true;
+
+  for (let i = 0; i < table.length; i++) {
+    // iterate through potential starting points for our next word; consider only if entry on table is true;
+    // if table at this position is a starting point, continue
+    if (table[i] === false) continue;
+
+    for (let j = i + 1)
+  }
+};
+
+console.log(wordBreak('leetcode', ['leet', 'code'])); // => true
+console.log(wordBreak('applepen', ['apple', 'pen'])); // => true
