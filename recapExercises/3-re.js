@@ -7,18 +7,16 @@ that were not repeated in the array.
 */
 
 function no_dupes(array) {
-  const counter = new Map();
+  const counter = {};
   const result = [];
 
   array.forEach((el) => {
-    if (counter.has(el)) {
-      counter.get(el).val++;
+    if (counter[el]) {
+      counter[el] += 1;
     } else {
-      counter.set(el, 1);
+      counter[el] = 1;
     }
   });
-
-  console.log(counter);
 
   for (el in counter) {
     if (counter[el] === 1) {
@@ -26,12 +24,12 @@ function no_dupes(array) {
     }
   }
 
-  // return result;
+  return result;
 }
 
-// console.log(no_dupes([1, 1, 2, 1, 3, 2, 4])); // => [3, 4]
-// console.log(no_dupes(['x', 'x', 'y', 'z', 'z'])); // => ['y']
-// console.log(no_dupes([true, true, true])); // => []
+console.log(no_dupes([1, 1, 2, 1, 3, 2, 4])); // => [3, 4]
+console.log(no_dupes(['x', 'x', 'y', 'z', 'z'])); // => ['y']
+console.log(no_dupes([true, true, true])); // => []
 
 /*
 Write a method no_consecutive_repeats?(arr) that accepts 
@@ -120,11 +118,11 @@ function longest_streak(string) {
   return longestStreak;
 }
 
-console.log(longest_streak('a')); // => 'a'
-console.log(longest_streak('accccbbbaa')); // => 'cccc'
-console.log(longest_streak('aaaxyyyyyzz')); // => 'yyyyy'
-console.log(longest_streak('aaabbb')); // => 'bbb'
-console.log(longest_streak('abc')); // => 'c'
+// console.log(longest_streak('a')); // => 'a'
+// console.log(longest_streak('accccbbbaa')); // => 'cccc'
+// console.log(longest_streak('aaaxyyyyyzz')); // => 'yyyyy'
+// console.log(longest_streak('aaabbb')); // => 'bbb'
+// console.log(longest_streak('abc')); // => 'c'
 
 /*
 Write a method bi_prime?(num) that accepts a number as an arg and returns a boolean indicating whether or not the number is a bi-prime. A bi-prime is a positive integer that can be obtained by multiplying two prime numbers.
