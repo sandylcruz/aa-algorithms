@@ -22,10 +22,6 @@ function all_vowel_pairs(words) {
 /*
 Write a method, composite?, that takes in a number and returns a boolean indicating if the number
 has factors besides 1 and itself
-
-Example:
-
-
 */
 
 function composite(num) {
