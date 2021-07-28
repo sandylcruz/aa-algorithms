@@ -97,28 +97,34 @@ string.
 */
 
 function longest_streak(string) {
-  const streak = [];
+  let currentStreak = string[0];
+  let longestStreak = '';
   const chars = string.split('');
-  const counter = {};
 
-  chars.forEach((char) => {
-    if (counter[char]) {
-      counter[char] += 1;
+  for (let i = 0; i < chars.length + 1; i++) {
+    const currentChar = chars[i];
+    const previousChar = chars[i - 1];
+
+    if (currentChar === previousChar) {
+      currentStreak += currentChar;
     } else {
-      counter[char] = 1;
+      if (currentStreak.length > longestStreak.length) {
+        longestStreak = currentStreak;
+      } else if (currentStreak.length === longestStreak.length) {
+        longestStreak = currentStreak;
+      }
+      currentStreak = currentChar;
     }
-  });
+  }
 
-  const array = Objec;
-
-  return counter.filter((el) => el.sort());
+  return longestStreak;
 }
 
-// console.log(longest_streak('a')); // => 'a'
-console.log(longest_streak('accccbbb')); // => 'cccc'
-// console.log(longest_streak('aaaxyyyyyzz')); // => 'yyyyy'
-// console.log(longest_streak('aaabbb')); // => 'bbb'
-// console.log(longest_streak('abc')); // => 'c'
+console.log(longest_streak('a')); // => 'a'
+console.log(longest_streak('accccbbbaa')); // => 'cccc'
+console.log(longest_streak('aaaxyyyyyzz')); // => 'yyyyy'
+console.log(longest_streak('aaabbb')); // => 'bbb'
+console.log(longest_streak('abc')); // => 'c'
 
 /*
 Write a method bi_prime?(num) that accepts a number as an arg and returns a boolean indicating whether or not the number is a bi-prime. A bi-prime is a positive integer that can be obtained by multiplying two prime numbers.

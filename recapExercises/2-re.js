@@ -4,7 +4,29 @@
 
 */
 
-function least_common_multiple(num1, num2) {}
+function least_common_multiple(num1, num2) {
+  const lcm = null;
+  let num1Multiples = [];
+  let num2Multiples = [];
+
+  for (let i = 2; i < num1; i++) {
+    if (num1 % i === 0) {
+      num1Multiples.push(i);
+    }
+  }
+
+  for (let j = 2; j < num2; j++) {
+    if (num2 % j === 0) {
+      num2Multiples.push(j);
+    }
+  }
+
+  num1Multiples;
+
+  return lcm;
+}
+
+console.log(least_common_multiple(20, 10));
 
 /*
 # Write a method, most_frequent_bigram, that takes in a string and returns the two adjacent letters that appear the

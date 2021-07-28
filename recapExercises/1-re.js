@@ -2,8 +2,6 @@
 # that contain every vowel. Vowels are the letters a, e, i, o, u. A pair should have its two words
 # in the same order as the original array. 
 #
-# Example:
-#
 */
 
 const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
