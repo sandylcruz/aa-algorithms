@@ -27,9 +27,9 @@ function no_dupes(array) {
   return result;
 }
 
-console.log(no_dupes([1, 1, 2, 1, 3, 2, 4])); // => [3, 4]
-console.log(no_dupes(['x', 'x', 'y', 'z', 'z'])); // => ['y']
-console.log(no_dupes([true, true, true])); // => []
+// console.log(no_dupes([1, 1, 2, 1, 3, 2, 4])); // => [3, 4]
+// console.log(no_dupes(['x', 'x', 'y', 'z', 'z'])); // => ['y']
+// console.log(no_dupes([true, true, true])); // => []
 
 /*
 Write a method no_consecutive_repeats?(arr) that accepts 
@@ -134,16 +134,35 @@ For Example:
 25 is a bi-prime because 5 * 5
 24 is not a bi-prime because no two prime
 
-# Examples
-bi_prime?(14)   # => true
-bi_prime?(22)   # => true
-bi_prime?(25)   # => true
-bi_prime?(94)   # => true
-bi_prime?(24)   # => false
-bi_prime?(64)   # => false
 */
 
-function biPrime(num) {}
+const isPrime = (num) => {
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+function bi_prime(num) {
+  const factors = [];
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      factors.push(i);
+    }
+  }
+
+  return factors;
+}
+
+// console.log(bi_prime(14)); // => true
+// console.log(bi_prime(22)); // => true
+// console.log(bi_prime(25)); // => true
+// console.log(bi_prime(94)); // => true
+// console.log(bi_prime(24)); // => false
+// console.log(bi_prime(64)); // => false
 
 /*
 A Vigenere Cipher is a Caesar cipher, but instead of a 
@@ -246,8 +265,18 @@ return an array containing the Lucas Sequence up to
 the given length. Solve this recursively.
 */
 
-function lucasSequence() {}
+function lucasSequence(num) {
+  if (num === 1) return 2;
+  if (num === 2) return 1;
 
-/*
+  return lucasSequence(num - 1) + lucasSequence(num - 2);
+}
 
-*/
+console.log(lucasSequence(1)); // 2
+console.log(lucasSequence(2)); // 1
+console.log(lucasSequence(3)); // 3
+console.log(lucasSequence(4)); // 4
+console.log(lucasSequence(5)); // 7
+console.log(lucasSequence(6)); // 11
+console.log(lucasSequence(7)); // 18
+console.log(lucasSequence(8)); // 29
