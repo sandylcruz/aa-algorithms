@@ -47,16 +47,35 @@ The found bigrams should be returned in the the order they appear in the origina
 function find_bigrams(str, bigrams) {
   let bigramsToReturn = [];
   const words = str.split(' ');
+  const counter = {};
 
-  words.forEach((word) => {});
+  words.forEach((word) => {
+    for (let i = 0; i < word.length - 1; i++) {
+      const char1 = word[i];
+      const char2 = word[i + 1];
+      const newBigram = [char1 + char2];
+
+      if (counter[newBigram]) {
+        counter[newBigram] += 1;
+      } else {
+        counter[newBigram] = 1;
+      }
+    }
+  });
+
+  bigrams.forEach((bigram) => {
+    if (bigram in counter) {
+      bigramsToReturn.push(bigram);
+    }
+  });
 
   return bigramsToReturn;
 }
 
-// console.log(
-//   find_bigrams('the theater is empty', ['cy', 'em', 'ty', 'ea', 'oo'])
-// ); // => ["em", "ty", "ea"]
-// console.log(find_bigrams('to the moon and back', ['ck', 'oo', 'ha', 'at'])); // => ["ck", "oo"]
+console.log(
+  find_bigrams('the theater is empty', ['cy', 'em', 'ty', 'ea', 'oo'])
+); // => ["em", "ty", "ea"]
+console.log(find_bigrams('to the moon and back', ['ck', 'oo', 'ha', 'at'])); // => ["ck", "oo"]
 
 /*
 # Write a method, Hash#my_select, that takes in an optional proc argument
@@ -102,8 +121,8 @@ function substrings(word, length) {
   }
 }
 
-console.log(substrings('cats')); // => ["c", "ca", "cat", "cats", "a", "at", "ats", "t", "ts", "s"]
-console.log(substrings('cats', 2)); // => ["ca", "at", "ts"]
+// console.log(substrings('cats')); // => ["c", "ca", "cat", "cats", "a", "at", "ats", "t", "ts", "s"]
+// console.log(substrings('cats', 2)); // => ["ca", "at", "ts"]
 
 /*
 Write a method, String#caesar_cipher, that takes in an a number.
