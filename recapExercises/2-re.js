@@ -27,6 +27,8 @@ function least_common_multiple(num1, num2) {
 }
 
 console.log(least_common_multiple(20, 10));
+console.log(least_common_multiple(4, 10)); // 20
+console.log(least_common_multiple(7, 21)); // 21
 
 /*
 # Write a method, most_frequent_bigram, that takes in a string and returns the two adjacent letters that appear the
@@ -34,16 +36,25 @@ console.log(least_common_multiple(20, 10));
 */
 
 function most_frequent_bigram(str) {}
+console.log(most_frequent_bigram('thethrillofit')); // "th"
+console.log(most_frequent_bigram('gotothemoonsoonforproof')); // "oo"
+console.log(most_frequent_bigram('bananasareanotherfruit')); // "an"
 
 /*
 # Write a method, #inverse, that returns a new hash where the key-value pairs are swapped
 */
 function inverse() {}
 
+console.log(inverse({ a: 1, b: 2 })); // => {1: 'a', 2: 'b'}
+console.log(inverse({ name: 'fido', hungry: true })); // => {"fido": "name", true: 'hungry'}
+
 /*
 Write a method, Array#pair_sum_count, that takes in a target number returns the number of pairs of elements that sum to the given target
 */
-function pairSumCount(num) {}
+function pairSumCount(array, targetNum) {}
+console.log(pairSumCount([1, 2, 1, 3, 8], 5)); // => 1
+console.log(pairSumCount([10, 3, 6, 5, 7], 13)); // => 2
+console.log(pairSumCount([10, 3, 6, 5, 7], 4)); // => 0
 
 /*
 # Write a method, Array#bubble_sort, that takes in an optional proc argument.
@@ -62,3 +73,5 @@ function pairSumCount(num) {}
 
 */
 function bubbleSort() {}
+console.log(bubbleSort([4, 12, 2, 8, 1, 14, 9, 25, 24, 81])); // => [1, 2, 4, 8, 9, 12, 14, 24, 25, 81]
+console.log(bubbleSort([5, 4, 7])); // => [4, 5, 7]

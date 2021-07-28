@@ -46,10 +46,6 @@ A bigram is a string containing two letters.
 Write a method, find_bigrams, that takes in a string and an array of bigrams.
 The method should return an array containing all bigrams found in the string.
 The found bigrams should be returned in the the order they appear in the original array.
-
-Examples:
-
-
 */
 
 function find_bigrams(str, bigrams) {
@@ -99,7 +95,6 @@ function substrings(word, length) {
 
   for (let i = 0; i < chars.length + 1; i++) {
     for (let j = i + 1; j < chars.length + 1; j++) {
-      // substrings.push(word.substring(i, j));
       substrings.push(word.slice(i, j));
     }
   }
@@ -124,7 +119,6 @@ Examples:
 "apple".caesar_cipher(1)    #=> "bqqmf"
 "bootcamp".caesar_cipher(2) #=> "dqqvecor"
 "zebra".caesar_cipher(4)    #=> "difve"
-
 */
 
 function caesar_cipher(num) {}

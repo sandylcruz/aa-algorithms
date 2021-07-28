@@ -2,8 +2,6 @@
 Write a method no_dupes?(arr) that accepts an array as 
 an arg and returns an new array containing the elements 
 that were not repeated in the array.
-
-
 */
 
 function no_dupes(array) {
@@ -36,8 +34,6 @@ Write a method no_consecutive_repeats?(arr) that accepts
 an array as an arg. The method should return true if an 
 element never appears consecutively in the array; it 
 should return false otherwise.
-
- 
 */
 
 function no_consecutive_repeats(array) {
@@ -61,9 +57,6 @@ an arg. The method should return a hash containing
 characters as keys. The value associated with each key 
 should be an array containing the indices where that 
 character is found.
-
-# Examples
-
 */
 
 function char_indices(word) {
@@ -91,7 +84,6 @@ as an arg. The method should return the longest streak
 of consecutive characters in the string. If there are 
 any ties, return the streak that occurs later in the 
 string.
-
 */
 
 function longest_streak(string) {
@@ -125,15 +117,10 @@ function longest_streak(string) {
 // console.log(longest_streak('abc')); // => 'c'
 
 /*
-Write a method bi_prime?(num) that accepts a number as an arg and returns a boolean indicating whether or not the number is a bi-prime. A bi-prime is a positive integer that can be obtained by multiplying two prime numbers.
-
-For Example:
-
-14 is a bi-prime because 2 * 7
-22 is a bi-prime because 2 * 11
-25 is a bi-prime because 5 * 5
-24 is not a bi-prime because no two prime
-
+Write a method bi_prime?(num) that accepts a number as an arg 
+and returns a boolean indicating whether or not the number is
+a bi-prime. A bi-prime is a positive integer that can be 
+obtained by multiplying two prime numbers.
 */
 
 const isPrime = (num) => {
@@ -249,7 +236,11 @@ multiply(3, -6)       # => -18
 multiply(-3, 6)       # => -18
 */
 
-function multiply() {}
+function multiply(num1, num2) {
+  if (num1 === 1 || num2 === 1) {
+    return; //other number
+  }
+}
 
 /*
 The Lucas Sequence is a sequence of numbers. The first 
@@ -272,11 +263,11 @@ function lucasSequence(num) {
   return lucasSequence(num - 1) + lucasSequence(num - 2);
 }
 
-console.log(lucasSequence(1)); // 2
-console.log(lucasSequence(2)); // 1
-console.log(lucasSequence(3)); // 3
-console.log(lucasSequence(4)); // 4
-console.log(lucasSequence(5)); // 7
-console.log(lucasSequence(6)); // 11
-console.log(lucasSequence(7)); // 18
-console.log(lucasSequence(8)); // 29
+// console.log(lucasSequence(1)); // 2
+// console.log(lucasSequence(2)); // 1
+// console.log(lucasSequence(3)); // 3
+// console.log(lucasSequence(4)); // 4
+// console.log(lucasSequence(5)); // 7
+// console.log(lucasSequence(6)); // 11
+// console.log(lucasSequence(7)); // 18
+// console.log(lucasSequence(8)); // 29
