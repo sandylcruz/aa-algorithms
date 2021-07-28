@@ -73,10 +73,24 @@ function inverse(object) {
 /*
 Write a method, Array#pair_sum_count, that takes in a target number returns the number of pairs of elements that sum to the given target
 */
-function pairSumCount(array, targetNum) {}
-// console.log(pairSumCount([1, 2, 1, 3, 8], 5)); // => 1
-// console.log(pairSumCount([10, 3, 6, 5, 7], 13)); // => 2
-// console.log(pairSumCount([10, 3, 6, 5, 7], 4)); // => 0
+function pairSumCount(array, targetNum) {
+  let counter = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      const num1 = array[i];
+      const num2 = array[j];
+      if (num1 + num2 === targetNum) {
+        counter += 1;
+      }
+    }
+  }
+
+  return counter;
+}
+console.log(pairSumCount([1, 2, 1, 3, 8], 5)); // => 1
+console.log(pairSumCount([10, 3, 6, 5, 7], 13)); // => 2
+console.log(pairSumCount([10, 3, 6, 5, 7], 4)); // => 0
 
 /*
 # Write a method, Array#bubble_sort, that takes in an optional proc argument.
