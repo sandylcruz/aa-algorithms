@@ -26,36 +26,40 @@ function all_vowel_pairs(words) {
     }
   });
 
-  // return result.join(',');
-  // words.forEach((word) => {
-  //   const chars = word.split('');
-
-  //   holder[word] = new Set();
-
-  //   chars.forEach((char) => {
-  //     if (vowels.has(char)) {
-  //       holder[word].add(char);
-  //     }
-  //   });
-  // });
-
-  // for (set in holder) {
-  //   console.log(set);
-  // }
-
-  // get unique word pairs. check if when added together, it is of length 5
-
-  // return Object.entries(holder);
-
   return result;
 }
-console.log(
-  all_vowel_pairs(['goat', 'action', 'tear', 'impromptu', 'tired', 'europe'])
-); // => ["action europe", "tear impromptu"]
-console.log(
-  all_vowel_pairs(['upper', 'goalie', 'unstoppable', 'cranky', 'terrible'])
-); // => ["upper goalie", "goalie unstoppable", "unstoppable terrible"]
-console.log(all_vowel_pairs(['city', 'stair', 'dog'])); // => []
+
+const all_vowel_pairs = (words) => {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  const pairs = [];
+  const acc = [];
+
+  for (let i = 0; i < words.length; i++) {
+    for (let j = i + 1; j < words.length; j++) {
+      const wordPair = words[i] + ' ' + words[j];
+      if (!pairs.includes(wordPair)) {
+        pairs.push(wordPair);
+      }
+      // console.log(wordPair);
+    }
+  }
+
+  pairs.forEach((pair) => {
+    if (vowels.every((vowel) => pair.includes(vowel))) {
+      acc.push(pair);
+    }
+  });
+
+  return acc;
+};
+
+// console.log(
+//   all_vowel_pairs(['goat', 'action', 'tear', 'impromptu', 'tired', 'europe'])
+// ); // => ["action europe", "tear impromptu"]
+// console.log(
+//   all_vowel_pairs(['upper', 'goalie', 'unstoppable', 'cranky', 'terrible'])
+// ); // => ["upper goalie", "goalie unstoppable", "unstoppable terrible"]
+// console.log(all_vowel_pairs(['city', 'stair', 'dog'])); // => []
 
 /*
 Write a method, composite?, that takes in a number and returns a boolean indicating if the number
