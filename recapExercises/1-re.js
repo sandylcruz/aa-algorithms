@@ -71,10 +71,10 @@ function find_bigrams(str, bigrams) {
   return bigramsToReturn;
 }
 
-console.log(
-  find_bigrams('the theater is empty', ['cy', 'em', 'ty', 'ea', 'oo'])
-); // => ["em", "ty", "ea"]
-console.log(find_bigrams('to the moon and back', ['ck', 'oo', 'ha', 'at'])); // => ["ck", "oo"]
+// console.log(
+//   find_bigrams('the theater is empty', ['cy', 'em', 'ty', 'ea', 'oo'])
+// ); // => ["em", "ty", "ea"]
+// console.log(find_bigrams('to the moon and back', ['ck', 'oo', 'ha', 'at'])); // => ["ck", "oo"]
 
 /*
 # Write a method, Hash#my_select, that takes in an optional proc argument
@@ -139,13 +139,16 @@ factorization of the given number. This means that the
 array should contain only prime numbers that multiply 
 together to the given num. The array returned should 
 contain numbers in ascending order. Do this recursively.
-
-# Examples
-prime_factorization(12)     # => [2, 2, 3]
-prime_factorization(24)     # => [2, 2, 2, 3]
-prime_factorization(25)     # => [5, 5]
-prime_factorization(60)     # => [2, 2, 3, 5]
-prime_factorization(7)      # => [7]
-prime_factorization(11)     # => [11]
-prime_factorization(2017)   # => [2017]
 */
+
+const isPrime = (num) => {
+  for (let i = 2; i < num - 1; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+const prime_factorization = (num) => {};
