@@ -1,7 +1,6 @@
 /*
 # Write a method, least_common_multiple, that takes in two numbers and returns the smallest number that is a mutiple
 # of both of the given numbers
-
 */
 
 function least_common_multiple(num1, num2) {
@@ -101,6 +100,7 @@ console.log(inverse2({ name: 'fido', hungry: true })); // => {"fido": "name", tr
 /*
 Write a method, Array#pair_sum_count, that takes in a target number returns the number of pairs of elements that sum to the given target
 */
+
 function pairSumCount(array, targetNum) {
   let counter = 0;
 

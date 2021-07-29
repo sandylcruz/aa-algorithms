@@ -4,9 +4,8 @@
 #
 */
 
-const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
-
 function all_vowel_pairs(words) {
+  const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
   const result = [];
 
   for (let i = 0; i < words.length; i++) {
@@ -98,11 +97,6 @@ function mySelect() {}
 Write a method, String#substrings, that takes in a optional length argument
 The method should return an array of the substrings that have the given length.
 If no length is given, return all substrings.
-
-Examples:
-"cats".substrings      
-"cats".substrings(2)  => ["ca", "at", "ts"]
-
 */
 function substrings(word, length) {
   const chars = word.split('');
