@@ -62,18 +62,30 @@ function most_frequent_bigram(string) {
 # Write a method, #inverse, that returns a new hash where the key-value pairs are swapped
 */
 function inverse(object) {
-  const inversedObject = {};
-  const previousKeys = Object.keys(object);
-  const previousValues = Object.values(object);
-  console.log(previousKeys, previousValues);
+  const inverseObject = {};
+  const newValues = Object.keys(object);
+  const newKeys = Object.values(object);
 
-  const previousObject = Object.entries(object);
-  console.log(previousObject);
+  for (let i = 0; i < newValues.length; i++) {
+    const newKey = newKeys[i];
+    const newValue = newValues[i];
+    inverseObject[newKey] = newValue;
+  }
 
-  return inversedObject;
+  return inverseObject;
 }
 
-// console.log(inverse({ a: 1, b: 2 })); // => {1: 'a', 2: 'b'}
+const inverse = (object) => {
+  const inversed = new Map();
+  const newValues = Object.keys(object);
+  const newKeys = Object.values(object);
+
+  for (let i = 0; i < newValues.length; i++) {}
+
+  return inversed;
+};
+
+console.log(inverse({ a: 1, b: 2 })); // => {1: 'a', 2: 'b'}
 // console.log(inverse({ a: 1, b: 1 })); // => {1: ['a', 'b']}
 // console.log(inverse({ name: 'fido', hungry: true })); // => {"fido": "name", true: 'hungry'}
 
@@ -137,5 +149,5 @@ const fizzBuzz = (num) => {
   return arrayToReturn;
 };
 
-console.log(fizzBuzz(35)); // =>
+// console.log(fizzBuzz(35)); // =>
 // [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16, 17, 'Fizz', 19, 'Buzz', 'Fizz', 22, 23, 'Fizz', 'Buzz', 26, 'Fizz', 28, 29, 'Fizz Buzz', 31, 32, 'Fizz', 34, 'Buzz', 'Fizz']
