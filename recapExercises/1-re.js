@@ -156,23 +156,42 @@ p "bootcamp".caesar_cipher(2) #=> "dqqvecor"
 p "zebra".caesar_cipher(4)    #=> "difve"
 */
 
-function lowercase_caesar_cipher(word, shift) {
+// function lowercase_caesar_cipher(word, shift) {
+//   const newWord = [];
+//   const chars = word.split('');
+
+//   chars.forEach((char) => {
+//     const initialAscii = char.charCodeAt();
+//     const asciiCode = ((initialAscii - 97 + shift) % 26) + 97;
+//     const newLetter = String.fromCharCode(asciiCode);
+//     newWord.push(newLetter);
+//   });
+
+//   return newWord.join('');
+// }
+
+// console.log(lowercase_caesar_cipher('apple', 1)); // => "bqqmf"
+// console.log(lowercase_caesar_cipher('bootcamp', 2)); // => "dqqvecor"
+// console.log(lowercase_caesar_cipher('zebra', 4)); // => "difve"
+
+const uppercaseCaesarCipher = (word, shift) => {
   const newWord = [];
   const chars = word.split('');
 
   chars.forEach((char) => {
-    const initialAscii = char.charCodeAt();
-    const asciiCode = ((initialAscii - 97 + shift) % 26) + 97;
-    const newLetter = String.fromCharCode(asciiCode);
-    newWord.push(newLetter);
+    const originalAscii = char.charCodeAt();
+    const newAscii = ((originalAscii - 65 + shift) % 26) + 65;
+    const newChar = String.fromCharCode(newAscii);
+
+    newWord.push(newChar);
   });
 
   return newWord.join('');
-}
+};
 
-console.log(lowercase_caesar_cipher('apple', 1)); // => "bqqmf"
-console.log(lowercase_caesar_cipher('bootcamp', 2)); // => "dqqvecor"
-console.log(lowercase_caesar_cipher('zebra', 4)); // => "difve"
+console.log(uppercaseCaesarCipher('APPLE', 1)); // => "BQQMF"
+console.log(uppercaseCaesarCipher('BOOTCAMP', 2)); // => "DQQVECOR"
+console.log(uppercaseCaesarCipher('ZEBRA', 4)); // => "DIFVE"
 
 /*
 Write a method prime_factorization(num) that accepts a 
