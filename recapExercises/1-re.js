@@ -29,7 +29,7 @@ function all_vowel_pairs(words) {
   return result;
 }
 
-const all_vowel_pairs = (words) => {
+const all_vowel_pairs2 = (words) => {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
   const pairs = [];
   const acc = [];
@@ -120,23 +120,6 @@ function find_bigrams(str, bigrams) {
 // console.log(find_bigrams('to the moon and back', ['ck', 'oo', 'ha', 'at'])); // => ["ck", "oo"]
 
 /*
-# Write a method, Hash#my_select, that takes in an optional proc argument
-# The method should return a new hash containing the key-value pairs that return
-# true when passed into the proc.
-# If no proc is given, then return a new hash containing the pairs where the key is equal to the value.
-#
-# Examples:
-#
-# hash_1 = {x: 7, y: 1, z: 8}
-# hash_1.my_select { |k, v| v.odd? }          # => {x: 7, y: 1}
-#
-# hash_2 = {4=>4, 10=>11, 12=>3, 5=>6, 7=>8}
-# hash_2.my_select { |k, v| k + 1 == v }      # => {10=>11, 5=>6, 7=>8})
-# hash_2.my_select                            # => {4=>4}
-*/
-function mySelect() {}
-
-/*
 Write a method, String#substrings, that takes in a optional length argument
 The method should return an array of the substrings that have the given length.
 If no length is given, return all substrings.
@@ -168,12 +151,28 @@ the given number of times in the alphabet.
 
 Examples:
 
-"apple".caesar_cipher(1)    #=> "bqqmf"
-"bootcamp".caesar_cipher(2) #=> "dqqvecor"
-"zebra".caesar_cipher(4)    #=> "difve"
+p "apple".caesar_cipher(1)    #=> "bqqmf"
+p "bootcamp".caesar_cipher(2) #=> "dqqvecor"
+p "zebra".caesar_cipher(4)    #=> "difve"
 */
 
-function caesar_cipher(num) {}
+function lowercase_caesar_cipher(word, shift) {
+  const newWord = [];
+  const chars = word.split('');
+
+  chars.forEach((char) => {
+    const initialAscii = char.charCodeAt();
+    const asciiCode = ((initialAscii - 97 + shift) % 26) + 97;
+    const newLetter = String.fromCharCode(asciiCode);
+    newWord.push(newLetter);
+  });
+
+  return newWord.join('');
+}
+
+console.log(lowercase_caesar_cipher('apple', 1)); // => "bqqmf"
+console.log(lowercase_caesar_cipher('bootcamp', 2)); // => "dqqvecor"
+console.log(lowercase_caesar_cipher('zebra', 4)); // => "difve"
 
 /*
 Write a method prime_factorization(num) that accepts a 
