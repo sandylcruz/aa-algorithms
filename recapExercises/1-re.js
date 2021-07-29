@@ -24,7 +24,7 @@ has factors besides 1 and itself
 */
 
 function composite(num) {
-  for (let i = 2; i < num - 1; i++) {
+  for (let i = 2; i < num; i++) {
     if (num % i === 0) {
       return true;
     }
@@ -150,5 +150,18 @@ const isPrime = (num) => {
 
   return true;
 };
+console.log(isPrime(5));
 
-const prime_factorization = (num) => {};
+const prime_factorization = (num) => {
+  const primeFactors = [];
+
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0 && isPrime(i)) {
+      primeFactors.push(i);
+    }
+  }
+
+  return primeFactors;
+};
+
+console.log(prime_factorization(30)); // => [2, 3, 5]
