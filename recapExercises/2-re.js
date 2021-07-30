@@ -3,29 +3,36 @@
 # of both of the given numbers
 */
 
+const isPrime = (num) => {
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+const getPrimeFactors = (num) => {
+  const factors = [];
+  for (let i = 2; i <= num; i++) {
+    if (num % i === 0 && isPrime(i)) {
+      factors.push(i);
+    }
+  }
+
+  return factors;
+};
+
 function least_common_multiple(num1, num2) {
-  const lcm = null;
-  let num1Multiples = [];
-  let num2Multiples = [];
+  const num1PrimeFactors = getPrimeFactors(num1);
+  const num2PrimeFactors = getPrimeFactors(num2);
+  console.log(num1PrimeFactors, num2PrimeFactors);
 
-  for (let i = 2; i < num1; i++) {
-    if (num1 % i === 0) {
-      num1Multiples.push(i);
-    }
-  }
-
-  for (let j = 2; j < num2; j++) {
-    if (num2 % j === 0) {
-      num2Multiples.push(j);
-    }
-  }
-
-  num1Multiples;
-
-  return lcm;
+  return num1PrimeFactors[0] * num2PrimeFactors[0];
 }
 
-// console.log(least_common_multiple(20, 10));
+console.log(least_common_multiple(20, 10)); // 20
 // console.log(least_common_multiple(4, 10)); // 20
 // console.log(least_common_multiple(7, 21)); // 21
 
@@ -93,9 +100,9 @@ const inverse2 = (object) => {
   return inverseObject;
 };
 
-console.log(inverse2({ a: 1, b: 2 })); // => {1: 'a', 2: 'b'}
-console.log(inverse2({ a: 1, b: 1 })); // => {1: ['a', 'b']}
-console.log(inverse2({ name: 'fido', hungry: true })); // => {"fido": "name", true: 'hungry'}
+// console.log(inverse2({ a: 1, b: 2 })); // => {1: 'a', 2: 'b'}
+// console.log(inverse2({ a: 1, b: 1 })); // => {1: ['a', 'b']}
+// console.log(inverse2({ name: 'fido', hungry: true })); // => {"fido": "name", true: 'hungry'}
 
 /*
 Write a method, Array#pair_sum_count, that takes in a target number returns the number of pairs of elements that sum to the given target
