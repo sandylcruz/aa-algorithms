@@ -4,7 +4,7 @@
 */
 
 const isPrime = (num) => {
-  for (let i = 2; i < num; i++) {
+  for (let i = 2; i < Math.sqrt(num); i++) {
     if (num % i === 0) {
       return false;
     }
@@ -23,16 +23,31 @@ const getPrimeFactors = (num) => {
 
   return factors;
 };
+// console.log(getPrimeFactors(9));
 
-function least_common_multiple(num1, num2) {
-  const num1PrimeFactors = getPrimeFactors(num1);
-  const num2PrimeFactors = getPrimeFactors(num2);
-  console.log(num1PrimeFactors, num2PrimeFactors);
+// function least_common_multiple(num1, num2) {
+//   const num1PrimeFactors = getPrimeFactors(num1);
+//   const num2PrimeFactors = getPrimeFactors(num2);
+//   // console.log(num1PrimeFactors, num2PrimeFactors);
 
-  return num1PrimeFactors[0] * num2PrimeFactors[0];
-}
+//   return num1PrimeFactors[0] * num2PrimeFactors[0];
+// }
 
-console.log(least_common_multiple(20, 10)); // 20
+const lcm = (num1, num2) => {
+  const max = num1 * num2;
+
+  for (let i = 2; i < max; i++) {
+    if (i % num1 === 0 && i % num2 === 0) {
+      return i;
+    }
+  }
+};
+
+console.log(lcm(20, 10));
+console.log(lcm(4, 10));
+console.log(lcm(7, 21));
+
+// console.log(least_common_multiple(20, 10)); // 20
 // console.log(least_common_multiple(4, 10)); // 20
 // console.log(least_common_multiple(7, 21)); // 21
 
