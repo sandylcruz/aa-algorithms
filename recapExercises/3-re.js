@@ -146,12 +146,42 @@ function bi_prime(num) {
   return factors.every((factor) => isPrime(factor));
 }
 
-console.log(bi_prime(14)); // => true
-console.log(bi_prime(22)); // => true
-console.log(bi_prime(25)); // => true
-console.log(bi_prime(94)); // => true
-console.log(bi_prime(24)); // => false
-console.log(bi_prime(64)); // => false
+// console.log(bi_prime(14)); // => true
+// console.log(bi_prime(22)); // => true
+// console.log(bi_prime(25)); // => true
+// console.log(bi_prime(94)); // => true
+// console.log(bi_prime(24)); // => false
+// console.log(bi_prime(64)); // => false
+
+/*
+The Lucas Sequence is a sequence of numbers. The first 
+number of the sequence is 2. The second number of the 
+Lucas Sequence is 1. To generate the next number of the 
+sequence, we add up the previous two numbers. 
+For example, the first six numbers of the sequence 
+are: 2, 1, 3, 4, 7, 11, ...
+
+Write a method lucasSequence that accepts a number 
+representing a length as an arg. The method should 
+return an array containing the Lucas Sequence up to 
+the given length. Solve this recursively.
+*/
+
+function lucasSequence(num) {
+  if (num === 1) return 2;
+  if (num === 2) return 1;
+
+  return lucasSequence(num - 1) + lucasSequence(num - 2);
+}
+
+// console.log(lucasSequence(1)); // 2
+// console.log(lucasSequence(2)); // 1
+// console.log(lucasSequence(3)); // 3
+// console.log(lucasSequence(4)); // 4
+// console.log(lucasSequence(5)); // 7
+// console.log(lucasSequence(6)); // 11
+// console.log(lucasSequence(7)); // 18
+// console.log(lucasSequence(8)); // 29
 
 /*
 A Vigenere Cipher is a Caesar cipher, but instead of a 
@@ -168,14 +198,37 @@ a string and a key-sequence as args, returning the
 encrypted message. Assume that the message consists of 
 only lowercase alphabetic characters.
 
-vigenere_cipher("toerrishuman", [1])        # => "upfssjtivnbo"
-vigenere_cipher("toerrishuman", [1, 2])     # => "uqftsktjvobp"
-vigenere_cipher("toerrishuman", [1, 2, 3])  # => "uqhstltjxncq"
-vigenere_cipher("zebra", [3, 0])            # => "ceerd"
-vigenere_cipher("yawn", [5, 1])             # => "dbbo"
+
 */
 
-function vignereCipher(message, keys) {}
+function vignere_cipher(string, keys) {
+  let newWord = [];
+  const chars = string.split('');
+
+  for (let i = 0; i < chars.length; i++) {
+    const currentChar = chars[i];
+    let currentKey = keys[i];
+
+    if (i >= keys.length) {
+      keyIndex = i % 2;
+      currentKey = keys[keyIndex];
+    }
+
+    const oldAscii = currentChar.charCodeAt(0);
+    const newAscii = ((oldAscii + currentKey - 97) % 26) + 97;
+    const newLetter = String.fromCharCode(newAscii);
+
+    newWord.push(newLetter);
+  }
+
+  return newWord.join('');
+}
+
+console.log(vignere_cipher('toerrishuman', [1])); // => "upfssjtivnbo"
+console.log(vignere_cipher('toerrishuman', [1, 2])); // => "uqftsktjvobp"
+console.log(vignere_cipher('toerrishuman', [1, 2, 3])); // => "uqhstltjxncq"
+console.log(vignere_cipher('zebra', [3, 0])); // => "ceerd"
+console.log(vignere_cipher('yawn', [5, 1])); // => "dbbo"
 
 /*
 Write a method vowel_rotate(str) that accepts a string as 
@@ -183,16 +236,30 @@ an arg and returns the string where every vowel is
 replaced with the vowel the appears before it sequentially 
 in the original string. The first vowel of the string 
 should be replaced with the last vowel.
-
-# Examples
-vowel_rotate('computer')      # => "cempotur"
-vowel_rotate('oranges')       # => "erongas"
-vowel_rotate('headphones')    # => "heedphanos"
-vowel_rotate('bootcamp')      # => "baotcomp"
-vowel_rotate('awesome')       # => "ewasemo"
 */
 
-function vowelRotate(string) {}
+function vowelRotate(word) {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  const chars = word.split('');
+  const wordToReturn = [];
+
+  for (let i = 0; i < chars.length; i++) {
+    const currentChar = chars[i];
+
+    if (vowels.includes(currentChar)) {
+      console.log(currentChar);
+    } else {
+    }
+  }
+
+  return wordToReturn;
+}
+
+// console.log(vowel_rotate('computer')); // => "cempotur"
+// console.log(vowel_rotate('oranges')); // => "erongas"
+// console.log(vowel_rotate('headphones')); // => "heedphanos"
+// console.log(vowel_rotate('bootcamp')); // => "baotcomp"
+// console.log(vowel_rotate('awesome')); // => "ewasemo"
 
 /*
 Extend the string class by defining a String#select method 
@@ -243,33 +310,3 @@ function multiply(num1, num2) {
     return; //other number
   }
 }
-
-/*
-The Lucas Sequence is a sequence of numbers. The first 
-number of the sequence is 2. The second number of the 
-Lucas Sequence is 1. To generate the next number of the 
-sequence, we add up the previous two numbers. 
-For example, the first six numbers of the sequence 
-are: 2, 1, 3, 4, 7, 11, ...
-
-Write a method lucasSequence that accepts a number 
-representing a length as an arg. The method should 
-return an array containing the Lucas Sequence up to 
-the given length. Solve this recursively.
-*/
-
-function lucasSequence(num) {
-  if (num === 1) return 2;
-  if (num === 2) return 1;
-
-  return lucasSequence(num - 1) + lucasSequence(num - 2);
-}
-
-// console.log(lucasSequence(1)); // 2
-// console.log(lucasSequence(2)); // 1
-// console.log(lucasSequence(3)); // 3
-// console.log(lucasSequence(4)); // 4
-// console.log(lucasSequence(5)); // 7
-// console.log(lucasSequence(6)); // 11
-// console.log(lucasSequence(7)); // 18
-// console.log(lucasSequence(8)); // 29
