@@ -141,15 +141,17 @@ function bi_prime(num) {
     }
   }
 
-  return factors;
+  if (factors.length > 2) return false;
+
+  return factors.every((factor) => isPrime(factor));
 }
 
-// console.log(bi_prime(14)); // => true
-// console.log(bi_prime(22)); // => true
-// console.log(bi_prime(25)); // => true
-// console.log(bi_prime(94)); // => true
-// console.log(bi_prime(24)); // => false
-// console.log(bi_prime(64)); // => false
+console.log(bi_prime(14)); // => true
+console.log(bi_prime(22)); // => true
+console.log(bi_prime(25)); // => true
+console.log(bi_prime(94)); // => true
+console.log(bi_prime(24)); // => false
+console.log(bi_prime(64)); // => false
 
 /*
 A Vigenere Cipher is a Caesar cipher, but instead of a 

@@ -14,16 +14,20 @@ const isPrime = (num) => {
 };
 
 const getPrimeFactors = (num) => {
-  const factors = [];
+  const factors = {};
   for (let i = 2; i <= num; i++) {
     if (num % i === 0 && isPrime(i)) {
-      factors.push(i);
+      if (factors[i]) {
+        factors[i]++;
+      } else {
+        factors[i] = 1;
+      }
     }
   }
 
   return factors;
 };
-// console.log(getPrimeFactors(9));
+console.log(getPrimeFactors(9));
 
 function least_common_multiple(num1, num2) {
   const num1PrimeFactors = getPrimeFactors(num1);
@@ -200,7 +204,7 @@ const bubbleSort = (array) => {
   return array;
 };
 
-console.log(bubbleSort([7, 6, 5, 4, 3, 2, 1]));
+// console.log(bubbleSort([7, 6, 5, 4, 3, 2, 1]));
 // console.log(bubbleSort([4, 12, 2, 8, 1, 14, 9, 25, 24, 81])); // => [1, 2, 4, 8, 9, 12, 14, 24, 25, 81]
 // console.log(bubbleSort([5, 4, 7])); // => [4, 5, 7]
 
