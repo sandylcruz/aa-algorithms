@@ -25,13 +25,17 @@ const getPrimeFactors = (num) => {
 };
 // console.log(getPrimeFactors(9));
 
-// function least_common_multiple(num1, num2) {
-//   const num1PrimeFactors = getPrimeFactors(num1);
-//   const num2PrimeFactors = getPrimeFactors(num2);
-//   // console.log(num1PrimeFactors, num2PrimeFactors);
+function least_common_multiple(num1, num2) {
+  const num1PrimeFactors = getPrimeFactors(num1);
+  const num2PrimeFactors = getPrimeFactors(num2);
+  // console.log(num1PrimeFactors, num2PrimeFactors);
 
-//   return num1PrimeFactors[0] * num2PrimeFactors[0];
-// }
+  return num1PrimeFactors[0] * num2PrimeFactors[0];
+}
+
+// console.log(least_common_multiple(20, 10)); // 20
+// console.log(least_common_multiple(4, 10)); // 20
+// console.log(least_common_multiple(7, 21)); // 21
 
 const lcm = (num1, num2) => {
   const max = num1 * num2;
@@ -43,13 +47,9 @@ const lcm = (num1, num2) => {
   }
 };
 
-console.log(lcm(20, 10));
-console.log(lcm(4, 10));
-console.log(lcm(7, 21));
-
-// console.log(least_common_multiple(20, 10)); // 20
-// console.log(least_common_multiple(4, 10)); // 20
-// console.log(least_common_multiple(7, 21)); // 21
+// console.log(lcm(20, 10));
+// console.log(lcm(4, 10));
+// console.log(lcm(7, 21));
 
 /*
 # Write a method, most_frequent_bigram, that takes in a string and returns the two adjacent letters that appear the
@@ -158,9 +158,49 @@ function pairSumCount(array, targetNum) {
 # This should remind you of the spaceship operator! Convenient :)
 
 */
-function bubbleSort() {}
-// console.log(bubbleSort([4, 12, 2, 8, 1, 14, 9, 25, 24, 81])); // => [1, 2, 4, 8, 9, 12, 14, 24, 25, 81]
-// console.log(bubbleSort([5, 4, 7])); // => [4, 5, 7]
+function bubbleSort1(array) {
+  let isSwapped = false;
+
+  while (!isSwapped) {
+    for (let i = 0; i < array.length; i++) {
+      for (let j = i + 1; j < array.length; j++) {
+        if (array[i] > array[j]) {
+          const temp = array[i];
+          array[i] = array[j];
+          array[j] = temp;
+          isSwapped = true;
+        }
+      }
+    }
+  }
+
+  return array;
+}
+
+// console.log(bubbleSort1([7, 6, 5, 4, 3, 2, 1]));
+// console.log(bubbleSort1([4, 12, 2, 8, 1, 14, 9, 25, 24, 81])); // => [1, 2, 4, 8, 9, 12, 14, 24, 25, 81]
+// console.log(bubbleSort1([5, 4, 7])); // => [4, 5, 7]
+
+const bubbleSort = (array) => {
+  let isSwapped = false;
+
+  while (!isSwapped) {
+    for (let i = 0; i < array.length - 1; i++) {
+      if (array[i] > array[i + 1]) {
+        const temp = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = temp;
+        isSwapped = true;
+      }
+    }
+  }
+
+  return array;
+};
+
+console.log(bubbleSort([7, 6, 5, 4, 3, 2, 1]));
+console.log(bubbleSort([4, 12, 2, 8, 1, 14, 9, 25, 24, 81])); // => [1, 2, 4, 8, 9, 12, 14, 24, 25, 81]
+console.log(bubbleSort([5, 4, 7])); // => [4, 5, 7]
 
 const fizzBuzz = (num) => {
   const arrayToReturn = [];
