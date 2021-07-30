@@ -189,9 +189,27 @@ const uppercaseCaesarCipher = (word, shift) => {
   return newWord.join('');
 };
 
-console.log(uppercaseCaesarCipher('APPLE', 1)); // => "BQQMF"
-console.log(uppercaseCaesarCipher('BOOTCAMP', 2)); // => "DQQVECOR"
-console.log(uppercaseCaesarCipher('ZEBRA', 4)); // => "DIFVE"
+// console.log(uppercaseCaesarCipher('APPLE', 1)); // => "BQQMF"
+// console.log(uppercaseCaesarCipher('BOOTCAMP', 2)); // => "DQQVECOR"
+// console.log(uppercaseCaesarCipher('ZEBRA', 4)); // => "DIFVE"
+
+const bothCasesCaesar = (word, shift) => {
+  const chars = word.split('');
+  const newWord = [];
+
+  chars.forEach((char) => {
+    const currentAscii = char.charCodeAt(0);
+    const nextAscii = ((currentAscii + shift - 65) % 52) + 65;
+    const newLetter = String.fromCharCode(nextAscii);
+    newWord.push(newLetter);
+  });
+
+  return newWord.join('');
+};
+
+console.log(bothCasesCaesar('ApPLe', 1)); // => "BqQMf"
+console.log(bothCasesCaesar('BOoTcaMP', 2)); // => "DQqVecOR"
+console.log(bothCasesCaesar('zebRA', 4)); // => "difVE"
 
 /*
 Write a method prime_factorization(num) that accepts a 
