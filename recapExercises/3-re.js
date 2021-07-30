@@ -224,11 +224,11 @@ function vignere_cipher(string, keys) {
   return newWord.join('');
 }
 
-console.log(vignere_cipher('toerrishuman', [1])); // => "upfssjtivnbo"
-console.log(vignere_cipher('toerrishuman', [1, 2])); // => "uqftsktjvobp"
-console.log(vignere_cipher('toerrishuman', [1, 2, 3])); // => "uqhstltjxncq"
-console.log(vignere_cipher('zebra', [3, 0])); // => "ceerd"
-console.log(vignere_cipher('yawn', [5, 1])); // => "dbbo"
+// console.log(vignere_cipher('toerrishuman', [1])); // => "upfssjtivnbo"
+// console.log(vignere_cipher('toerrishuman', [1, 2])); // => "uqftsktjvobp"
+// console.log(vignere_cipher('toerrishuman', [1, 2, 3])); // => "uqhstltjxncq"
+// console.log(vignere_cipher('zebra', [3, 0])); // => "ceerd"
+// console.log(vignere_cipher('yawn', [5, 1])); // => "dbbo"
 
 /*
 Write a method vowel_rotate(str) that accepts a string as 
@@ -238,21 +238,46 @@ in the original string. The first vowel of the string
 should be replaced with the last vowel.
 */
 
-function vowelRotate(word) {
+const rotateArray = (array) => {
+  const rotatedArray = [];
+
+  const elToMove = array[array.length - 1];
+  rotatedArray.push(elToMove);
+
+  const endIndex = array.length - 1;
+  const endOfArray = array.slice(0, endIndex);
+  rotatedArray.push(endOfArray);
+
+  return rotatedArray.flat();
+};
+
+function vowel_rotate(word) {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
+  const foundVowels = [];
   const chars = word.split('');
   const wordToReturn = [];
+
+  chars.forEach((char) => {
+    if (vowels.includes(char)) {
+      foundVowels.push(char);
+    }
+  });
+
+  const shiftedVowels = rotateArray(foundVowels);
 
   for (let i = 0; i < chars.length; i++) {
     const currentChar = chars[i];
 
     if (vowels.includes(currentChar)) {
-      console.log(currentChar);
+      const newChar = shiftedVowels[i];
+      console.log(newChar);
+      wordToReturn.push(newChar);
     } else {
+      wordToReturn.push(currentChar);
     }
   }
 
-  return wordToReturn;
+  // return wordToReturn.join('');
 }
 
 // console.log(vowel_rotate('computer')); // => "cempotur"
