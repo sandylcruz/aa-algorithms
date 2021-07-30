@@ -269,22 +269,21 @@ function vowel_rotate(word) {
     const currentChar = chars[i];
 
     if (vowels.includes(currentChar)) {
-      const newChar = shiftedVowels[i];
-      console.log(newChar);
+      const newChar = shiftedVowels.shift();
       wordToReturn.push(newChar);
     } else {
       wordToReturn.push(currentChar);
     }
   }
 
-  // return wordToReturn.join('');
+  return wordToReturn.join('');
 }
 
-// console.log(vowel_rotate('computer')); // => "cempotur"
-// console.log(vowel_rotate('oranges')); // => "erongas"
-// console.log(vowel_rotate('headphones')); // => "heedphanos"
-// console.log(vowel_rotate('bootcamp')); // => "baotcomp"
-// console.log(vowel_rotate('awesome')); // => "ewasemo"
+console.log(vowel_rotate('computer')); // => "cempotur"
+console.log(vowel_rotate('oranges')); // => "erongas"
+console.log(vowel_rotate('headphones')); // => "heedphanos"
+console.log(vowel_rotate('bootcamp')); // => "baotcomp"
+console.log(vowel_rotate('awesome')); // => "ewasemo"
 
 /*
 Extend the string class by defining a String#select method 
