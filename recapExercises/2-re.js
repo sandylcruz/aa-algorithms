@@ -182,15 +182,17 @@ function bubbleSort1(array) {
 // console.log(bubbleSort1([5, 4, 7])); // => [4, 5, 7]
 
 const bubbleSort = (array) => {
-  let isSwapped = false;
+  let isSorted = false;
 
-  while (!isSwapped) {
+  while (!isSorted) {
+    isSorted = true;
+
     for (let i = 0; i < array.length - 1; i++) {
       if (array[i] > array[i + 1]) {
         const temp = array[i];
         array[i] = array[i + 1];
         array[i + 1] = temp;
-        isSwapped = true;
+        isSorted = false;
       }
     }
   }
@@ -199,8 +201,8 @@ const bubbleSort = (array) => {
 };
 
 console.log(bubbleSort([7, 6, 5, 4, 3, 2, 1]));
-console.log(bubbleSort([4, 12, 2, 8, 1, 14, 9, 25, 24, 81])); // => [1, 2, 4, 8, 9, 12, 14, 24, 25, 81]
-console.log(bubbleSort([5, 4, 7])); // => [4, 5, 7]
+// console.log(bubbleSort([4, 12, 2, 8, 1, 14, 9, 25, 24, 81])); // => [1, 2, 4, 8, 9, 12, 14, 24, 25, 81]
+// console.log(bubbleSort([5, 4, 7])); // => [4, 5, 7]
 
 const fizzBuzz = (num) => {
   const arrayToReturn = [];
