@@ -22,51 +22,39 @@ my_flatten should return all elements of the array into a
 new, one-dimensional array. Hint: use recursion!
 */
 
-// const myFlatten = (array) => {
-//   const flattened = [];
-//   array.forEach((item) => {
-//     if (Array.isArray(item)) {
-//       flattened.push(...myFlatten(item));
-//     } else {
-//       flattened.push(item);
-//     }
-//   });
-
-//   return flattened;
-// };
-
-// const myFlatten = (array) => {
-//   const acc = [];
-
-//   array.forEach((el) => {
-//     if (Array.isArray(el)) {
-//       acc.push(...myFlatten(el));
-//     } else {
-//       acc.push(el);
-//     }
-//   });
-
-//   return acc;
-// };
-
-const myFlatten = (array) => {
+const myFlatten1 = (array) => {
   const flattened = [];
-
-  return array.reduce((acc, el) => {
-    if (Array.isArray(el)) {
-      flattened.push(myFlatten(el));
+  array.forEach((item) => {
+    if (Array.isArray(item)) {
+      flattened.push(...myFlatten(item));
     } else {
-      flattened.push(el);
+      flattened.push(item);
     }
-  }, flattened);
+  });
+
+  return flattened;
 };
 
-const oneLevel = ['🔥', ['🦁', '🍕'], '🦋'];
-console.log(myFlatten(oneLevel)); // ['🔥', '🦁', '🍕', '🦋'];
-const twoLevel = ['🔥', ['🦁', ['👸', '🤴'], ' 🦋'], '🍉'];
-console.log(myFlatten(twoLevel));
-['🔥', '🦁', ['👸', '🤴'], ' 🦋', '🍉'];
-console.log(myFlatten([]));
+const myFlatten = (array) => {
+  const acc = [];
+
+  array.forEach((el) => {
+    if (Array.isArray(el)) {
+      acc.push(...myFlatten(el));
+    } else {
+      acc.push(el);
+    }
+  });
+
+  return acc;
+};
+
+// const oneLevel = ['🔥', ['🦁', '🍕'], '🦋'];
+// console.log(myFlatten(oneLevel)); // ['🔥', '🦁', '🍕', '🦋'];
+// const twoLevel = ['🔥', ['🦁', ['👸', '🤴'], ' 🦋'], '🍉'];
+// console.log(myFlatten(twoLevel));
+// ['🔥', '🦁', ['👸', '🤴'], ' 🦋', '🍉'];
+// console.log(myFlatten([]));
 
 const myIncludes = (array, target) => {
   for (let i = 0; i < array.length; i++) {
@@ -104,7 +92,7 @@ the array, separated by the given string separator. If no
 separator is given, an empty string is used.
 */
 
-const myJoin = (string, joiner) => {
+const myJoin1 = (string, joiner) => {
   let stringToReturn = '';
 
   for (let i = 0; i < string.length; i++) {
@@ -118,12 +106,31 @@ const myJoin = (string, joiner) => {
 
   return stringToReturn;
 };
+
+const myJoin = (elements, joiner) => {
+  return elements.reduce((accumulator, el) => {
+    if (joiner) {
+      accumulator += el + joiner;
+    } else {
+      accumulator += el;
+    }
+    return accumulator;
+  }, '');
+};
+
 // const array1 = ['c', 'a', 'l', 'l', 'i', 'e'];
 // const array2 = [4, 5, 6];
 // const alphabet = ['a', 'b', 'c', 'd'];
 // console.log(myJoin(alphabet)); // => "abcd"
 // console.log(myJoin(alphabet, '$')); // => "a$b$c$d"
 // console.log(myJoin(array1)); // => 'callie
+
+const myLength1 = (array) => {
+  return array.reduce((acc, el) => {
+    acc += 1;
+    return acc;
+  }, 0);
+};
 
 const myLength = (array) => {
   let count = 0;
@@ -154,10 +161,17 @@ const myPop = (array) => {
 // console.log(myPop(fruits)); // => ["Strawberry"]
 
 const myPush = (array, el) => {
-  return array + ',' + el;
+  return array.reduce((acc, el) => {
+    acc + el;
+    return acc;
+  }, []);
 };
-// console.log(myPush([1, 2, 3], 4));
-// console.log(myPush(['a', 'b', 'c'], 'd'));
+
+// const myPush = (array, el) => {
+//   return array + ',' + el;
+// };
+console.log(myPush([1, 2, 3], 4));
+console.log(myPush(['a', 'b', 'c'], 'd'));
 
 const myReduce = () => {};
 
@@ -193,7 +207,7 @@ const byCount = (array) =>
     return accumulator;
   }, {});
 
-console.log(byCount([1, 1, 2, 3, 4, 5, 5, 5, 5]));
+// console.log(byCount([1, 1, 2, 3, 4, 5, 5, 5, 5]));
 
 const myReverse = (array) => {
   return array.reduce((accumulator, element) => {
@@ -226,7 +240,15 @@ By default, the array should rotate by one element. If a
 negative value is given, the array is rotated in the 
 opposite direction.
 */
-const myRotate = (array, num) => {};
+const myRotate = (array, num) => {
+  const rotated = [];
+
+  if (num) {
+  } else {
+  }
+
+  return rotated;
+};
 const array = ['a', 'b', 'c', 'd'];
 // console.log(myRotate(array)); // => ["b", "c", "d", "a"]
 // console.log(myRotate(array, 2)); // => ["c", "d", "a", "b"]
