@@ -160,9 +160,11 @@ const myPop = (array) => {
 // console.log(myPop(fruits)); // => ["Strawberry"]
 // console.log(myPop(fruits)); // => ["Strawberry"]
 
-const myPush = (array, el) => {
-  return array.reduce((acc, el) => {
-    acc + el;
+const myPush = (array, newEl) => {
+  return array.reduce((acc, currentEl) => {
+    acc = array;
+    acc += ',' + newEl;
+
     return acc;
   }, []);
 };
@@ -170,6 +172,7 @@ const myPush = (array, el) => {
 // const myPush = (array, el) => {
 //   return array + ',' + el;
 // };
+
 console.log(myPush([1, 2, 3], 4));
 console.log(myPush(['a', 'b', 'c'], 'd'));
 
