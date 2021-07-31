@@ -286,22 +286,6 @@ console.log(vowel_rotate('bootcamp')); // => "baotcomp"
 console.log(vowel_rotate('awesome')); // => "ewasemo"
 
 /*
-Extend the string class by defining a String#select method 
-that accepts a block. The method should return a new 
-string containing characters of the original string 
-that return true when passed into the block. If no block 
-is passed, then return the empty string. Do not use 
-the built-in Array#select in your solution.
-
-# Examples
-"app academy".select { |ch| !"aeiou".include?(ch) }   # => "pp cdmy"
-"HELLOworld".select { |ch| ch == ch.upcase }          # => "HELLO"
-"HELLOworld".select          # => ""
-*/
-
-function stringSelect(string) {}
-
-/*
 Extend the string class by defining a String#map! method 
 that accepts a block. The method should modify the 
 existing string by replacing every character with the 
@@ -310,7 +294,7 @@ character and it's index. Do not use the built-in
 Array#map or Array#map! in your solution.
 */
 
-function stringMap() {}
+function myMap(array) {}
 
 /*
 Write a method multiply(a, b) that takes in two numbers 
