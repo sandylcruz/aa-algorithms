@@ -92,17 +92,41 @@ the array, separated by the given string separator. If no
 separator is given, an empty string is used.
 */
 
-const myJoin = (string, joiner) => {};
-const array1 = ['c', 'a', 'l', 'l', 'i', 'e'];
-const array2 = [4, 5, 6];
-const alphabet = ['a', 'b', 'c', 'd'];
-// console.log(myJoin(alphabet))         // => "abcd"
-// console.log(a.myJoin(alphabet, "$"))    // => "a$b$c$d"
+const myJoin = (string, joiner) => {
+  let stringToReturn = '';
+
+  for (let i = 0; i < string.length; i++) {
+    const currentChar = string[i];
+    if (joiner && currentChar !== string[string.length - 1]) {
+      stringToReturn += currentChar + joiner;
+    } else {
+      stringToReturn += currentChar;
+    }
+  }
+
+  return stringToReturn;
+};
+// const array1 = ['c', 'a', 'l', 'l', 'i', 'e'];
+// const array2 = [4, 5, 6];
+// const alphabet = ['a', 'b', 'c', 'd'];
+// console.log(myJoin(alphabet)); // => "abcd"
+// console.log(myJoin(alphabet, '$')); // => "a$b$c$d"
 // console.log(myJoin(array1)); // => 'callie
 
-const myLength = (array) => {};
+const myLength = (array) => {
+  let count = 0;
+
+  array.forEach((el) => {
+    count += 1;
+  });
+
+  return count;
+};
+// const fruits = ['Apple', 'Banana', 'Strawberry'];
 // console.log(myLength(fruits)); // => 2
-// console.log(myLength[]) // => 0
+// console.log(myLength([1, 2, 3, 4, 5, 6, 7, 8, 9])); // 9
+// console.log(myLength([1, 2, 3, 'cat', 5, 6, { num: 9 }]));
+// console.log(myLength([])); // => 0
 
 const myMap = (array) => {};
 
