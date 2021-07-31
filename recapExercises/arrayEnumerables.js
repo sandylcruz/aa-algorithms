@@ -22,35 +22,39 @@ my_flatten should return all elements of the array into a
 new, one-dimensional array. Hint: use recursion!
 */
 
+// const myFlatten = (array) => {
+//   const flattened = [];
+//   array.forEach((item) => {
+//     if (Array.isArray(item)) {
+//       flattened.push(...myFlatten(item));
+//     } else {
+//       flattened.push(item);
+//     }
+//   });
+
+//   return flattened;
+// };
+
 const myFlatten = (array) => {
-  if (array.length === 1) return array;
+  const acc = [];
 
-  const arrayToReturn = [];
-
-  for (let i = 0; i < array.length; i++) {
-    const currentEl = array[i];
-
-    if (Array.isArray(currentEl)) {
-      // console.log('in array');
-      console.log(myFlatten(currentEl));
-      const el = myFlatten(currentEl);
-      arrayToReturn.push(el);
-      // currentEl.forEach((el) => {
-      //   arrayToReturn.push(el);
-      // });
+  array.forEach((el) => {
+    if (Array.isArray(el)) {
+      acc.push(...myFlatten(el));
     } else {
-      arrayToReturn.push(currentEl);
+      acc.push(el);
     }
-  }
+  });
 
-  // return arrayToReturn;
+  return acc;
 };
+
 const oneLevel = ['🔥', ['🦁', '🍕'], '🦋'];
 console.log(myFlatten(oneLevel)); // ['🔥', '🦁', '🍕', '🦋'];
-// const twoLevel = ['🔥', ['🦁', ['👸', '🤴'], ' 🦋'], '🍉'];
-// console.log(myFlatten(twoLevel));
-// ['🔥', '🦁', ['👸', '🤴'], ' 🦋', '🍉'];
-// console.log(myFlatten([]));
+const twoLevel = ['🔥', ['🦁', ['👸', '🤴'], ' 🦋'], '🍉'];
+console.log(myFlatten(twoLevel));
+['🔥', '🦁', ['👸', '🤴'], ' 🦋', '🍉'];
+console.log(myFlatten([]));
 
 const myIncludes = (array) => {};
 // const fruits = ['Apple', 'Banana', 'Strawberry'];
