@@ -14,7 +14,7 @@ const myForEach = (array) => {
 
   return newArray;
 };
-const fruits = ['Apple', 'Banana', 'Strawberry'];
+// const fruits = ['Apple', 'Banana', 'Strawberry'];
 // console.log(myForEach(fruits));
 
 /*
@@ -49,21 +49,42 @@ const myFlatten = (array) => {
   return acc;
 };
 
-const oneLevel = ['🔥', ['🦁', '🍕'], '🦋'];
-console.log(myFlatten(oneLevel)); // ['🔥', '🦁', '🍕', '🦋'];
-const twoLevel = ['🔥', ['🦁', ['👸', '🤴'], ' 🦋'], '🍉'];
-console.log(myFlatten(twoLevel));
-['🔥', '🦁', ['👸', '🤴'], ' 🦋', '🍉'];
-console.log(myFlatten([]));
+// const oneLevel = ['🔥', ['🦁', '🍕'], '🦋'];
+// console.log(myFlatten(oneLevel)); // ['🔥', '🦁', '🍕', '🦋'];
+// const twoLevel = ['🔥', ['🦁', ['👸', '🤴'], ' 🦋'], '🍉'];
+// console.log(myFlatten(twoLevel));
+// ['🔥', '🦁', ['👸', '🤴'], ' 🦋', '🍉'];
+// console.log(myFlatten([]));
 
-const myIncludes = (array) => {};
+const myIncludes = (array, target) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      return true;
+    }
+  }
+
+  return false;
+};
 // const fruits = ['Apple', 'Banana', 'Strawberry'];
-// console.log(myIncludes(fruits, 'Apple'));
-// console.log(myIncludes(fruits, 'Apples'));
+// console.log(myIncludes([1, 2, 3, 4, 5], 5)); // => true
+// console.log(myIncludes(fruits, 'App')); // => false
+// console.log(myIncludes(fruits, 'Apple')); // => true
+// console.log(myIncludes(fruits, 'Apples')); // => false
 
-const myIndexOf = (array, target) => {};
-// console.log(myIndexOf(array, 'Apple'));
-// console.log(myIndexOf(array, 'Applez'));
+const myIndexOf = (array, target) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      return i;
+    }
+  }
+
+  return -1;
+};
+// const fruits = ['Apple', 'Banana', 'Strawberry'];
+// console.log(myIndexOf(fruits, 'Apple'));
+// console.log(myIndexOf(fruits, 'Banana'));
+// console.log(myIndexOf(fruits, 'Strawberry'));
+// console.log(myIndexOf(fruits, 'Applez'));
 
 /*
 myJoin returns a single string containing all the elements of 
