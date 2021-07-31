@@ -152,7 +152,6 @@ const myPop = (array) => {
   const lastEl = array[lastIndex];
 
   array.splice(0, lastIndex);
-  console.log('spliced array:', array);
   return lastEl;
 };
 // const fruits = ['Apple', 'Banana', 'Strawberry'];
@@ -160,7 +159,7 @@ const myPop = (array) => {
 // console.log(myPop(fruits)); // => ["Strawberry"]
 // console.log(myPop(fruits)); // => ["Strawberry"]
 
-const myPush = (array, newEl) => {
+const myPush1 = (array, newEl) => {
   return array.reduce((acc, currentEl) => {
     acc = array;
     acc += ',' + newEl;
@@ -169,35 +168,32 @@ const myPush = (array, newEl) => {
   }, []);
 };
 
-// const myPush = (array, el) => {
-//   return array + ',' + el;
-// };
+const myPush = (array, el) => {
+  return array + ',' + el;
+};
 
-console.log(myPush([1, 2, 3], 4));
-console.log(myPush(['a', 'b', 'c'], 'd'));
+// console.log(myPush([1, 2, 3], 4));
+// console.log(myPush(['a', 'b', 'c'], 'd'));
 
 const myReduce = () => {};
 
-/*
-Write a method that returns a new array containing all the 
-elements of the original array in reverse order.
-*/
+// Write counter of array elements
 
-// const byCount = (array) => {
-//   const newObject = {};
+const byCount1 = (array) => {
+  const newObject = {};
 
-//   for (let i = 0; i < array.length; i++) {
-//     const num = array[i];
+  for (let i = 0; i < array.length; i++) {
+    const num = array[i];
 
-//     if (newObject[num]) {
-//       newObject[num] += 1;
-//     } else {
-//       newObject[num] = 1;
-//     }
-//   }
+    if (newObject[num]) {
+      newObject[num] += 1;
+    } else {
+      newObject[num] = 1;
+    }
+  }
 
-//   return newObject;
-// };
+  return newObject;
+};
 
 const byCount = (array) =>
   array.reduce((accumulator, currentElement) => {
@@ -211,6 +207,11 @@ const byCount = (array) =>
   }, {});
 
 // console.log(byCount([1, 1, 2, 3, 4, 5, 5, 5, 5]));
+
+/*
+Write a method that returns a new array containing all the 
+elements of the original array in reverse order.
+*/
 
 const myReverse = (array) => {
   return array.reduce((accumulator, element) => {
@@ -243,20 +244,21 @@ By default, the array should rotate by one element. If a
 negative value is given, the array is rotated in the 
 opposite direction.
 */
-const myRotate = (array, num) => {
-  const rotated = [];
-
-  if (num) {
+const myRotate = (array, shift) => {
+  if (shift) {
+    const changedShift = shift % array.length;
+    const newFinishingElements = array.slice(0, changedShift);
+    const newBeginningElements = array.slice(changedShift);
+    return newBeginningElements.concat(newFinishingElements);
   } else {
+    return myRotate(array, 1);
   }
-
-  return rotated;
 };
 const array = ['a', 'b', 'c', 'd'];
-// console.log(myRotate(array)); // => ["b", "c", "d", "a"]
-// console.log(myRotate(array, 2)); // => ["c", "d", "a", "b"]
-// console.log(myRotate(array, -3)); // => ["b", "c", "d", "a"]
-// console.log(myRotate(array, 15)); // => ["d", "a", "b", "c"]
+console.log(myRotate(array)); // => ["b", "c", "d", "a"]
+console.log(myRotate(array, 2)); // => ["c", "d", "a", "b"]
+console.log(myRotate(array, -3)); // => ["b", "c", "d", "a"]
+console.log(myRotate(array, 15)); // => ["d", "a", "b", "c"]
 
 const mySelect = () => {};
 
