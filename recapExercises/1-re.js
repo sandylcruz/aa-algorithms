@@ -86,37 +86,61 @@ The method should return an array containing all bigrams found in the string.
 The found bigrams should be returned in the the order they appear in the original array.
 */
 
-function find_bigrams(str, bigrams) {
-  let bigramsToReturn = [];
-  const words = str.split(' ');
-  const counter = {};
+// function find_bigrams(str, bigrams) {
+//   let bigramsToReturn = [];
+//   const words = str.split(' ');
+//   const counter = {};
 
-  words.forEach((word) => {
+//   words.forEach((word) => {
+//     for (let i = 0; i < word.length - 1; i++) {
+//       const char1 = word[i];
+//       const char2 = word[i + 1];
+//       const newBigram = [char1 + char2];
+
+//       if (counter[newBigram]) {
+//         counter[newBigram] += 1;
+//       } else {
+//         counter[newBigram] = 1;
+//       }
+//     }
+//   });
+
+//   bigrams.forEach((bigram) => {
+//     if (bigram in counter) {
+//       bigramsToReturn.push(bigram);
+//     }
+//   });
+
+//   return bigramsToReturn;
+// }
+
+const find_bigrams = (sentence) => {
+  const words = sentence.split(' ');
+  console.log(words);
+
+  const count = words.reduce((accumulator, word) => {
     for (let i = 0; i < word.length - 1; i++) {
-      const char1 = word[i];
-      const char2 = word[i + 1];
+      const char1 = word[0];
+      const char2 = word[1];
       const newBigram = [char1 + char2];
+      console.log(newBigram);
 
-      if (counter[newBigram]) {
-        counter[newBigram] += 1;
+      if (accumulator[newBigram]) {
+        accumulator[newBigram] += 1;
       } else {
-        counter[newBigram] = 1;
+        accumulator[newBigram] = 1;
       }
+
+      return accumulator;
     }
-  });
+  }, []);
 
-  bigrams.forEach((bigram) => {
-    if (bigram in counter) {
-      bigramsToReturn.push(bigram);
-    }
-  });
+  console.log(count);
+};
 
-  return bigramsToReturn;
-}
-
-// console.log(
-//   find_bigrams('the theater is empty', ['cy', 'em', 'ty', 'ea', 'oo'])
-// ); // => ["em", "ty", "ea"]
+console.log(
+  find_bigrams('the theater is empty', ['cy', 'em', 'ty', 'ea', 'oo'])
+); // => ["em", "ty", "ea"]
 // console.log(find_bigrams('to the moon and back', ['ck', 'oo', 'ha', 'at'])); // => ["ck", "oo"]
 
 /*
@@ -207,9 +231,9 @@ const bothCasesCaesar = (word, shift) => {
   return newWord.join('');
 };
 
-console.log(bothCasesCaesar('ApPLe', 1)); // => "BqQMf"
-console.log(bothCasesCaesar('BOoTcaMP', 2)); // => "DQqVecOR"
-console.log(bothCasesCaesar('zebRA', 4)); // => "difVE"
+// console.log(bothCasesCaesar('ApPLe', 1)); // => "BqQMf"
+// console.log(bothCasesCaesar('BOoTcaMP', 2)); // => "DQqVecOR"
+// console.log(bothCasesCaesar('zebRA', 4)); // => "difVE"
 
 /*
 Write a method prime_factorization(num) that accepts a 

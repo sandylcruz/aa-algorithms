@@ -35,26 +35,38 @@ new, one-dimensional array. Hint: use recursion!
 //   return flattened;
 // };
 
+// const myFlatten = (array) => {
+//   const acc = [];
+
+//   array.forEach((el) => {
+//     if (Array.isArray(el)) {
+//       acc.push(...myFlatten(el));
+//     } else {
+//       acc.push(el);
+//     }
+//   });
+
+//   return acc;
+// };
+
 const myFlatten = (array) => {
-  const acc = [];
+  const flattened = [];
 
-  array.forEach((el) => {
+  return array.reduce((acc, el) => {
     if (Array.isArray(el)) {
-      acc.push(...myFlatten(el));
+      flattened.push(myFlatten(el));
     } else {
-      acc.push(el);
+      flattened.push(el);
     }
-  });
-
-  return acc;
+  }, flattened);
 };
 
-// const oneLevel = ['🔥', ['🦁', '🍕'], '🦋'];
-// console.log(myFlatten(oneLevel)); // ['🔥', '🦁', '🍕', '🦋'];
-// const twoLevel = ['🔥', ['🦁', ['👸', '🤴'], ' 🦋'], '🍉'];
-// console.log(myFlatten(twoLevel));
-// ['🔥', '🦁', ['👸', '🤴'], ' 🦋', '🍉'];
-// console.log(myFlatten([]));
+const oneLevel = ['🔥', ['🦁', '🍕'], '🦋'];
+console.log(myFlatten(oneLevel)); // ['🔥', '🦁', '🍕', '🦋'];
+const twoLevel = ['🔥', ['🦁', ['👸', '🤴'], ' 🦋'], '🍉'];
+console.log(myFlatten(twoLevel));
+['🔥', '🦁', ['👸', '🤴'], ' 🦋', '🍉'];
+console.log(myFlatten([]));
 
 const myIncludes = (array, target) => {
   for (let i = 0; i < array.length; i++) {
@@ -128,12 +140,24 @@ const myLength = (array) => {
 // console.log(myLength([1, 2, 3, 'cat', 5, 6, { num: 9 }]));
 // console.log(myLength([])); // => 0
 
-const myMap = (array) => {};
+const myPop = (array) => {
+  const lastIndex = array.length - 1;
+  const lastEl = array[lastIndex];
 
-const myPop = (array) => {};
-// console.log(myPop(fruits)); // => ["Apple", "Banana"]
+  array.splice(0, lastIndex);
+  console.log('spliced array:', array);
+  return lastEl;
+};
+// const fruits = ['Apple', 'Banana', 'Strawberry'];
+// console.log(myPop(fruits)); // => ["Strawberry"]
+// console.log(myPop(fruits)); // => ["Strawberry"]
+// console.log(myPop(fruits)); // => ["Strawberry"]
 
-const myPush = (array) => {};
+const myPush = (array, el) => {
+  return array + ',' + el;
+};
+// console.log(myPush([1, 2, 3], 4));
+// console.log(myPush(['a', 'b', 'c'], 'd'));
 
 const myReduce = () => {};
 
@@ -141,9 +165,59 @@ const myReduce = () => {};
 Write a method that returns a new array containing all the 
 elements of the original array in reverse order.
 */
-const myReverse = () => {};
+
+// const byCount = (array) => {
+//   const newObject = {};
+
+//   for (let i = 0; i < array.length; i++) {
+//     const num = array[i];
+
+//     if (newObject[num]) {
+//       newObject[num] += 1;
+//     } else {
+//       newObject[num] = 1;
+//     }
+//   }
+
+//   return newObject;
+// };
+
+const byCount = (array) =>
+  array.reduce((accumulator, currentElement) => {
+    if (accumulator[currentElement]) {
+      accumulator[currentElement] += 1;
+    } else {
+      accumulator[currentElement] = 1;
+    }
+
+    return accumulator;
+  }, {});
+
+console.log(byCount([1, 1, 2, 3, 4, 5, 5, 5, 5]));
+
+const myReverse = (array) => {
+  return array.reduce((accumulator, element) => {
+    accumulator.unshift(element);
+
+    return accumulator;
+  }, []);
+};
+
+const myReverse2 = (array) => {
+  const accumulator = [];
+
+  array.forEach((element) => {
+    accumulator.unshift(element);
+  });
+
+  return accumulator;
+};
+
+// console.log(myReverse([1, 2, 3, 4])); // [6, 5, 4, 3, 2, 1]
+// console.log(myReverse([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 // console.log(myReverse(['a', 'b', 'c'])); // => ["c", "b", "a"]
 // console.log(myReverse([1])); // => [1]
+// console.log(myReverse([]));
 
 /*
 Write a method my_rotate that returns a new array containing 
