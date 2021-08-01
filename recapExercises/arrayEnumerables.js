@@ -261,8 +261,15 @@ const array = ['a', 'b', 'c', 'd'];
 // console.log(myRotate(array, 15)); // => ["d", "a", "b", "c"]
 
 // Remove item from beginning of array
-const myShift = (array) => {};
-// console.log();
+const myShift = (array) => {
+  return array.reduce((acc, el) => {
+    const firstEl = array[0];
+    acc = array.slice(1);
+    return firstEl;
+  }, []);
+};
+const alpha = ['a', 'b', 'c', 'd'];
+console.log(myShift(alpha)); // => ['b', 'c', 'd']
 
 // Remove item by index position
 const mySlice = (array, num) => {};
@@ -286,4 +293,4 @@ const myUnshift = (array, newEl) => {
   }, []);
 };
 const array1 = ['a', 'b', 'c', 'd'];
-console.log(myUnshift(array1, 5)); // => ['a', 'b', 'c', 'd', 5]
+// console.log(myUnshift(array1, 5)); // => ['a', 'b', 'c', 'd', 5]
