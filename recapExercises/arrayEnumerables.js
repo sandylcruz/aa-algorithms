@@ -269,7 +269,7 @@ const myShift = (array) => {
   }, []);
 };
 const alpha = ['a', 'b', 'c', 'd'];
-console.log(myShift(alpha)); // => ['b', 'c', 'd']
+// console.log(myShift(alpha)); // => ['b', 'c', 'd']
 
 // Remove item by index position
 const mySlice = (array, num) => {};
@@ -278,7 +278,15 @@ const mySlice = (array, num) => {};
 // Return true if at least one el satisfies function
 const mySome = (array) => {};
 
-const myToString = (array) => {};
+const myToString = (array) => {
+  return array.reduce((string, currentElement) => {
+    string += currentElement;
+    return string;
+  }, '');
+};
+
+console.log(myToString([1, 2, 3, 4, 5]));
+console.log(myToString(['c', 'a', 'l', 'l', 'i', 'e']));
 
 // Add item to beginning of array
 const myUnshift = (array, newEl) => {
