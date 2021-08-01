@@ -147,6 +147,20 @@ const myLength = (array) => {
 // console.log(myLength([1, 2, 3, 'cat', 5, 6, { num: 9 }]));
 // console.log(myLength([])); // => 0
 
+const myMap = (array, callback) => {
+  const arr = [];
+  for (let i = 0; i < array.length; i++) {
+    arr.push(callback(array[i]));
+  }
+
+  return arr;
+};
+console.log(
+  myMap([1, 2, 3], (num) => {
+    return num * 2;
+  })
+);
+
 const myPop = (array) => {
   const lastIndex = array.length - 1;
   const lastEl = array[lastIndex];
@@ -272,11 +286,15 @@ const alpha = ['a', 'b', 'c', 'd'];
 // console.log(myShift(alpha)); // => ['b', 'c', 'd']
 
 // Remove item by index position
-const mySlice = (array, num) => {};
+const mySlice = (array, num) => {
+  for (let i = 0; i < array.length; i++) {
+    // const partsToSliceOff = array[]
+  }
+};
 // console.log(mySlice[('strawberry', 'banana', 'mango')], 1); // => ['strawberry', 'mango']
 
 // Return true if at least one el satisfies function
-const mySome = (array) => {};
+const mySome = (array, callback) => {};
 
 const myToString = (array) => {
   return array.reduce((string, currentElement) => {
@@ -285,8 +303,8 @@ const myToString = (array) => {
   }, '');
 };
 
-console.log(myToString([1, 2, 3, 4, 5]));
-console.log(myToString(['c', 'a', 'l', 'l', 'i', 'e']));
+// console.log(myToString([1, 2, 3, 4, 5]));
+// console.log(myToString(['c', 'a', 'l', 'l', 'i', 'e']));
 
 // Add item to beginning of array
 const myUnshift = (array, newEl) => {
