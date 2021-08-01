@@ -255,12 +255,10 @@ const myRotate = (array, shift) => {
   }
 };
 const array = ['a', 'b', 'c', 'd'];
-console.log(myRotate(array)); // => ["b", "c", "d", "a"]
-console.log(myRotate(array, 2)); // => ["c", "d", "a", "b"]
-console.log(myRotate(array, -3)); // => ["b", "c", "d", "a"]
-console.log(myRotate(array, 15)); // => ["d", "a", "b", "c"]
-
-const mySelect = () => {};
+// console.log(myRotate(array)); // => ["b", "c", "d", "a"]
+// console.log(myRotate(array, 2)); // => ["c", "d", "a", "b"]
+// console.log(myRotate(array, -3)); // => ["b", "c", "d", "a"]
+// console.log(myRotate(array, 15)); // => ["d", "a", "b", "c"]
 
 // Remove item from beginning of array
 const myShift = (array) => {};
@@ -276,4 +274,16 @@ const mySome = (array) => {};
 const myToString = (array) => {};
 
 // Add item to beginning of array
-const myUnshift = (array) => {};
+const myUnshift = (array, newEl) => {
+  return array.reduce((newArray, newestElement) => {
+    const unShiftedArray = [newEl];
+
+    for (let i = 0; i < array.length; i++) {
+      unShiftedArray.push(array[i]);
+    }
+
+    return unShiftedArray;
+  }, []);
+};
+const array1 = ['a', 'b', 'c', 'd'];
+console.log(myUnshift(array1, 5)); // => ['a', 'b', 'c', 'd', 5]
