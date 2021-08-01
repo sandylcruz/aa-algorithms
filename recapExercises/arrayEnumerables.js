@@ -315,6 +315,9 @@ const mySlice = (array, num) => {
   return acc;
 };
 console.log(mySlice([1, 2, 3], 1)); // [2, 3]
+console.log(mySlice([1, 2, 3], 2)); // [3]
+console.log(mySlice([1, 2, 3], 11)); // []
+
 // console.log(mySlice[('strawberry', 'banana', 'mango')], 1); // => ['strawberry', 'mango']
 
 // Return true if at least one el satisfies function
