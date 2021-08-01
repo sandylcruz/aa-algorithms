@@ -43,6 +43,23 @@ const byCount = (array) =>
 
 // console.log(byCount([1, 1, 2, 3, 4, 5, 5, 5, 5]));
 
+const myFilter = (array, callback) => {
+  const arrayToReturn = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i])) {
+      arrayToReturn.push(array[i]);
+    }
+  }
+
+  return arrayToReturn;
+};
+console.log(
+  myFilter([1, 2, 3], (num) => {
+    return num % 2 === 0;
+  })
+);
+
 const myFlatten1 = (array) => {
   const flattened = [];
   array.forEach((item) => {
