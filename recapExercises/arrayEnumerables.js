@@ -238,7 +238,7 @@ const myPush = (array, el) => {
 // console.log(myPush([1, 2, 3], 4));
 // console.log(myPush(['a', 'b', 'c'], 'd'));
 
-const myReduce = () => {};
+const myReduce = (array, callback) => {};
 
 /*
 Write a method that returns a new array containing all the 
