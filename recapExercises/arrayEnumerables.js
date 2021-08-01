@@ -54,11 +54,11 @@ const myFilter = (array, callback) => {
 
   return arrayToReturn;
 };
-console.log(
-  myFilter([1, 2, 3], (num) => {
-    return num % 2 === 0;
-  })
-);
+// console.log(
+//   myFilter([1, 2, 3], (num) => {
+//     return num % 2 === 0;
+//   })
+// );
 
 const myFlatten1 = (array) => {
   const flattened = [];
@@ -276,6 +276,7 @@ By default, the array should rotate by one element. If a
 negative value is given, the array is rotated in the 
 opposite direction.
 */
+
 const myRotate = (array, shift) => {
   if (shift) {
     const changedShift = shift % array.length;
@@ -305,10 +306,15 @@ const alpha = ['a', 'b', 'c', 'd'];
 
 // Remove item by index position
 const mySlice = (array, num) => {
-  for (let i = 0; i < array.length; i++) {
-    // const partsToSliceOff = array[]
+  const acc = [];
+  for (let i = num; i < array.length; i++) {
+    const newArrayStart = num;
+    acc.push(array[i]);
   }
+
+  return acc;
 };
+console.log(mySlice([1, 2, 3], 1)); // [2, 3]
 // console.log(mySlice[('strawberry', 'banana', 'mango')], 1); // => ['strawberry', 'mango']
 
 // Return true if at least one el satisfies function
