@@ -6,21 +6,42 @@ then returns
 # the original array. Do not use Enumerable's `each` method. 
 
 */
-const myForEach = (array) => {
-  newArray = [];
-  for (let i = 0; i < array.length; i++) {
-    newArray.push(array[i]);
-  }
-
-  return newArray;
-};
-// const fruits = ['Apple', 'Banana', 'Strawberry'];
-// console.log(myForEach(fruits));
 
 /*
 my_flatten should return all elements of the array into a 
 new, one-dimensional array. Hint: use recursion!
 */
+
+// Write counter of array elements
+
+const byCount1 = (array) => {
+  const newObject = {};
+
+  for (let i = 0; i < array.length; i++) {
+    const num = array[i];
+
+    if (newObject[num]) {
+      newObject[num] += 1;
+    } else {
+      newObject[num] = 1;
+    }
+  }
+
+  return newObject;
+};
+
+const byCount = (array) =>
+  array.reduce((accumulator, currentElement) => {
+    if (accumulator[currentElement]) {
+      accumulator[currentElement] += 1;
+    } else {
+      accumulator[currentElement] = 1;
+    }
+
+    return accumulator;
+  }, {});
+
+// console.log(byCount([1, 1, 2, 3, 4, 5, 5, 5, 5]));
 
 const myFlatten1 = (array) => {
   const flattened = [];
@@ -55,6 +76,17 @@ const myFlatten = (array) => {
 // console.log(myFlatten(twoLevel));
 // ['🔥', '🦁', ['👸', '🤴'], ' 🦋', '🍉'];
 // console.log(myFlatten([]));
+
+const myForEach = (array) => {
+  newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    newArray.push(array[i]);
+  }
+
+  return newArray;
+};
+// const fruits = ['Apple', 'Banana', 'Strawberry'];
+// console.log(myForEach(fruits));
 
 const myIncludes = (array, target) => {
   for (let i = 0; i < array.length; i++) {
@@ -155,11 +187,11 @@ const myMap = (array, callback) => {
 
   return arr;
 };
-console.log(
-  myMap([1, 2, 3], (num) => {
-    return num * 2;
-  })
-);
+// console.log(
+//   myMap([1, 2, 3], (num) => {
+//     return num * 2;
+//   })
+// );
 
 const myPop = (array) => {
   const lastIndex = array.length - 1;
@@ -190,37 +222,6 @@ const myPush = (array, el) => {
 // console.log(myPush(['a', 'b', 'c'], 'd'));
 
 const myReduce = () => {};
-
-// Write counter of array elements
-
-const byCount1 = (array) => {
-  const newObject = {};
-
-  for (let i = 0; i < array.length; i++) {
-    const num = array[i];
-
-    if (newObject[num]) {
-      newObject[num] += 1;
-    } else {
-      newObject[num] = 1;
-    }
-  }
-
-  return newObject;
-};
-
-const byCount = (array) =>
-  array.reduce((accumulator, currentElement) => {
-    if (accumulator[currentElement]) {
-      accumulator[currentElement] += 1;
-    } else {
-      accumulator[currentElement] = 1;
-    }
-
-    return accumulator;
-  }, {});
-
-// console.log(byCount([1, 1, 2, 3, 4, 5, 5, 5, 5]));
 
 /*
 Write a method that returns a new array containing all the 
