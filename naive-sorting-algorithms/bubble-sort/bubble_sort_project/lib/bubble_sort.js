@@ -2,6 +2,7 @@ function swap(array, idx1, idx2) {
   let temp = array[idx1];
   array[idx1] = array[idx2];
   array[idx2] = temp;
+  return array;
 }
 arr = [3, 2, 1];
 console.log(swap(arr, 0, 1));
