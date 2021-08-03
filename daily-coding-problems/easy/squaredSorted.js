@@ -1,6 +1,6 @@
 /*
 Given a sorted list of integers, square the elements and give the output in sorted order.
-
+6/6/21
 */
 
 const squareSorted = (array) => {
