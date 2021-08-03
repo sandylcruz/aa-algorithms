@@ -20,24 +20,44 @@
 // stepper([3, 1, 0, 5, 10]);           // => true, because we can step through elements 3 -> 5 -> 10
 // stepper([3, 4, 1, 0, 10]);           // => true, because we can step through elements 3 -> 4 -> 10
 // stepper([2, 3, 1, 1, 0, 4, 7, 8])    // => false, there is no way to step to the end
-function stepper(numbers) {
-  const table = new Array(numbers.length + 1).fill(false);
-  table[0] = true;
 
-  for (let i = 0; i < table.length; i++) {
-    let currentNum = table[i];
-    if (currentNum === true) {
-      let maxRange = numbers[i];
+// function stepperTab(numbers) {
+//   const table = new Array(numbers.length + 1).fill(false);
+//   table[0] = true;
 
-      for (let j = 1; j <= maxRange; j++) {
-        if (currentNum + j <= table.length) {
-          table[j] = true;
-        }
-      }
+//   for (let i = 0; i < table.length; i++) {
+//     let currentNum = table[i];
+//     if (currentNum === true) {
+//       let maxRange = numbers[i];
+
+//       for (let j = 1; j <= maxRange; j++) {
+//         if (currentNum + j <= table.length) {
+//           table[j] = true;
+//         }
+//       }
+//     }
+//   }
+//   return table[table.length - 1];
+// }
+
+const stepper = (numbers, memo = {}) => {
+  let key = String(numbers);
+  if (key in memo) return memo[key];
+
+  if (numbers.length === 0) return true;
+  let maxRange = numbers[0];
+
+  for (let step = 1; step <= maxRange; step++) {
+    const slicedArray = numbers.slice(step);
+    if (stepper(slicedArray, memo)) {
+      memo[key] = true;
+      return true;
     }
   }
-  return table[table.length - 1];
-}
+  memo[key] = false;
+  return false;
+};
+
 console.log(stepper([3, 1, 0, 5, 10])); // true
 console.log(stepper([2, 3, 1, 1, 0, 4, 7, 8])); // false
 
