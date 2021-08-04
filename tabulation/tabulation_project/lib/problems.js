@@ -58,8 +58,8 @@ const stepper = (numbers, memo = {}) => {
   return false;
 };
 
-console.log(stepper([3, 1, 0, 5, 10])); // true
-console.log(stepper([2, 3, 1, 1, 0, 4, 7, 8])); // false
+// console.log(stepper([3, 1, 0, 5, 10])); // true
+// console.log(stepper([2, 3, 1, 1, 0, 4, 7, 8])); // false
 
 // Write a function, maxNonAdjacentSum(nums), that takes in an array of nonnegative numbers.
 // The function should return the maximum sum of elements in the array we can get if we cannot take
@@ -71,10 +71,24 @@ console.log(stepper([2, 3, 1, 1, 0, 4, 7, 8])); // false
 //
 // maxNonAdjacentSum([2, 7, 9, 3, 4])   // => 15, because 2 + 9 + 4
 // maxNonAdjacentSum([4,2,1,6])         // => 10, because 4 + 6
-function maxNonAdjacentSum(nums) {}
+
+function maxNonAdjacentSum(nums) {
+  if (nums.length === 0) return 0;
+  const table = new Array(nums.length + 1).fill(0);
+
+  for (let i = 0; i < table.length; i++) {
+    const currentNum = nums[i];
+    let acceptableNumRange = nums.slice(currentNum + 1);
+
+    acceptableNumRange.forEach((num) => {});
+
+    console.log('current num:', `${currentNum}`, acceptableNumRange);
+  }
+}
 // console.log(maxNonAdjacentSum([2, 7, 9, 3, 4])); // 15
 // console.log(maxNonAdjacentSum([])); // 0
 // console.log(maxNonAdjacentSum([1, 2, 3, 1])); // 4
+console.log(maxNonAdjacentSum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 // Write a function, minChange(coins, amount), that accepts an array of coin values
 // and a target amount as arguments. The method should the minimum number of coins needed
@@ -82,7 +96,7 @@ function maxNonAdjacentSum(nums) {}
 //
 // You've seen this problem before with memoization, but now solve it using the Tabulation strategy!
 //
-// Examples:
+// Examples:1 `````````
 //
 // minChange([1, 2, 5], 11)         // => 3, because 5 + 5 + 1 = 11
 // minChange([1, 4, 5], 8))         // => 2, because 4 + 4 = 8
