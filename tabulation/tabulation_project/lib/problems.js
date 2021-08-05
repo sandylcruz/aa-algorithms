@@ -72,40 +72,60 @@ const stepper = (numbers, memo = {}) => {
 // maxNonAdjacentSum([2, 7, 9, 3, 4])   // => 15, because 2 + 9 + 4
 // maxNonAdjacentSum([4,2,1,6])         // => 10, because 4 + 6
 
-function maxNonAdjacentSum(nums) {
+function maxNonAdjacentSumTabulation(nums) {
   if (nums.length === 0) return 0;
   let table = new Array(nums.length).fill(0);
   table[0] = nums[0];
 
   for (let i = 1; i < table.length; i++) {
-    // storing max non-adjacent sum in the table
-    // take current element. cannot add immediate before or after number
-    // if at index i, skip the left neighbor
-    // on first iteration, we start at index 1 = 1, so now index is 1- 2 which is -1.
-    // if this value at table[i - 2] is off the left edge of table, use 0 instead.
-    // if not undefined, use the same value
+    /*
+      storing max non-adjacent sum in the table
+      take current element. cannot add immediate before or after number
+      if at index i, skip the left neighbor
+      on first iteration, we start at index 1 = 1, so now index is 1- 2 which is -1.
+      if this value at table[i - 2] is off the left edge of table, use 0 instead.
+      if not undefined, use the same value
+    */
+
     let skipLeftNeighbor = table[i - 2] === undefined ? 0 : table[i - 2];
 
     // include current num and everything immediately to the left
     let includeThisNum = skipLeftNeighbor + nums[i];
 
-    // if you don't include current num
+    // if you don't include current num, use this
     let notIncludeThisNum = table[i - 1];
 
-    // choose the bigger number between includeThisNum and notIncludeThisNum
-    // choose either taking the number at hand, therefore skip left neighbor
-    // or not take number at hand, and take immediate left neighbor and all those max non-adj sum
+    /*
+      choose the bigger number between includeThisNum and notIncludeThisNum
+      choose either taking the number at hand, therefore skip left neighbor
+      or not take number at hand, and take immediate left neighbor and all those max non-adj sum
+    */
 
     table[i] = Math.max(includeThisNum, notIncludeThisNum);
-
-    // let acceptableNumRange = nums.slice(currentNum + 1);
-
-    // acceptableNumRange.forEach((num) => {});
-
-    // console.log('current num:', `${currentNum}`, acceptableNumRange);
   }
   return table[table.length - 1];
 }
+
+const maxNonAdjacentSum = (nums, memo = {}) => {
+  if (nums.length in memo) return memo[nums.length];
+  if (nums.length === 0) return 0;
+
+  /*
+  is it better to take current element (forgoing next neighbor,), or not take this 
+  element and use the next neighbor
+  */
+
+  let firstElement = nums[0];
+
+  memo[nums.length] = Math.max(
+    // slice array to include current element and skip the right adjacent neighbor
+    firstElement + maxNonAdjacentSum(nums.slice(2), memo),
+    // or skip current element and move on immediate right neighbor
+    maxNonAdjacentSum(nums.slice(1), memo)
+  );
+
+  return memo[nums.length];
+};
 
 // Write a function, minChange(coins, amount), that accepts an array of coin values
 // and a target amount as arguments. The method should the minimum number of coins needed
