@@ -139,7 +139,36 @@ const maxNonAdjacentSum = (nums, memo = {}) => {
 // minChange([1, 4, 5], 8))         // => 2, because 4 + 4 = 8
 // minChange([1, 5, 10, 25], 15)    // => 2, because 10 + 5 = 15
 // minChange([1, 5, 10, 25], 100)   // => 4, because 25 + 25 + 25 + 25 = 100
-function minChange(coins, amount) {}
+
+function minChange(coins, amount) {
+  // make default positive infinity so any number we find will trump infinity
+  let table = new Array(amount + 1).fill(Infinity);
+  table[0] = 0;
+
+  /*
+  iterate through coins first. consider which possible coin is the best one.
+  this is exhaustive so we have to try every possibility
+  */
+
+  coins.forEach((val) => {
+    // every index corresponds to an amount of set
+    for (let amount = 0; amount < table.length; amount++) {
+      // iterate up to maximal quantity of this coin value that's less than or equal to sub-amount targeting
+      for (let quantity = 0; quantity * val <= amount; quantity++) {
+        // table index corresponds to amount. element at index corresponds to minimum num coins to make that amount
+        let remainder = amount - quantity * val;
+        // give num coins to attain amount.
+        let attempt = table[remainder] + quantity;
+        if (attempt < table[amount]) {
+          // if better than current coin amounts, overwrite the response
+          table[amount] = attempt;
+        }
+      }
+    }
+  });
+
+  return table[table.length - 1];
+}
 // console.log(minChange([1, 2, 5], 11)); // 3
 // console.log(minChange([1, 4, 5], 8));
 
