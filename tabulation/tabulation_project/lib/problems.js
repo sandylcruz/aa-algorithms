@@ -74,21 +74,38 @@ const stepper = (numbers, memo = {}) => {
 
 function maxNonAdjacentSum(nums) {
   if (nums.length === 0) return 0;
-  const table = new Array(nums.length + 1).fill(0);
+  let table = new Array(nums.length).fill(0);
+  table[0] = nums[0];
 
-  for (let i = 0; i < table.length; i++) {
-    const currentNum = nums[i];
-    let acceptableNumRange = nums.slice(currentNum + 1);
+  for (let i = 1; i < table.length; i++) {
+    // storing max non-adjacent sum in the table
+    // take current element. cannot add immediate before or after number
+    // if at index i, skip the left neighbor
+    // on first iteration, we start at index 1 = 1, so now index is 1- 2 which is -1.
+    // if this value at table[i - 2] is off the left edge of table, use 0 instead.
+    // if not undefined, use the same value
+    let skipLeftNeighbor = table[i - 2] === undefined ? 0 : table[i - 2];
 
-    acceptableNumRange.forEach((num) => {});
+    // include current num and everything immediately to the left
+    let includeThisNum = skipLeftNeighbor + nums[i];
 
-    console.log('current num:', `${currentNum}`, acceptableNumRange);
+    // if you don't include current num
+    let notIncludeThisNum = table[i - 1];
+
+    // choose the bigger number between includeThisNum and notIncludeThisNum
+    // choose either taking the number at hand, therefore skip left neighbor
+    // or not take number at hand, and take immediate left neighbor and all those max non-adj sum
+
+    table[i] = Math.max(includeThisNum, notIncludeThisNum);
+
+    // let acceptableNumRange = nums.slice(currentNum + 1);
+
+    // acceptableNumRange.forEach((num) => {});
+
+    // console.log('current num:', `${currentNum}`, acceptableNumRange);
   }
+  return table[table.length - 1];
 }
-// console.log(maxNonAdjacentSum([2, 7, 9, 3, 4])); // 15
-// console.log(maxNonAdjacentSum([])); // 0
-// console.log(maxNonAdjacentSum([1, 2, 3, 1])); // 4
-console.log(maxNonAdjacentSum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 // Write a function, minChange(coins, amount), that accepts an array of coin values
 // and a target amount as arguments. The method should the minimum number of coins needed
