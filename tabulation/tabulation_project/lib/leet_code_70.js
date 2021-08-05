@@ -22,12 +22,24 @@ Example 2:
   3. 2 steps + 1 step
 */
 
-const climbStairs = (num, memo = {}) => {
+const climbStairsMemo = (num, memo = {}) => {
   if (num === 0 || num === 1) return 1;
   if (num in memo) return memo[num];
 
   memo[num] = climbStairs(num - 1, memo) + climbStairs(num - 2, memo);
   return memo[num];
+};
+
+const climbStairs = (num) => {
+  const table = new Array(num + 1).fill(0);
+  table[0] = 1;
+  table[1] = 1;
+
+  for (let i = 2; i < table.length; i++) {
+    table[i] = table[i] = table[i - 1] + table[i - 2];
+  }
+
+  return table[table.length - 1];
 };
 
 console.log(climbStairs(2)); // 2
