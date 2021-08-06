@@ -1,7 +1,31 @@
-function quickSort(array) {
-  const pivot = Math.random(array.length);
+const partition = (array, pivot) => {
+  const leftHalf = [];
+  const rightHalf = [];
 
-  console.log(pivot);
+  for (let i = 0; i < array.length; i++) {
+    const currentNum = array[i];
+    if (currentNum <= pivot) {
+      leftHalf.push(currentNum);
+    } else {
+      rightHalf.push(currentNum);
+    }
+  }
+
+  return [leftHalf, rightHalf];
+};
+
+// console.log(partition([5, 4, 3, 2, 1], 3));
+
+function quickSort(array) {
+  if (array.length <= 1) return array;
+  const pivot = array.shift();
+  const left = array.filter((el) => el < pivot);
+  const right = array.filter((el) => el >= pivot);
+
+  const leftSorted = quickSort(left);
+  const rightSorted = quickSort(right);
+
+  return [...leftSorted, pivot, ...rightSorted];
 }
 
 console.log(quickSort([5, 4, 3, 2, 1]));
