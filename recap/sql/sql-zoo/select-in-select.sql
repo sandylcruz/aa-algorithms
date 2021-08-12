@@ -3,8 +3,8 @@
 SELECT name 
 FROM world
 WHERE population > (
-    SELECT population FROM world
-    WHERE name='Russia'
+  SELECT population FROM world
+  WHERE name='Russia'
   )
 
 -- 2. Show the countries in Europe with a per capita GDP greater than 'United Kingdom'.
@@ -59,12 +59,17 @@ WHERE gdp > ALL(
   AND gdp IS NOT NULL)
 
 -- 7. Find the largest country (by area) in each continent, show the continent, the name and the area:
-SELECT continent, name, population 
-FROM world x
-WHERE population >= ALL (
-    SELECT population FROM world y
-      WHERE y.continent=x.continent
-        AND population > 0
+SELECT continent, name, area 
+FROM world
+AS x
+WHERE area = (
+  SELECT MAX(area) 
+  FROM world AS y
+  WHERE y.continent=x.continent
   )
 
-SELECT continent
+-- 8. List each continent and the name of the country that comes first alphabetically.
+SELECT continent, MIN(name) as name
+FROM world 
+GROUP BY continent
+
