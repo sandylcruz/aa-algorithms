@@ -25,7 +25,6 @@ class Node {
   constructor(val) {
     this.value = val;
     this.next = null;
-    this.previous = null;
   }
 }
 
@@ -53,6 +52,11 @@ class LinkedList {
 
   // TODO: Implement the removeTail method here
   removeTail() {
+    const beforeTail = this.tail.previous;
+
+    this.tail = beforeTail;
+    beforeTail.next = null;
+
     this.length--;
   }
 
