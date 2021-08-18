@@ -94,7 +94,6 @@ class LinkedList {
     if (this.length === 0) return undefined;
 
     const currentHead = this.head;
-    const nextHead = this.head.next;
 
     if (this.length === 1) {
       this.head = null;
@@ -110,10 +109,11 @@ class LinkedList {
 
   // TODO: Implement the contains method here
   contains(target) {
-    while (this.head.next.next !== null) {
-      if (this.head.value === target) {
-        return true;
-      }
+    let node = this.head;
+
+    while (node) {
+      if (node.value === target) return true;
+      node = node.next;
     }
 
     return false;
