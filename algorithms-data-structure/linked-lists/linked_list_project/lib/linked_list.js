@@ -141,6 +141,7 @@ class LinkedList {
 
     if (foundNode) {
       foundNode.value = val;
+      return true;
     }
   }
 
