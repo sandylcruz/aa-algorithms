@@ -50,26 +50,28 @@ class LinkedList {
     return this;
   }
 
-  // TODO: Implement the removeTail method here
+  // TODO: Implement the removeTail method her
+
   removeTail() {
     if (!this.head) return undefined;
-
     let current = this.head;
-    let nextTail = this.head.next;
+    let newTail = current;
 
-    // while (nextTail !== null) {}
+    while (current.next) {
+      newTail = current;
+      current = current.next;
+    }
 
-    // while (this.head.next.next !== null) {
-    //   this.tail = this.head;
-    //   this.tail.next = null;
-    // }
+    this.tail = newTail;
+    this.tail.next = null;
+    this.length--;
 
     if (this.length === 0) {
       this.head = null;
       this.tail = null;
     }
 
-    this.length--;
+    return current;
   }
 
   // TODO: Implement the addToHead method here
@@ -148,11 +150,12 @@ class LinkedList {
   // TODO: Implement the insert method here
   insert(index, val) {
     if (index < 0 || index >= this.length) return false;
+    if (index === this.length) return !!this.addToTail(val);
+    if (index === 0) return !!this.addToHead(val);
 
     const newNode = new Node(val);
     const prev = this.get(index - 1);
     const temp = prev.next;
-
     prev.next = newNode;
     newNode.next = temp;
     this.length++;
