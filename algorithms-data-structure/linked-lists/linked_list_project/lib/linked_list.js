@@ -127,7 +127,7 @@ class LinkedList {
 
     while (counter !== index) {
       current = current.next;
-      index++;
+      counter++;
     }
 
     return current;
