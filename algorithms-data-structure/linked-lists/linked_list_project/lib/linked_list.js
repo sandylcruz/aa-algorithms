@@ -149,8 +149,14 @@ class LinkedList {
   insert(index, val) {
     if (index < 0 || index >= this.length) return false;
 
-    const foundNode = this.get(index);
+    const newNode = new Node(val);
+    const prev = this.get(index - 1);
+    const temp = prev.next;
+
+    prev.next = newNode;
+    newNode.next = temp;
     this.length++;
+    return true;
   }
 
   // TODO: Implement the remove method here
