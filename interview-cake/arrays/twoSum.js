@@ -12,7 +12,7 @@ const quadraticTwoSum = (array, target) => {
 };
 
 // O(n) time, O(n) space
-const twoSum = (array, target) => {
+const linearTwoSum = (array, target) => {
   const seenNumbers = new Set();
 
   for (let i = 0; i < array.length; i++) {
@@ -26,6 +26,29 @@ const twoSum = (array, target) => {
   }
   return false;
 };
-console.log(twoSum([1, 2, 3, 4, 5], 7)); // true
+
+// O(1) space
+const twoSum = (array, target) => {
+  const sorted = array.sort();
+
+  let low = 0;
+  let high = sorted.length - 1;
+
+  while (low < high) {
+    const potentialSum = sorted[low] + sorted[high];
+
+    if (potentialSum < target) {
+      low++;
+    } else if (potentialSum > target) {
+      high--;
+    } else {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+console.log(twoSum([5, 4, 3, 2, 1], 7)); // true
 console.log(twoSum([100, 21, 30, 4, 500], 104)); // true
 console.log(twoSum([100, 200, 300, 400, 500], 104)); // false
