@@ -11,7 +11,7 @@ const quadraticTwoSum = (array, target) => {
   return false;
 };
 
-// O(1) time, O(n) space
+// O(n) time, O(n) space
 const linearTwoSum = (array, target) => {
   const seenNumbers = new Set();
 
@@ -27,7 +27,7 @@ const linearTwoSum = (array, target) => {
   return false;
 };
 
-// O(n) time, O(1) space
+// O(n log n) time, O(1) space
 const twoSum = (array, target) => {
   const sorted = array.sort();
 
