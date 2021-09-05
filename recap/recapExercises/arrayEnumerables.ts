@@ -14,7 +14,7 @@ new, one-dimensional array. Hint: use recursion!
 
 // Write counter of array elements
 
-const byCount1 = (array) => {
+const byCount1 = (array: Array<number>) => {
   const newObject = {};
 
   for (let i = 0; i < array.length; i++) {
@@ -30,7 +30,7 @@ const byCount1 = (array) => {
   return newObject;
 };
 
-const byCount = (array) =>
+const byCount = (array: Array<number>) =>
   array.reduce((accumulator, currentElement) => {
     if (accumulator[currentElement]) {
       accumulator[currentElement] += 1;
@@ -43,7 +43,7 @@ const byCount = (array) =>
 
 // console.log(byCount([1, 1, 2, 3, 4, 5, 5, 5, 5]));
 
-const myFilter = (array, callback) => {
+const myFilter = (array: Array<number>, callback) => {
   const arrayToReturn = [];
 
   for (let i = 0; i < array.length; i++) {
@@ -60,7 +60,7 @@ const myFilter = (array, callback) => {
 //   })
 // );
 
-const myFlatten1 = (array) => {
+const myFlatten1 = (array: Array<string>) => {
   const flattened = [];
   array.forEach((item) => {
     if (Array.isArray(item)) {
@@ -73,7 +73,7 @@ const myFlatten1 = (array) => {
   return flattened;
 };
 
-const myFlatten = (array) => {
+const myFlatten = (array: Array<string>) => {
   const acc = [];
 
   array.forEach((el) => {
@@ -94,8 +94,8 @@ const myFlatten = (array) => {
 // ['🔥', '🦁', ['👸', '🤴'], ' 🦋', '🍉'];
 // console.log(myFlatten([]));
 
-const myForEach = (array) => {
-  newArray = [];
+const myForEach = (array: Array<string>) => {
+  const newArray = [];
   for (let i = 0; i < array.length; i++) {
     newArray.push(array[i]);
   }
@@ -105,7 +105,7 @@ const myForEach = (array) => {
 // const fruits = ['Apple', 'Banana', 'Strawberry'];
 // console.log(myForEach(fruits));
 
-const myIncludes = (array, target) => {
+const myIncludes = (array: Array<string>, target: string) => {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === target) {
       return true;
@@ -120,7 +120,7 @@ const myIncludes = (array, target) => {
 // console.log(myIncludes(fruits, 'Apple')); // => true
 // console.log(myIncludes(fruits, 'Apples')); // => false
 
-const myIndexOf = (array, target) => {
+const myIndexOf = (array: Array<string>, target: string) => {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === target) {
       return i;
@@ -141,7 +141,7 @@ the array, separated by the given string separator. If no
 separator is given, an empty string is used.
 */
 
-const myJoin1 = (string, joiner) => {
+const myJoin1 = (string: string, joiner: string) => {
   let stringToReturn = '';
 
   for (let i = 0; i < string.length; i++) {
@@ -156,7 +156,7 @@ const myJoin1 = (string, joiner) => {
   return stringToReturn;
 };
 
-const myJoin = (elements, joiner) => {
+const myJoin = (elements: Array<string>, joiner: string) => {
   return elements.reduce((accumulator, el) => {
     if (joiner) {
       accumulator += el + joiner;
@@ -174,7 +174,7 @@ const myJoin = (elements, joiner) => {
 // console.log(myJoin(alphabet, '$')); // => "a$b$c$d"
 // console.log(myJoin(array1)); // => 'callie
 
-const myLength1 = (array) => {
+const myLength1 = (array: Array<string>) => {
   return array.reduce((acc, el) => {
     acc += 1;
     return acc;
@@ -196,7 +196,7 @@ const myLength = (array) => {
 // console.log(myLength([1, 2, 3, 'cat', 5, 6, { num: 9 }]));
 // console.log(myLength([])); // => 0
 
-const myMap = (array, callback) => {
+const myMap2 = (array: Array<string>, callback) => {
   const arr = [];
   for (let i = 0; i < array.length; i++) {
     arr.push(callback(array[i]));
@@ -210,7 +210,7 @@ const myMap = (array, callback) => {
 //   })
 // );
 
-const myPop = (array) => {
+const myPop = (array: Array<string>) => {
   const lastIndex = array.length - 1;
   const lastEl = array[lastIndex];
 
@@ -222,7 +222,7 @@ const myPop = (array) => {
 // console.log(myPop(fruits)); // => ["Strawberry"]
 // console.log(myPop(fruits)); // => ["Strawberry"]
 
-const myPush1 = (array, newEl) => {
+const myPush1 = (array: Array<string>, newEl: string) => {
   return array.reduce((acc, currentEl) => {
     acc = array;
     acc += ',' + newEl;
@@ -231,21 +231,21 @@ const myPush1 = (array, newEl) => {
   }, []);
 };
 
-const myPush = (array, el) => {
+const myPush = (array: Array<string | number>, el: string) => {
   return array + ',' + el;
 };
 
 // console.log(myPush([1, 2, 3], 4));
 // console.log(myPush(['a', 'b', 'c'], 'd'));
 
-const myReduce = (array, callback) => {};
+const myReduce = (array: Array<string>, callback) => {};
 
 /*
 Write a method that returns a new array containing all the 
 elements of the original array in reverse order.
 */
 
-const myReverse = (array) => {
+const myReverse = (array: Array<string | number>) => {
   return array.reduce((accumulator, element) => {
     accumulator.unshift(element);
 
@@ -277,7 +277,7 @@ negative value is given, the array is rotated in the
 opposite direction.
 */
 
-const myRotate = (array, shift) => {
+const myRotate = (array: Array<string>, shift: number) => {
   if (shift) {
     const changedShift = shift % array.length;
     const newFinishingElements = array.slice(0, changedShift);
@@ -294,7 +294,7 @@ const array = ['a', 'b', 'c', 'd'];
 // console.log(myRotate(array, 15)); // => ["d", "a", "b", "c"]
 
 // Remove item from beginning of array
-const myShift = (array) => {
+const myShift = (array: Array<string>) => {
   return array.reduce((acc, el) => {
     const firstEl = array[0];
     acc = array.slice(1);
@@ -305,7 +305,7 @@ const alpha = ['a', 'b', 'c', 'd'];
 // console.log(myShift(alpha)); // => ['b', 'c', 'd']
 
 // Remove item by index position
-const mySlice = (array, num) => {
+const mySlice = (array: Array<number>, num: number) => {
   const acc = [];
   for (let i = num; i < array.length; i++) {
     const newArrayStart = num;
@@ -321,7 +321,7 @@ console.log(mySlice([1, 2, 3], 11)); // []
 // console.log(mySlice[('strawberry', 'banana', 'mango')], 1); // => ['strawberry', 'mango']
 
 // Return true if at least one el satisfies function
-const mySome = (array, callback) => {};
+const mySome = (array: Array<number | string>, callback) => {};
 
 const myToString = (array) => {
   return array.reduce((string, currentElement) => {
@@ -334,7 +334,7 @@ const myToString = (array) => {
 // console.log(myToString(['c', 'a', 'l', 'l', 'i', 'e']));
 
 // Add item to beginning of array
-const myUnshift = (array, newEl) => {
+const myUnshift = (array: Array<string>, newEl: number) => {
   return array.reduce((newArray, newestElement) => {
     const unShiftedArray = [newEl];
 

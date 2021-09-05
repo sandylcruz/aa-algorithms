@@ -3,7 +3,7 @@
 # of both of the given numbers
 */
 
-const isPrime = (num) => {
+const isPrime = (num: number) => {
   for (let i = 2; i < Math.sqrt(num); i++) {
     if (num % i === 0) {
       return false;
@@ -13,7 +13,7 @@ const isPrime = (num) => {
   return true;
 };
 
-const getPrimeFactors = (num) => {
+const getPrimeFactors = (num: number) => {
   const factors = {};
   for (let i = 2; i <= num; i++) {
     if (num % i === 0 && isPrime(i)) {
@@ -29,7 +29,7 @@ const getPrimeFactors = (num) => {
 };
 console.log(getPrimeFactors(9));
 
-function least_common_multiple(num1, num2) {
+function least_common_multiple(num1: number, num2: number) {
   const num1PrimeFactors = getPrimeFactors(num1);
   const num2PrimeFactors = getPrimeFactors(num2);
   // console.log(num1PrimeFactors, num2PrimeFactors);
@@ -41,7 +41,7 @@ function least_common_multiple(num1, num2) {
 // console.log(least_common_multiple(4, 10)); // 20
 // console.log(least_common_multiple(7, 21)); // 21
 
-const lcm = (num1, num2) => {
+const lcm = (num1: number, num2: number) => {
   const max = num1 * num2;
 
   for (let i = 2; i < max; i++) {
@@ -60,13 +60,13 @@ const lcm = (num1, num2) => {
 # most in the string.
 */
 
-function most_frequent_bigram(string) {
+function most_frequent_bigram(string: string) {
   const counter = {};
 
   for (let i = 0; i < string.length - 1; i++) {
     let char1 = string[i];
     let char2 = string[i + 1];
-    let newBigram = [char1 + char2];
+    const newBigram = [char1 + char2];
 
     if (counter[newBigram]) {
       counter[newBigram] += 1;
@@ -100,7 +100,7 @@ function most_frequent_bigram(string) {
 //   return inverseObject;
 // }
 
-const inverse2 = (object) => {
+const inverse2 = (object: { [char: string]: number }) => {
   const inverseObject = new Map();
   const newValues = Object.keys(object);
   const newKeys = Object.values(object);
@@ -127,7 +127,7 @@ const inverse2 = (object) => {
 Write a method, Array#pair_sum_count, that takes in a target number returns the number of pairs of elements that sum to the given target
 */
 
-function pairSumCount(array, targetNum) {
+function pairSumCount(array: Array<number>, targetNum: number) {
   let counter = 0;
 
   for (let i = 0; i < array.length; i++) {
@@ -162,7 +162,7 @@ function pairSumCount(array, targetNum) {
 # This should remind you of the spaceship operator! Convenient :)
 
 */
-function bubbleSort1(array) {
+function bubbleSort1(array: Array<number>) {
   let isSwapped = false;
 
   while (!isSwapped) {
@@ -185,7 +185,7 @@ function bubbleSort1(array) {
 // console.log(bubbleSort1([4, 12, 2, 8, 1, 14, 9, 25, 24, 81])); // => [1, 2, 4, 8, 9, 12, 14, 24, 25, 81]
 // console.log(bubbleSort1([5, 4, 7])); // => [4, 5, 7]
 
-const bubbleSort = (array) => {
+const bubbleSort = (array: Array<number>) => {
   let isSorted = false;
 
   while (!isSorted) {
@@ -208,7 +208,7 @@ const bubbleSort = (array) => {
 // console.log(bubbleSort([4, 12, 2, 8, 1, 14, 9, 25, 24, 81])); // => [1, 2, 4, 8, 9, 12, 14, 24, 25, 81]
 // console.log(bubbleSort([5, 4, 7])); // => [4, 5, 7]
 
-const fizzBuzz = (num) => {
+const fizzBuzz = (num: number) => {
   const arrayToReturn = [];
 
   for (let i = 1; i <= num; i++) {

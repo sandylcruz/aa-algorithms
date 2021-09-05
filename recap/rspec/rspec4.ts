@@ -12,8 +12,6 @@ function properFactors() {}
 
 function aliquotSum() {}
 
-function myReject() {}
-
 function isPerfectNumber() {}
 
 function idealNumbers() {}

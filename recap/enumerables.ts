@@ -7,14 +7,14 @@ then returns
 
 */
 
-// function myEach(array) {
-//   eachArray = [];
-//   for (let i = 0; i < array.length; i++) {
-//     eachArray.push(array[i]);
-//   }
+function myEach(array: Array<number>) {
+  const eachArray = [];
+  for (let i = 0; i < array.length; i++) {
+    eachArray.push(array[i]);
+  }
 
-//   return eachArray;
-// }
+  return eachArray;
+}
 
 // console.log(myEach([1, 2, 3]));
 
@@ -79,8 +79,8 @@ a.my_join         # => "abcd"
 a.my_join("$")    # => "a$b$c$d"
 */
 
-function myJoin(array, separator) {
-  let joinedString = "";
+function myJoin(array: Array<string>, separator: string) {
+  let joinedString = '';
 
   for (let i = 0; i < array.length; i++) {
     if (i != array.length - 1) {
@@ -92,8 +92,8 @@ function myJoin(array, separator) {
 
   return joinedString;
 }
-console.log("myjoin test");
-console.log(myJoin(["callie", "squeaky"], "$"));
+console.log('myjoin test');
+console.log(myJoin(['callie', 'squeaky'], '$'));
 
 /*
 Write a method that returns a new array containing all the 
@@ -131,26 +131,26 @@ and returns an
 # # => "Yay for strings!"
 */
 
-// function concatenate(array) {
-//   let concatenated = "";
-//   for (let i = 0; i < array.length; i++) {
-//     concatenated += array[i];
-//   }
-// }
+function concatenate(array: Array<string>) {
+  let concatenated = '';
+  for (let i = 0; i < array.length; i++) {
+    concatenated += array[i];
+  }
+}
 // console.log("Concatenated tests:");
 // console.log("yay", "for", "strings");
 
-// function factors(num) {
-//   let factorsArray = [];
+function factors(num: number) {
+  let factorsArray = [];
 
-//   for (let i = 0; i <= num; i++) {
-//     if (num % i === 0) {
-//       factorsArray.push(i);
-//     }
-//   }
+  for (let i = 0; i <= num; i++) {
+    if (num % i === 0) {
+      factorsArray.push(i);
+    }
+  }
 
-//   return factorsArray;
-// }
+  return factorsArray;
+}
 // console.log("Factors tests:");
 // console.log(factors(10));
 // console.log(factors(7));
@@ -158,17 +158,17 @@ and returns an
 
 // function bubbleSort(array) {}
 
-// function substrings(string) {
-//   let substring = [];
-//   for (let i = 0; i <= string.length; i++) {
-//     for (let j = i + 1; j <= string.length; j++) {
-//       smallSubstring = string.slice(i, j);
-//       if (!substring.includes(smallSubstring)) substring.push(smallSubstring);
-//     }
-//   }
+function substrings(string: string) {
+  let substring = [];
+  for (let i = 0; i <= string.length; i++) {
+    for (let j = i + 1; j <= string.length; j++) {
+      const smallSubstring = string.slice(i, j);
+      if (!substring.includes(smallSubstring)) substring.push(smallSubstring);
+    }
+  }
 
-//   return substring;
-// }
+  return substring;
+}
 // console.log(substrings("cats"));
 // console.log(substrings("dogs"));
 // console.log(substrings("callie"));

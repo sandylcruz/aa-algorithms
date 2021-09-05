@@ -4,7 +4,7 @@ an arg and returns an new array containing the elements
 that were not repeated in the array.
 */
 
-function no_dupes(array) {
+function no_dupes(array: Array<string | number | boolean>) {
   const counter = {};
   const result = [];
 
@@ -16,7 +16,7 @@ function no_dupes(array) {
     }
   });
 
-  for (el in counter) {
+  for (const el in counter) {
     if (counter[el] === 1) {
       result.push(el);
     }
@@ -36,7 +36,7 @@ element never appears consecutively in the array; it
 should return false otherwise.
 */
 
-function no_consecutive_repeats(array) {
+function no_consecutive_repeats(array: Array<string | number>) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === array[i + 1]) {
       return false;
@@ -59,7 +59,7 @@ should be an array containing the indices where that
 character is found.
 */
 
-function char_indices(word) {
+function char_indices(word: string) {
   const chars = word.split('');
   const counter = {};
 
@@ -86,7 +86,7 @@ any ties, return the streak that occurs later in the
 string.
 */
 
-function longest_streak(string) {
+function longest_streak(string: string) {
   let currentStreak = string[0];
   let longestStreak = '';
   const chars = string.split('');
@@ -123,7 +123,7 @@ a bi-prime. A bi-prime is a positive integer that can be
 obtained by multiplying two prime numbers.
 */
 
-const isPrime = (num) => {
+const isPrime = (num: number) => {
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
       return false;
@@ -133,7 +133,7 @@ const isPrime = (num) => {
   return true;
 };
 
-function bi_prime(num) {
+function bi_prime(num: number) {
   const factors = [];
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
@@ -167,7 +167,7 @@ return an array containing the Lucas Sequence up to
 the given length. Solve this recursively.
 */
 
-function lucasSequence(num) {
+function lucasSequence(num: number) {
   if (num === 1) return 2;
   if (num === 2) return 1;
 
@@ -201,7 +201,7 @@ only lowercase alphabetic characters.
 
 */
 
-function vignere_cipher(string, keys) {
+function vignere_cipher(string: string, keys: Array<number>) {
   let newWord = [];
   const chars = string.split('');
 
@@ -210,7 +210,7 @@ function vignere_cipher(string, keys) {
     let currentKey = keys[i];
 
     if (i >= keys.length) {
-      keyIndex = i % 2;
+      const keyIndex = i % 2;
       currentKey = keys[keyIndex];
     }
 
@@ -238,7 +238,7 @@ in the original string. The first vowel of the string
 should be replaced with the last vowel.
 */
 
-const rotateArray = (array) => {
+const rotateArray = (array: Array<string>) => {
   const rotatedArray = [];
 
   const elToMove = array[array.length - 1];
@@ -251,7 +251,7 @@ const rotateArray = (array) => {
   return rotatedArray.flat();
 };
 
-function vowel_rotate(word) {
+function vowel_rotate(word: string) {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
   const foundVowels = [];
   const chars = word.split('');
@@ -294,7 +294,7 @@ character and it's index. Do not use the built-in
 Array#map or Array#map! in your solution.
 */
 
-function myMap(array) {}
+function myMap(array: Array<T>) {}
 
 /*
 Write a method multiply(a, b) that takes in two numbers 
@@ -313,7 +313,7 @@ multiply(3, -6)       # => -18
 multiply(-3, 6)       # => -18
 */
 
-function multiply(num1, num2) {
+function multiply(num1: number, num2: number) {
   if (num1 === 1 || num2 === 1) {
     return; //other number
   }

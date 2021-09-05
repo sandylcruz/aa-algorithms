@@ -1,4 +1,4 @@
-function quicksort(array) {
+function quicksort(array: Array<number>) {
   const pivotElement = array[0];
   const left = [];
   const right = [];
