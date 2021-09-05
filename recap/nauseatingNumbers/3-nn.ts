@@ -7,30 +7,32 @@ dimensions, so if all of the given matrices do not have the
 same "height" and "width", then return nil.
 */
 
-matrix_a = [
+type Matrix = number[][];
+
+const matrix_z = [
   [2, 5],
   [4, 7],
 ];
-matrix_b = [
+const matrix_y = [
   [9, 1],
   [3, 0],
 ];
-matrix_c = [
+const matrix_x = [
   [-1, 0],
   [0, -1],
 ];
-matrix_d = [
+const matrix_v = [
   [2, -5],
   [7, 10],
   [0, 1],
 ];
-matrix_e = [
+const matrix_u = [
   [0, 0],
   [12, 4],
   [6, 3],
 ];
 
-function matrix_addition_reloaded(...args) {
+function matrix_addition_reloaded(...args: Matrix[]) {
   args.forEach((arg) => {
     let currentLength = arg.length;
     console.log(currentLength);

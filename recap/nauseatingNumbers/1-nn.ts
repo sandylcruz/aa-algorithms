@@ -5,7 +5,7 @@ number of distinct pairs of elements that have a sum of zero.
 You may assume that the input array contains unique elements.
 */
 
-function strange_sums(array) {
+function strange_sums(array: Array<number>) {
   let count = 0;
 
   for (let i = 0; i < array.length; i++) {
@@ -34,7 +34,7 @@ multiplied together. You may assume that the input array
 contains unique elements.
 */
 
-function pairProduct(array, target) {
+function pairProduct(array: Array<number>, target: number) {
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
       if (array[i] * array[j] === target) {
@@ -68,7 +68,12 @@ p rampant_repeats('misispi', {'s'=>2, 'p'=>2})          # 'mississppi'
 p rampant_repeats('faarm', {'e'=>3, 'a'=>2})
 */
 
-function rampant_repeats(string, object) {
+function rampant_repeats(
+  string: string,
+  object: {
+    [key: string]: number;
+  }
+) {
   let newString = '';
 
   string.split('').forEach((char) => {
@@ -101,7 +106,7 @@ multiplied by itself. For example, since 64 = 8 * 8 and
 
 */
 
-function perfect_square(num) {
+function perfect_square(num: number) {
   return Math.sqrt(num) * Math.sqrt(num) === num;
 }
 

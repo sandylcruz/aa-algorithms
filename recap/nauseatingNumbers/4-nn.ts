@@ -12,7 +12,7 @@ method mersenne_prime that accepts a number, n, as an
 argument and returns the n-th Mersenne prime.
 */
 
-const isPrime = (num) => {
+const isPrime = (num: number) => {
   for (let i = 2; i < num - 1; i++) {
     if (num % i === 0) {
       return false;
@@ -22,7 +22,7 @@ const isPrime = (num) => {
   return true;
 };
 
-const isPowerOfTwo = (num) => {
+const isPowerOfTwo = (num: number) => {
   return Math.pow(2, num);
 };
 
@@ -34,8 +34,8 @@ function isMersennePrime(num) {
   }
 }
 
-const mersenne_prime = (num) => {
-  count = 0;
+const mersenne_prime = (num: number) => {
+  let count = 0;
 };
 
 console.log(mersenne_prime(1)); // 3
@@ -72,7 +72,7 @@ p triangular_word?('cat')       # false
 p triangular_word?('sink')      # false
 */
 
-function isTriangularWord(word) {
+function isTriangularWord(word: string) {
   word.split('').forEach((char) => {
     let wordCount = 0;
   });

@@ -8,7 +8,7 @@ Math Fact: Numbers that meet this criteria are also known
 as highly composite numbers.
 */
 
-function isAntiPrime(number) {
+function isAntiPrime(number: number) {
   let numberFactorsCount = 0;
   let greatestFactorsCount = 0;
   let lesserNumbers = [];
@@ -40,16 +40,16 @@ function isAntiPrime(number) {
   return numberFactorsCount > greatestFactorsCount;
 }
 
-// console.log(isAntiPrime(24)); // true
-// console.log(isAntiPrime(36)); // true
-// console.log(isAntiPrime(48)); // true
-// console.log(isAntiPrime(360)); // true
-// console.log(isAntiPrime(1260)); // true
-// console.log(isAntiPrime(27)); // false
-// console.log(isAntiPrime(5)); // false
-// console.log(isAntiPrime(100)); // false
-// console.log(isAntiPrime(136)); // false
-// console.log(isAntiPrime(1024)); // false
+console.log(isAntiPrime(24)); // true
+console.log(isAntiPrime(36)); // true
+console.log(isAntiPrime(48)); // true
+console.log(isAntiPrime(360)); // true
+console.log(isAntiPrime(1260)); // true
+console.log(isAntiPrime(27)); // false
+console.log(isAntiPrime(5)); // false
+console.log(isAntiPrime(100)); // false
+console.log(isAntiPrime(136)); // false
+console.log(isAntiPrime(1024)); // false
 
 /*
 Let a 2-dimensional array be known as a "matrix". Write a 
@@ -75,37 +75,37 @@ p matrix_addition(matrix_b, matrix_c) # [[8, 1], [3, -1]]
 p matrix_addition(matrix_d, matrix_e) # [[2, -5], [19, 14], [6, 4]]
 */
 
-matrix_c = [
+const matrix_c = [
   [-1, 0],
   [0, -1],
 ];
-matrix_d = [
+const matrix_d = [
   [2, -5],
   [7, 10],
   [0, 1],
 ];
-matrix_e = [
+const matrix_e = [
   [0, 0],
   [12, 4],
   [6, 3],
 ];
 
-matrix_a = [
+const matrix_a = [
   [2, 5],
   [4, 7],
 ];
-matrix_b = [
+const matrix_b = [
   [9, 1],
   [3, 0],
 ];
 
-function matrix_addition(array1, array2) {
+function matrix_addition(array1: number[][], array2: number[][]) {
   const result = [];
 
   for (let i = 0; i < array1.length; i++) {
     for (let j = 0; j < array2.length; j++) {
       const temp = [];
-      sum = array1[i][j] + array2[i][j];
+      let sum = array1[i][j] + array2[i][j];
       temp.push(sum);
       result.push(temp);
     }
@@ -126,8 +126,7 @@ arguments. For example, the common divisors of 50 and
 are positive integers.
 */
 
-const occurMoreThanOnce = (array, numTimes) => {
-  let alreadySeen = [];
+const occurMoreThanOnce = (array: Array<number>): { [key: number]: number } => {
   let duplicates = {};
 
   array.forEach((num) => {
@@ -143,7 +142,7 @@ const occurMoreThanOnce = (array, numTimes) => {
   return duplicates;
 };
 
-function mutual_factors(...args) {
+function mutual_factors(...args: Array<number>) {
   const sharedFactors = [];
   const numberOfArgs = args.length;
   let arrayToReturn = [];
@@ -158,7 +157,7 @@ function mutual_factors(...args) {
 
   let sortedValues = occurMoreThanOnce(sharedFactors);
 
-  for (key in sortedValues) {
+  for (const key in sortedValues) {
     if (sortedValues[key] >= numberOfArgs) {
       arrayToReturn.push(Number(key));
     }
@@ -167,7 +166,7 @@ function mutual_factors(...args) {
   return arrayToReturn;
 }
 
-// console.log(mutual_factors(50, 30)); // [1, 2, 5, 10]
+console.log(mutual_factors(50, 30)); // [1, 2, 5, 10]
 // console.log(mutual_factors(50, 30, 45, 105)); // [1, 5]
 // console.log(mutual_factors(8, 4)); // [1, 2, 4]
 // console.log(mutual_factors(8, 4, 10)); // [1, 2]
@@ -192,7 +191,7 @@ sequence.
 
 */
 
-function tribonacciNumber(num) {
+function tribonacciNumber(num: number) {
   if (num === 1) return 1;
   if (num === 2) return 1;
   if (num === 3) return 2;

@@ -4,24 +4,22 @@ reverses the order of the words in place.
 */
 
 const reverseWords = (message) => {
-  for (let i = 0; i < message.length; i++) {
-    const currentEl = message[i];
-    const nextEl = message[i + 1];
+  const reversed = [];
+  const words = message.join('');
 
-    const startingIndex = 0;
-    let endingIndex;
+  let leftIndex = 0;
+  let rightIndex = words.length - 1;
 
-    if (nextEl === '') {
-      endIndex = i;
-      const wordRange = [startingIndex, endingIndex];
-      console.log(wordRange);
-
-      startingIndex = nextEl + 1;
-    } else {
-    }
+  while (leftIndex < rightIndex) {
+    const temp = words[leftIndex];
+    words[leftIndex] = words[rightIndex];
+    words[rightIndex] = temp;
+    leftIndex++;
+    rightIndex--;
   }
+  console.log(words);
 
-  return message;
+  // return words;
 };
 
 const message = [
@@ -43,4 +41,4 @@ const message = [
   'l',
 ];
 
-console.log(reverseWords(message.join('')));
+console.log(reverseWords(message));
