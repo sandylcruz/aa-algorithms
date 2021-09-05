@@ -1,5 +1,5 @@
 // O(n^2) time, O(1) space
-const quadraticTwoSum = (array, target) => {
+const quadraticTwoSum = (array: Array<number>, target: number) => {
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
       if (array[i] + array[j] === target) {
@@ -12,7 +12,7 @@ const quadraticTwoSum = (array, target) => {
 };
 
 // O(n) time, O(n) space
-const linearTwoSum = (array, target) => {
+const linearTwoSum = (array: Array<number>, target: number) => {
   const seenNumbers = new Set();
 
   for (let i = 0; i < array.length; i++) {
@@ -28,7 +28,7 @@ const linearTwoSum = (array, target) => {
 };
 
 // O(n log n) time, O(1) space
-const twoSum = (array, target) => {
+const twoSum = (array: Array<number>, target: number) => {
   const sorted = array.sort();
 
   let low = 0;

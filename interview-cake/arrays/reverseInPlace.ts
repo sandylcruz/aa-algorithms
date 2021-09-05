@@ -1,6 +1,6 @@
 /* Write a function that takes an array of characters and reverses the letters in place. */
 
-const reverseArray = (array) => {
+const reverseArray = (array: Array<string>) => {
   let leftIndex = 0;
   let rightIndex = array.length - 1;
 

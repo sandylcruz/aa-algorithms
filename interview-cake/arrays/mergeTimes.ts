@@ -2,7 +2,7 @@
 Write a function mergeRanges() that takes an array of multiple meeting time ranges and returns an array of condensed ranges.
 */
 
-const meetingMerger = (array) => {
+const meetingMerger = (array: Array<{ [key: string]: number }>) => {
   const sortedMeetings = array.sort((a, b) => a.startTime - b.startTime);
 
   const finalMeetings = [sortedMeetings[0]];

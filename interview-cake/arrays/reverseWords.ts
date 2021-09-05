@@ -3,9 +3,9 @@ Write a function reverseWords() that takes a message as an array of characters a
 reverses the order of the words in place.
 */
 
-const reverseWords = (message) => {
+const reverseWords = (message: Array<string>) => {
   const reversed = [];
-  const words = message.join('');
+  let words = message.join('');
 
   let leftIndex = 0;
   let rightIndex = words.length - 1;

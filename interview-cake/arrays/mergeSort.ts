@@ -8,7 +8,7 @@ We have our lists of orders sorted numerically already, in arrays. Write a funct
 our arrays of orders into one sorted array.
 */
 
-const mergeArrays = (array1, array2) => {
+const mergeArrays = (array1: Array<number>, array2: Array<number>) => {
   const merged = [];
 
   let i = 0;
