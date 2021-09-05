@@ -2,7 +2,7 @@
 
 // Creates a new array with all elements that pass the test
 // implemented by provided function
-function myFilter(array, func) {
+function myFilter(array: Array<number>, func) {
   const filteredValues = [];
 
   for (let i = 0; i < array.length; i++) {
@@ -21,7 +21,7 @@ console.log(myFilter(array, (number) => number % 2 === 0));
 // function on every element in the calling array. Length of new
 // array is equal to starting array
 
-function myMap(array) {
+function myMap(array: Array<number>) {
   const resultsArray = [];
 
   for (let i = 0; i < array.length; i++) {

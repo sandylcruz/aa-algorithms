@@ -4,7 +4,7 @@
 #
 */
 
-function all_vowel_pairs(words) {
+function all_vowel_pairs(words: string) {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
   const holder = {};
   const result = [];
@@ -29,7 +29,7 @@ function all_vowel_pairs(words) {
   return result;
 }
 
-const all_vowel_pairs2 = (words) => {
+const all_vowel_pairs2 = (words: string) => {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
   const pairs = [];
   const acc = [];
@@ -66,7 +66,7 @@ Write a method, composite?, that takes in a number and returns a boolean indicat
 has factors besides 1 and itself
 */
 
-function composite(num) {
+function composite(num: number) {
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
       return true;
@@ -114,9 +114,9 @@ The found bigrams should be returned in the the order they appear in the origina
 //   return bigramsToReturn;
 // }
 
-const find_bigrams = (sentence) => {
+const find_bigrams = (sentence: string, bigrams: Array<string>) => {
   const words = sentence.split(' ');
-  console.log(words);
+  const newBigram = [];
 
   const count = words.reduce((accumulator, word) => {
     for (let i = 0; i < word.length - 1; i++) {
@@ -148,7 +148,7 @@ Write a method, String#substrings, that takes in a optional length argument
 The method should return an array of the substrings that have the given length.
 If no length is given, return all substrings.
 */
-function substrings(word, length) {
+function substrings(word: string, length: number) {
   const chars = word.split('');
   let substrings = [];
 
@@ -198,7 +198,7 @@ p "zebra".caesar_cipher(4)    #=> "difve"
 // console.log(lowercase_caesar_cipher('bootcamp', 2)); // => "dqqvecor"
 // console.log(lowercase_caesar_cipher('zebra', 4)); // => "difve"
 
-const uppercaseCaesarCipher = (word, shift) => {
+const uppercaseCaesarCipher = (word: string, shift: number) => {
   const newWord = [];
   const chars = word.split('');
 
@@ -217,7 +217,7 @@ const uppercaseCaesarCipher = (word, shift) => {
 // console.log(uppercaseCaesarCipher('BOOTCAMP', 2)); // => "DQQVECOR"
 // console.log(uppercaseCaesarCipher('ZEBRA', 4)); // => "DIFVE"
 
-const bothCasesCaesar = (word, shift) => {
+const bothCasesCaesar = (word: string, shift: number) => {
   const chars = word.split('');
   const newWord = [];
 
@@ -244,7 +244,7 @@ together to the given num. The array returned should
 contain numbers in ascending order. Do this recursively.
 */
 
-const isPrime = (num) => {
+const isPrime = (num: number) => {
   for (let i = 2; i < num - 1; i++) {
     if (num % i === 0) {
       return false;
@@ -255,7 +255,7 @@ const isPrime = (num) => {
 };
 // console.log(isPrime(5));
 
-const prime_factorization = (num) => {
+const prime_factorization = (num: number) => {
   const primeFactors = [];
 
   for (let i = 2; i < num; i++) {

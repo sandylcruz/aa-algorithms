@@ -33,7 +33,7 @@ and add 'ay' (example: 'trash'->'ashtray')
 
 */
 
-const getPrefix = (string) => {
+const getPrefix = (string: string) => {
   let stringToReturn = [];
 
   for (let i = 0; i < string.length; i++) {
@@ -53,7 +53,7 @@ const getPrefix = (string) => {
   return stringToReturn.join('');
 };
 
-function convert_pig_latin(sentence) {
+function convert_pig_latin(sentence: string) {
   const words = sentence.split(' ');
   let stringToReturn = [];
 
@@ -112,7 +112,7 @@ itself (example: 'trash'->'trashash')
 
 */
 
-const getLastVowelIndex = (word) => {
+const getLastVowelIndex = (word: string) => {
   let lastVowelIndex = null;
 
   for (let i = 0; i < word.length; i++) {
@@ -132,7 +132,7 @@ const getLastVowelIndex = (word) => {
   return lastVowelIndex;
 };
 
-function reverberate(sentence) {
+function reverberate(sentence: string) {
   const words = sentence.split(' ');
 
   const sentenceToReturn = [];
@@ -208,7 +208,7 @@ the 4th word should be missing its last vowel
 
 */
 
-const getFirstVowelIndex = (word) => {
+const getFirstVowelIndex = (word: string) => {
   for (let i = 0; i < word.length; i++) {
     if (
       word[i] === 'a' ||
@@ -224,7 +224,7 @@ const getFirstVowelIndex = (word) => {
 
 // console.log(getFirstVowelIndex('csdfat'));
 
-function alternating_vowel(sentence) {
+function alternating_vowel(sentence: string) {
   const sentenceToReturn = [];
   const words = sentence.split(' ');
 
@@ -271,7 +271,7 @@ should be followed by 'b' and that same vowel
 */
 const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
 
-const getVowelIndices = (word) => {
+const getVowelIndices = (word: string) => {
   const chars = word.split('');
   let indices = [];
 
@@ -285,7 +285,7 @@ const getVowelIndices = (word) => {
   return indices;
 };
 
-function silly_talk(sentence) {
+function silly_talk(sentence: string) {
   let sentenceToReturn = [];
   const words = sentence.split(' ');
 
@@ -327,7 +327,7 @@ form a streak (meaning that it appears alone), then do not
 add a number after it.
 */
 
-function compress(string) {
+function compress(string: string) {
   const stringToReturn = [];
   const chars = string.split('');
   let count = 1;
