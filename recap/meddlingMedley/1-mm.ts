@@ -10,7 +10,7 @@ p duos('dinosaurs')     # 0
 p duos('e')             # 0
 */
 
-function duos(string) {
+function duos(string: string) {
   const chars = string.split('');
   let count = 0;
 
@@ -48,7 +48,7 @@ p sentence_swap('keep coding okay',
 ) # 'keep running okay'
 */
 
-function sentence_swap(sentence, hash) {
+function sentence_swap(sentence: string, hash) {
   const words = sentence.split(' ');
   const array = [];
 
@@ -91,22 +91,23 @@ of the original values when passed into the proc.
 
 */
 
-const double = (n) => {
+const double = (n: number) => {
   n * 2;
 };
-const first = (a) => {
+const first = (a: number) => {
   a[0];
 };
 
-const upcase = (char) => {char.upcase + "!!"}
+const upcase = (char) => {
+  char.upcase + '!!';
+};
 
-function hashMapped() { }
+function hashMapped() {}
 
-console.log(hash_mapped({'a': 4, 'x': 7, 'c': -3}, double)
+// console.log(hashMapped({'a': 4, 'x': 7, 'c': -3}, double)
 // {"A!!": 8, "X!!": 14, "C!!": -6}
 
-
-console.log(hash_mapped({-5: ['q', 'r', 's'], 6: ['w', 'x']}, first) { |n| n * n })
+// console.log(hashMapped({-5: ['q', 'r', 's'], 6: ['w', 'x']}, first))
 // {25: "q", 36: "w"}
 
 /*
@@ -117,7 +118,7 @@ characters in the output array should appear in the same
 order they occur in the input string.
 */
 
-function counted_characters(string) {
+function counted_characters(string: string) {
   const chars = string.split('');
   const counter = {};
   const duplicates = [];
@@ -147,7 +148,7 @@ string contains three of the same character consecutively.
 
 */
 
-function triplet_true(string) {
+function triplet_true(string: string) {
   let counter = {};
   const chars = string.split('');
 
@@ -162,7 +163,7 @@ function triplet_true(string) {
     }
   }
 
-  for (char in counter) {
+  for (const char in counter) {
     if (counter[char] >= 3) {
       return true;
     }
@@ -186,8 +187,8 @@ mark ('?'). Space characters (' ') should remain unchanged.
 
 */
 
-function energetic_encoding(string, object) {
-  const chars = string.split('');
+function energetic_encoding(sentence: string, object) {
+  const chars = sentence.split('');
   let newStringArray = [];
 
   chars.forEach((char) => {
@@ -227,7 +228,7 @@ letter.
 
 */
 
-const uncompress = (string) => {
+const uncompress = (string: string) => {
   let segments = [];
   let stringToReturn = [];
 

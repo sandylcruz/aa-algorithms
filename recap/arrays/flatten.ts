@@ -2,7 +2,9 @@
 Write a method that flattens an array that can be nested multiple levels
 */
 
-const flatten = (array) => {
+type NestedArray<T> = Array<T | NestedArray<T>>;
+
+const flatten = (array: NestedArray<number>) => {
   let flattened = [];
 
   for (let i = 0; i < array.length; i++) {

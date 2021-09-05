@@ -26,7 +26,7 @@ const isPowerOfTwo = (num: number) => {
   return Math.pow(2, num);
 };
 
-function isMersennePrime(num) {
+function isMersennePrime(num: number) {
   if (isPrime(num) && isPowerOfTwo(num)) {
     return true;
   } else {
