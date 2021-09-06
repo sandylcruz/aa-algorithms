@@ -1,4 +1,4 @@
-function countingSort1(arr, max) {
+function countingSort1(arr: Array<number>, max: number) {
   const counter = new Array(max + 1).fill(0);
   const result = [];
 
@@ -16,7 +16,7 @@ function countingSort1(arr, max) {
   return result;
 }
 
-const countingSort2 = (arr, max) => {
+const countingSort2 = (arr: Array<number>, max: number) => {
   const counter = new Array(max + 1).fill(0);
   const result = [];
 
@@ -33,7 +33,7 @@ const countingSort2 = (arr, max) => {
   return result;
 };
 
-const countingSort = (arr, max) => {
+const countingSort = (arr: Array<number>, max: number) => {
   const counter = new Array(max + 1).fill(0);
   const result = [];
 

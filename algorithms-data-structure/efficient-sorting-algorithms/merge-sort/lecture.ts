@@ -1,4 +1,4 @@
-const merge = (array1, array2) => {
+const merge = (array1: Array<number>, array2: Array<number>) => {
   const merged = [];
   while (array2.length || array1.length) {
     let firstElement = array1.length ? array1[0] : Infinity;
@@ -21,7 +21,7 @@ const merge = (array1, array2) => {
 // arr2 = [0, 2, 3, 7, 10];
 // console.log(merge(arr1, arr2));
 
-const mergeSort = (array) => {
+const mergeSort = (array: Array<number>) => {
   if (array.length <= 1) return array;
 
   const middleIndex = Math.floor(array.length / 2);

@@ -30,7 +30,7 @@
 //   return arr;
 // };
 
-const insertionSort = (arr) => {
+const insertionSort = (arr: Array<number>) => {
   for (let i = 1; i < arr.length; i++) {
     let currentNum = arr[i];
     let j = i - 1;

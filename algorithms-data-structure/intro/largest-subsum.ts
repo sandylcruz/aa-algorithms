@@ -14,7 +14,7 @@ Discuss the time complexity of this solution.
 */
 const array = [5, 3, -7];
 
-const largestSubSum = (array) => {
+const largestSubSum = (array: Array<number>) => {
   // console.log(array);
   let subArrays = [];
 
@@ -24,10 +24,10 @@ const largestSubSum = (array) => {
     }
   }
 
-  sums = [];
+  const sums: Array<number> = [];
 
   subArrays.map((subArray) => {
-    sum = subArray.reduce((a, b) => a + b, 0);
+    const sum = subArray.reduce((a, b) => a + b, 0);
     sums.push(sum);
   });
 
@@ -43,7 +43,7 @@ largest sum.
 */
 // const array = [5, 3, -7];
 
-const largestSubSum2 = (array) => {
+const largestSubSum2 = (array: Array<number>) => {
   let current = 0;
   let largest = 0;
 

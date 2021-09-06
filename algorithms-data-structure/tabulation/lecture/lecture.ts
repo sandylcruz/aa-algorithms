@@ -1,5 +1,5 @@
 // tabulated solution
-const tabulatedFib = (num) => {
+const tabulatedFib = (num: number) => {
   let table = new Array(num + 1);
   table[0] = 0;
   table[1] = 1;
@@ -16,7 +16,7 @@ const tabulatedFib = (num) => {
 // console.log(tabulatedFib(7));
 
 // optimal solution
-const fib = (num) => {
+const fib3 = (num: number) => {
   if (num === 0) return 0;
   if (num === 1) return 1;
 
@@ -43,7 +43,7 @@ Note that the same word in the dictionary may be reused multiple times in
 the segmentation.
 */
 
-const wordBreak = (string, dictionary) => {
+const wordBreak = (string: string, dictionary: Array<string>) => {
   // table size should be equal to string length + 1 because it's zero based
   // initialize table to contain all falses at start
   let table = new Array(string.length + 1).fill(false);

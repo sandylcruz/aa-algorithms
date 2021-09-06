@@ -16,7 +16,7 @@
 // lucasNumber(3)   // => 4
 // lucasNumber(5)   // => 11
 // lucasNumber(9)   // => 76
-function lucasNumber(n) {
+function lucasNumber(n: number): number {
   if (n === 0) {
     return 2;
   } else if (n === 1) {
@@ -37,7 +37,7 @@ function lucasNumber(n) {
 // sumArray([5])            // => 5
 // sumArray([5, 2])         // => 7
 // sumArray([4, 10, -1, 2]) // => 15
-function sumArray(array) {
+function sumArray(array: Array<number>): number {
   if (array.length === 0) {
     return 0;
   }
@@ -56,7 +56,7 @@ function sumArray(array) {
 // reverseString("c")           // => "c"
 // reverseString("internet")    // => "tenretni"
 // reverseString("friends")     // => "sdneirf"
-function reverseString(str) {
+function reverseString(str: string): string {
   if (str.length === 0) {
     return '';
   }
@@ -80,7 +80,7 @@ function reverseString(str) {
 // pow(2, 5)    // => 32
 // pow(3, 4)    // => 81
 // pow(2, -5)   // => 0.03125
-function pow(base, exponent) {
+function pow(base: number, exponent: number): number {
   if (exponent === 0) {
     return 1;
   } else if (exponent === 1) {
@@ -122,12 +122,12 @@ function pow(base, exponent) {
 //     1-dimensional array: ['some data']
 //     2-dimensional array: [['some data']]
 //     3-dimensional array: [[['some data']]]
-function flatten(data) {
+function flatten(data: Array<number>) {
   if (!Array.isArray(data)) {
     return [data];
   }
 
-  const accumulator = [];
+  const accumulator: Array<number> = [];
 
   data.forEach((el) => {
     const result = flatten(el);
@@ -178,7 +178,7 @@ function flatten(data) {
 // fileFinder(desktop, 'app_academy_logo.svg');     // => true
 // fileFinder(desktop, 'everlong.flac');            // => true
 // fileFinder(desktop, 'sequoia.jpeg');             // => false
-function fileFinder(directories, targetFile) {
+function fileFinder(directories: Array<string>, targetFile: string) {
   for (let key in directories) {
     if (key === targetFile || fileFinder(directories[key], targetFile)) {
       return true;
@@ -196,7 +196,7 @@ function fileFinder(directories, targetFile) {
 // pathFinder(desktop, 'trixie_lou.jpeg'));     // => '/images/pets/trixie_lou.jpeg'
 // pathFinder(desktop, 'everlong.flac'));       // => '/music/genres/rock/everlong.flac'
 // pathFinder(desktop, 'honeybadger.png'));     // => null
-function pathFinder(directories, targetFile) {
+function pathFinder(directories: Array<string>, targetFile: string): string {
   for (let name in directories) {
     if (name === targetFile) {
       return '/' + targetFile;

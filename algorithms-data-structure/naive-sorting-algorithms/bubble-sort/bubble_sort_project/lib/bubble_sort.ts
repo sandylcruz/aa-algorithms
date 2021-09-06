@@ -1,13 +1,13 @@
-function swap(array, idx1, idx2) {
+function swap(array: Array<number>, idx1: number, idx2: number) {
   let temp = array[idx1];
   array[idx1] = array[idx2];
   array[idx2] = temp;
   return array;
 }
-arr = [3, 2, 1];
+const arr = [3, 2, 1];
 console.log(swap(arr, 0, 1));
 
-function bubbleSort(array) {
+function bubbleSort(array: Array<number>) {
   let sorted = true;
 
   while (sorted) {

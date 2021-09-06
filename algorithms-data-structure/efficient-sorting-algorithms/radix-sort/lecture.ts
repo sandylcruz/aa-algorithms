@@ -1,5 +1,5 @@
 // What digit is at the given place value in num?
-const getDigitFrom = (num, place) => {
+const getDigitFrom3 = (num: number, place: number) => {
   const numbers = num.toString().split('');
   return numbers[place - 1];
 };
@@ -11,7 +11,7 @@ const getDigitFrom = (num, place) => {
 // console.log(getDigitFrom(12345, 5));
 
 // How many digits are in num?
-const getIntLength1 = (num) => {
+const getIntLength1 = (num: number) => {
   let count = 0;
   const numbers = num.toString().split('');
 
@@ -27,7 +27,7 @@ const getIntLength1 = (num) => {
 // console.log(getIntLength(1234567)); // 7
 
 // How many digits does the integer with the most digits have?
-const getMaxDigits = (nums) => {
+const getMaxDigits2 = (nums: Array<number>) => {
   let currentMax = 0;
   let currentNumMax = 0;
 

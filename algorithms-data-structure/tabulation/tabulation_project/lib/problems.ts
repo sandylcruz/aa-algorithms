@@ -40,7 +40,7 @@
 //   return table[table.length - 1];
 // }
 
-const stepper = (numbers, memo = {}) => {
+const stepper = (numbers: Array<number>, memo = {}) => {
   let key = String(numbers);
   if (key in memo) return memo[key];
 
@@ -72,7 +72,7 @@ const stepper = (numbers, memo = {}) => {
 // maxNonAdjacentSum([2, 7, 9, 3, 4])   // => 15, because 2 + 9 + 4
 // maxNonAdjacentSum([4,2,1,6])         // => 10, because 4 + 6
 
-function maxNonAdjacentSumTabulation(nums) {
+function maxNonAdjacentSumTabulation(nums: Array<number>) {
   if (nums.length === 0) return 0;
   let table = new Array(nums.length).fill(0);
   table[0] = nums[0];
@@ -106,7 +106,7 @@ function maxNonAdjacentSumTabulation(nums) {
   return table[table.length - 1];
 }
 
-const maxNonAdjacentSum = (nums, memo = {}) => {
+const maxNonAdjacentSum = (nums: Array<number>, memo = {}) => {
   if (nums.length in memo) return memo[nums.length];
   if (nums.length === 0) return 0;
 
@@ -140,7 +140,7 @@ const maxNonAdjacentSum = (nums, memo = {}) => {
 // minChange([1, 5, 10, 25], 15)    // => 2, because 10 + 5 = 15
 // minChange([1, 5, 10, 25], 100)   // => 4, because 25 + 25 + 25 + 25 = 100
 
-function minChange(coins, amount) {
+function minChange(coins: Array<number>, amount: number) {
   // make default positive infinity so any number we find will trump infinity
   let table = new Array(amount + 1).fill(Infinity);
   table[0] = 0;

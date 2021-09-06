@@ -1,10 +1,10 @@
-const getDigitFrom = (num, place) =>
+const getDigitFrom = (num: number, place: number) =>
   Math.floor(Math.abs(num) / Math.pow(10, place)) % 10;
 
-const getIntLength = (num) =>
+const getIntLength = (num: number) =>
   num === 0 ? 1 : Math.floor(Math.log10(Math.abs(num))) + 1;
 
-function getMaxDigits(nums) {
+function getMaxDigits(nums: Array<number>) {
   let maxDigits = 0;
   for (let i = 0; i < nums.length; i++) {
     maxDigits = Math.max(maxDigits, getIntLength(nums[i]));
@@ -12,7 +12,7 @@ function getMaxDigits(nums) {
   return maxDigits;
 }
 
-function radixSortNonNegative(arr) {
+function radixSortNonNegative(arr: Array<number>) {
   if (!Array.isArray(arr)) return null;
 
   if (arr.length === 0) return [];
@@ -34,7 +34,7 @@ function radixSortNonNegative(arr) {
   return arr;
 }
 
-function radixSort(arr) {
+function radixSort(arr): Array<number> {
   if (!Array.isArray(arr)) {
     return null;
   }

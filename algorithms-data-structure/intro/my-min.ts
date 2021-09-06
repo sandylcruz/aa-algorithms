@@ -9,7 +9,7 @@ the array are larger.
 What is the time complexity for this function?
 */
 
-const myMin = (array) => {
+const myMin = (array: Array<number>) => {
   let min = array[0];
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
@@ -25,7 +25,7 @@ const myMin = (array) => {
   return min;
 };
 
-array = [0, 3, 5, 4, -5];
+const array1 = [0, 3, 5, 4, -5];
 console.log(myMin(array)); // = -5
 
 /* 
@@ -37,7 +37,7 @@ the minimum.
 What is the time complexity?
 */
 
-const myMin2 = (array) => {
+const myMin2 = (array: Array<number>) => {
   let min = array[0];
 
   array.forEach((number) => {

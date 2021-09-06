@@ -14,7 +14,7 @@
 // factorial(2) = 2 * factorial(1)
 // factorial(1) = 1 (base case)
 
-const factorial = (num) => {
+const factorial2 = (num: number) => {
   if (num === 1) {
     return 1;
   }
@@ -24,7 +24,7 @@ const factorial = (num) => {
 
 // console.log(factorial(5)); // => 120
 
-const fib = (num) => {
+const fib2 = (num: number) => {
   if (num === 1 || num === 2) {
     return 1;
   }

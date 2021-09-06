@@ -1,4 +1,4 @@
-function binarySearch(array, target) {
+function binarySearch(array: Array<number>, target: number): boolean {
   if (array.length === 0) return false;
 
   const middleIndex = Math.floor(array.length / 2);
@@ -19,7 +19,7 @@ function binarySearch(array, target) {
 // console.log(binarySearch([1, 2, 3, 4, 5, 6, 7], 8));
 // console.log(binarySearch([-1, 2, 3, 4, 5, 6, -7], 7));
 
-function binarySearchIndex(array, target) {
+function binarySearchIndex(array: Array<number>, target: number) {
   let low = 0;
   let high = array.length - 1;
 

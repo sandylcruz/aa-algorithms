@@ -1,12 +1,12 @@
 const memo = {};
 
-const factorialBeforeMemo = (num) => {
+const factorialBeforeMemo = (num: number) => {
   if (num === 1) return 1;
 
   return num * factorial(num - 1);
 };
 
-const factorial = (num) => {
+const factorial = (num: number) => {
   if (num === 1) {
     return 1;
   }

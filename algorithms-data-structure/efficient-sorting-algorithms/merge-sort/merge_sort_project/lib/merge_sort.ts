@@ -1,4 +1,4 @@
-function mergeMutation(leftArray, rightArray) {
+function mergeMutation(leftArray: Array<number>, rightArray: Array<number>) {
   const merged = [];
 
   while (leftArray.length || rightArray.length) {
@@ -19,7 +19,10 @@ function mergeMutation(leftArray, rightArray) {
   return merged;
 }
 
-const mergeNonMutation = (leftArray, rightArray) => {
+const mergeNonMutation = (
+  leftArray: Array<number>,
+  rightArray: Array<number>
+) => {
   const merged = [];
   let i = 0;
   let j = 0;
@@ -47,7 +50,10 @@ const mergeNonMutation = (leftArray, rightArray) => {
   return merged;
 };
 
-const mergeMutation2 = (leftArray, rightArray) => {
+const mergeMutation2 = (
+  leftArray: Array<number>,
+  rightArray: Array<number>
+) => {
   const merged = [];
 
   while (leftArray.length || rightArray.length) {
@@ -64,10 +70,10 @@ const mergeMutation2 = (leftArray, rightArray) => {
   return merged;
 };
 
-const merge = (leftArray, rightArray) => {
+const merge = (leftArray: Array<number>, rightArray: Array<number>) => {
   const merged = [];
-  i = 0;
-  j = 0;
+  let i = 0;
+  let j = 0;
 
   while (i < leftArray.length && j < rightArray.length) {
     if (leftArray[i] < rightArray[j]) {
@@ -93,11 +99,11 @@ const merge = (leftArray, rightArray) => {
   return merged;
 };
 
-arr1 = [1, 5, 10, 15];
-arr2 = [0, 2, 3, 7, 10];
+const arr1 = [1, 5, 10, 15];
+const arr2 = [0, 2, 3, 7, 10];
 console.log(merge(arr1, arr2));
 
-const mergeSort = (array) => {
+const mergeSort = (array: Array<number>): Array<number> => {
   if (array.length <= 1) return array;
   const middleIndex = Math.floor(array.length / 2);
   const leftArray = array.slice(0, middleIndex);

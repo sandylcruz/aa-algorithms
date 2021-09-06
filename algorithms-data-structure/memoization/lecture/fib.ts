@@ -1,4 +1,4 @@
-const fib = (num, memo = {}) => {
+const fib = (num: number, memo = {}): number => {
   if (num === 1 || num === 0) {
     return 1;
   }

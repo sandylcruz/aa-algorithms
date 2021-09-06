@@ -22,7 +22,7 @@ Example 2:
   3. 2 steps + 1 step
 */
 
-const climbStairsMemo = (num, memo = {}) => {
+const climbStairsMemo = (num: number, memo = {}) => {
   if (num === 0 || num === 1) return 1;
   if (num in memo) return memo[num];
 

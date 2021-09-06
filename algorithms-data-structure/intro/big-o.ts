@@ -6,16 +6,16 @@ which element is missing in the second array. Do this
 in linear time with constant memory use.
 */
 
-const findMissingNumber = (array1, array2) => {
-  array1XOred = array1.reduce((a, b) => a ^ b, 0);
-  array2XOred = array2.reduce((a, b) => a ^ b, 0);
+const findMissingNumber = (array1: Array<number>, array2: Array<number>) => {
+  const array1XOred = array1.reduce((a, b) => a ^ b, 0);
+  const array2XOred = array2.reduce((a, b) => a ^ b, 0);
 
   return array1XOred ^ array2XOred;
 };
 
-const findMissingNumber2 = (array1, array2) => {
-  array1Sum = array1.reduce((a, b) => a + b, 0);
-  array2Sum = array2.reduce((a, b) => a + b, 0);
+const findMissingNumber2 = (array1: Array<number>, array2: Array<number>) => {
+  const array1Sum = array1.reduce((a, b) => a + b, 0);
+  const array2Sum = array2.reduce((a, b) => a + b, 0);
   return array1Sum - array2Sum;
 };
 

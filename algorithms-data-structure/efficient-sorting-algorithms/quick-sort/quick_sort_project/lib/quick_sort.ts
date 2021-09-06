@@ -1,4 +1,4 @@
-const partition = (array, pivot) => {
+const partition = (array: Array<number>, pivot: number) => {
   const leftHalf = [];
   const rightHalf = [];
 
@@ -16,9 +16,9 @@ const partition = (array, pivot) => {
 
 // console.log(partition([5, 4, 3, 2, 1], 3));
 
-function quickSort(array) {
+function quickSort(array: Array<number>) {
   if (array.length <= 1) return array;
-  const pivot = array.shift();
+  const pivot: number | undefined = array.shift();
   const left = array.filter((el) => el < pivot);
   const right = array.filter((el) => el >= pivot);
 

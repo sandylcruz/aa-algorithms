@@ -1,4 +1,4 @@
-function swap(arr, index1, index2) {
+function swap(arr: Array<number>, index1: number, index2: number) {
   const temp = arr[index1];
   arr[index1] = arr[index2];
   arr[index2] = temp;
@@ -21,7 +21,7 @@ function swap(arr, index1, index2) {
 //   return arr;
 // }
 
-const selectionSort = (array) => {
+const selectionSort = (array: Array<number>) => {
   for (let i = 0; i < array.length; i++) {
     let minIndex = i;
 

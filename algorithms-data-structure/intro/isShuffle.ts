@@ -7,18 +7,18 @@ interleaving of "abc" and "def". Note that the first two
 strings needn't be in alphabetical order like these.
 */
 
-const isShuffle = (string1, string2, string3) => {
+const isShuffle = (string1: string, string2: string, string3: string) => {
   if (string1.length + string2.length !== string3.length) {
     return false;
   }
 
   const mergedString = string1 + string2;
-  const sortedString = mergedString.split("").sort().join("");
+  const sortedString = mergedString.split('').sort().join('');
 
-  const sortedThirdString = string3.split("").sort().join("");
+  const sortedThirdString = string3.split('').sort().join('');
 
   return sortedString === sortedThirdString;
 };
 
-console.log(isShuffle("cat", "dog", "catdog")); // = true
-console.log(isShuffle("cats", "dog", "catdog")); //= false
+console.log(isShuffle('cat', 'dog', 'catdog')); // = true
+console.log(isShuffle('cats', 'dog', 'catdog')); //= false

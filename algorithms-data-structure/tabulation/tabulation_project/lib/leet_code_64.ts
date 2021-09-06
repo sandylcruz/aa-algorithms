@@ -17,13 +17,15 @@ Output: 7
 Explanation: Because the path 1 → 3 → 1 → 1 → 1 minimizes the sum.
 */
 
-function minPathSum(grid) {
+function minPathSum(grid: Array<Array<number>>) {
   // table must also be grid of the same dimension
   let m = grid.length;
   let n = grid[0].length;
 
   // start with outer most grid
-  let table = new Array(m).fill().map(() => new Array(n).fill(Infinity));
+  let table = new Array(m)
+    .fill(Infinity)
+    .map(() => new Array(n).fill(Infinity));
   // bottom right corner needs to correspond from the start
   table[0][0] = grid[0][0];
 
