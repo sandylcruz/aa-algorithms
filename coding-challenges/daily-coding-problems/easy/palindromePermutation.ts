@@ -8,7 +8,7 @@ should return false, since there's no rearrangement that
 can form a palindrome.
 */
 
-const palindromePermutation = (string1, string2) => {};
+const palindromePermutation = (string1: string, string2: string) => {};
 
 console.log(isPermutation('cat', 'tac')); // true
 console.log(isPermutation('carrace', 'racecar')); // true

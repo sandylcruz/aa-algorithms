@@ -2,7 +2,7 @@
 Write a function to flatten a nested dictionary. Namespace the keys with a period.
 */
 
-const flattenDictionary = (dictionary) => {
+const flattenDictionary = (dictionary: { [key: string]: number }) => {
   const newDictionary = {};
 
   return newDictionary;

@@ -37,7 +37,7 @@ const printSum = () => {
 on the screen. Being able to loop through each member of the array is extremely important.
 */
 
-const iterateOver = (array) => {
+const iterateOver = (array: Array<number>) => {
   array.forEach((number) => {
     console.log(number);
   });
@@ -48,7 +48,7 @@ const iterateOver = (array) => {
 with a given array that has all negative numbers (e.g. [-3, -5, -7]), or even a mix of positive numbers, negative numbers and zero.
 */
 
-const findMax = (array) => {
+const findMax = (array: Array<number>) => {
   let currentMax = array[0];
 
   for (let i = 0; i < array.length; i++) {
@@ -67,7 +67,7 @@ should print an average of 5. Again, make sure you come up with a simple base ca
 then test your instructions for other complicated cases. You can use a length function with this assignment.
 */
 
-const getAverage = (array) => {
+const getAverage = (array: Array<number>) => {
   let totalSum = array[0];
 
   for (let i = 1; i < array.length; i++) {
@@ -82,7 +82,7 @@ const getAverage = (array) => {
 should have the value of [1, 3, 5, 7, ... 255].
 */
 
-const oddArray = (array) => {
+const oddArray = (array: Array<number>) => {
   const odds = [];
 
   for (let i = 0; i < 255; i++) {
@@ -102,7 +102,7 @@ For example, if array = [1, 3, 5, 7] and y = 3, after your program is run it wil
 greater than 3).
 */
 
-const greaterThanY = (array, target) => {
+const greaterThanY = (array: Array<number>, target: number) => {
   let counter = 0;
   for (let i = 0; i < array.length; i++) {
     const currentNum = array[i];
@@ -119,7 +119,7 @@ const greaterThanY = (array, target) => {
 When the program is done, the array x should have values that have been squared, say [1, 25, 100, 4].
 */
 
-const squaredArray = (array) => {
+const squaredArray = (array: Array<number>) => {
   const squared = [];
 
   for (let i = 0; i < array.length; i++) {
@@ -136,7 +136,7 @@ const squaredArray = (array) => {
 When the program is done, x should have no negative values, say [1, 5, 10, 0].
 */
 
-const removeNegatives = (array) => {
+const removeNegatives = (array: Array<number>) => {
   const positives = [];
 
   array.forEach((num) => {
@@ -155,7 +155,7 @@ const removeNegatives = (array) => {
 the minimum value in the array, and the average of the values in the array.
 */
 
-const maxMinAverage = (array) => {
+const maxMinAverage = (array: Array<number>) => {
   let data = {};
 
   let minNumber = 0;
@@ -190,13 +190,13 @@ const maxMinAverage = (array) => {
 // For example, when the program is done, an x of [1, 5, 10, 7, -2] should become [5, 10, 7, -2, 0].
 // */
 
-const shiftArray = (array, numRotations) => {
+const shiftArray = (array: Array<number>, numRotations: number) => {
   const rotated = [];
 
   return rotated;
 };
 
-console.log(shiftArray([1, 5, 10, 7, -2], numRotations));
+console.log(shiftArray([1, 5, 10, 7, -2], 2));
 
 /*
 13. Number to String Write a program that takes an array of numbers and replaces any negative number with the string 'Dojo'. For example, 

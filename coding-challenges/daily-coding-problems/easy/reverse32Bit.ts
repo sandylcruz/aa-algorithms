@@ -1,7 +1,7 @@
 // Given a 32-bit integer, return the number with its bits reversed.
 // 7/20/21
 
-const reverse32Bit = (number) => {
+const reverse32Bit = (number: number) => {
   let currentNumber = number;
   let total = 0;
   let numberOfDigits = 0;

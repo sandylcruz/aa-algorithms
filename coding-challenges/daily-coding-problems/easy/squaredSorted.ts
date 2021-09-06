@@ -3,7 +3,7 @@ Given a sorted list of integers, square the elements and give the output in sort
 6/6/21
 */
 
-const squareSorted = (array) => {
+const squareSorted = (array: Array<number>) => {
   const arrayToReturn = [];
   for (let i = 0; i < array.length; i++) {
     const currentSquare = Math.pow(array[i], 2);

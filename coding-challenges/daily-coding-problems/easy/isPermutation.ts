@@ -1,4 +1,4 @@
-const isPermutation = (string1, string2) => {
+const isPermutation = (string1: string, string2: string) => {
   if (string1.length !== string2.length) return false;
 
   const charObject = {};

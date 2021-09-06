@@ -4,17 +4,17 @@ all the vowels of s in sorted order followed by all the
 consonants of s in sorted order.
 */
 
-function solve(s) {
-  let vowels = "";
-  let consonants = "";
+function vowelConsonantSort(s: string) {
+  let vowels = '';
+  let consonants = '';
 
-  for (let i = 0; i < string.length; i++) {
+  for (let i = 0; i < s.length; i++) {
     if (
-      s[i] === "a" ||
-      s[i] === "e" ||
-      s[i] === "i" ||
-      s[i] === "o" ||
-      s[i] === "u"
+      s[i] === 'a' ||
+      s[i] === 'e' ||
+      s[i] === 'i' ||
+      s[i] === 'o' ||
+      s[i] === 'u'
     ) {
       let vowelToMove = s[i];
       vowels += vowelToMove;
@@ -26,7 +26,7 @@ function solve(s) {
   return vowels + consonants;
 }
 
-console.log(vowelConsonantSort("decallin"));
+console.log(vowelConsonantSort('decallin'));
 // console.log(vowelConsonantSort("callie"));
 
 //

@@ -10,7 +10,7 @@ digits and consists solely of alphabetic characters.
 You can assume the string to be decoded is valid.
 */
 
-const runLengthEncoding = (string) => {
+const runLengthEncoding = (string: string) => {
   const chars = string.split('');
   let stringToReturn = '';
   let sameCharacterCount = 0;

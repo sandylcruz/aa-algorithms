@@ -5,8 +5,8 @@ length of the last word in the string.
 A word is a maximal substring consisting of non-space characters only.
 */
 
-const longestWord = (sentence) => {
-  let currentLongestLength = null;
+const longestWord = (sentence: string) => {
+  let currentLongestLength: null | number = null;
   const words = sentence.split(' ');
   console.log(words);
 

@@ -1,4 +1,4 @@
-const runningMedian = (array) => {
+const runningMedian = (array: Array<number>) => {
   const runningArray = [];
 
   runningArray.push(array[0]);

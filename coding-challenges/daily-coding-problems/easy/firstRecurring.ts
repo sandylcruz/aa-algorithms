@@ -5,8 +5,8 @@ For example, given the string "acbbac", return "b". Given the string "abcdef", r
 7/18/21
 */
 
-const firstRecurring = (string) => {
-  const hasSeen = new Set();
+const firstRecurring = (string: string) => {
+  const hasSeen = new Set<string>();
 
   for (let i = 0; i < string.length; i++) {
     if (hasSeen.has(string[i])) {
