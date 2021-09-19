@@ -13,7 +13,7 @@
 //
 // ------------
 // Constraints:
-// ------------ 
+// ------------
 //
 // (1) Your function must run in linear time, O(n).
 // (2) You must reverse the list *in place*. (i.e. Use constant space, O(1).)
@@ -62,7 +62,20 @@
 // -----------
 function reverseLinkedList(linkedList) {
   // TODO: Implement the reverseLinkedList function!
-  
+  let previous = null;
+  let current = linkedList.head;
+  let next = null;
+
+  while (current !== null) {
+    next = current.next;
+    current.next = previous;
+    previous = current;
+    current = next;
+  }
+
+  linkedList.head = current;
+  linkedList.head.next = previous;
+  return previous;
 }
 
 // ----------------------------------------
