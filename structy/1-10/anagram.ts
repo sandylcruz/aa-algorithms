@@ -1,5 +1,5 @@
-const anagrams = (s1, s2) => {
-  const seenCharacters = {};
+const anagrams = (s1: string, s2: string) => {
+  const seenCharacters: any = {};
 
   if (s1.length !== s2.length) return false;
 
