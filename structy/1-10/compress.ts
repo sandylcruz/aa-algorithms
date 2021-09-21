@@ -4,26 +4,24 @@ should return a compressed version of the string where consecutive occurrences
 of the same characters are compressed into the number of occurrences followed by 
 the character. Single character occurrences should not be changed.
 */
-
-const compress = (string) => {
+const compress = (string: string) => {
   const arrayToReturn = [];
-  let numTimes = 1;
+  let i = 0;
+  let j = 0;
 
-  for (let i = 0; i < string.length; i++) {
-    let currentChar = string[i + 1];
-    let previousChar = string[i];
-
-    if (currentChar === previousChar) {
-      numTimes + 1;
-      previousChar = currentChar;
-      console.log('hiasdfadsf');
+  while (j <= string.length) {
+    if (string[i] === string[j]) {
+      j++;
     } else {
-      arrayToReturn.push(numTimes);
-      arrayToReturn.push(currentChar);
-      numTimes = 1;
-    }
+      const numTimes = j - i;
+      if (numTimes === 1) {
+        arrayToReturn.push(string[i]);
+      } else {
+        arrayToReturn.push(String(numTimes), string[i]);
+      }
 
-    console.log(numTimes, currentChar, previousChar);
+      i = j;
+    }
   }
 
   return arrayToReturn.join('');
