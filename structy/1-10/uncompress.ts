@@ -8,26 +8,22 @@ that the input string is well-formed according to the previously mentioned
 pattern.
 */
 
-const uncompress = (string) => {
+const uncompress = (s) => {
+  let result = [];
   const numbers = '0123456789';
-  const uncompressed = [];
   let i = 0;
   let j = 0;
-
-  while (j < string.length) {
-    if (numbers.includes(string[i])) {
+  while (j < s.length) {
+    if (numbers.includes(s[j])) {
       j += 1;
     } else {
-      const numberOfTimes = Number(string.slice(i, j));
-      for (let count = 0; count < numberOfTimes; count += 1) {
-        uncompressed.push(string[j]);
+      const num = Number(s.slice(i, j));
+      for (let count = 0; count < num; count += 1) {
+        result.push(s[j]);
       }
       j += 1;
       i = j;
     }
   }
-
-  return uncompressed.join('');
+  return result.join('');
 };
-
-console.log(uncompress('3n10e2z'));
